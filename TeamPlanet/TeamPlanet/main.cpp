@@ -22,6 +22,7 @@
 
 //デバック用オブジェクトヘッダ---------------
 #include "Hero.h"
+#include "Bullet.h"
 
 //削除されていないメモリを出力にダンプする---
 #include <crtdbg.h>
@@ -53,6 +54,7 @@ unsigned __stdcall TextureLoadSled(void *p)
 {
 	//イメージ読み込み
 	Draw::LoadImage(0, L"image\\Space ship.png");
+	Draw::LoadImage(1, L"image\\bullet.png");
 	_endthreadex(0);	//スレッド終了
 	return 0;
 }
