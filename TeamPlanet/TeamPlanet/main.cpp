@@ -20,8 +20,10 @@
 #include "FontTex.h"
 #include "Collision.h"
 
-//デバック用オブジェクトヘッダ---------------
+//オブジェクトヘッダ---------------
 #include "Hero.h"
+#include "Dust.h"
+#include "Meteorite.h"
 
 //削除されていないメモリを出力にダンプする---
 #include <crtdbg.h>
@@ -53,6 +55,8 @@ unsigned __stdcall TextureLoadSled(void *p)
 {
 	//イメージ読み込み
 	Draw::LoadImage(0, L"image\\Space ship.png");
+	Draw::LoadImage(2, L"image\\dust.png");
+	Draw::LoadImage(3, L"image\\meteorite.png");
 	_endthreadex(0);	//スレッド終了
 	return 0;
 }
@@ -144,10 +148,18 @@ int APIENTRY wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR szCmd
 	CloseHandle(handoru[0]);//ハンドル[0]を閉じる
 	CloseHandle(handoru[1]);//ハンドル[1]を閉じる
 
-	//デバック用オブジェクト作成
+	//オブジェクト作成
 	CHero* hero = new CHero();
 	hero->m_priority = 90;
 	TaskSystem::InsertObj(hero);
+
+	CDust* dust = new CDust();
+	dust->m_priority = 90;
+	TaskSystem::InsertObj(dust);
+
+	CMeteorite* meteorite = new CMeteorite();
+	meteorite->m_priority = 90;
+	TaskSystem::InsertObj(meteorite);
 
 	TaskSystem::SortPriority();//描画順位変更
 
