@@ -52,7 +52,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);	//
 unsigned __stdcall TextureLoadSled(void *p)
 {
 	//イメージ読み込み
-	//Draw::LoadImage(0, L"Texture.png");
+	Draw::LoadImage(0, L"image\\Space ship.png");
 	_endthreadex(0);	//スレッド終了
 	return 0;
 }
@@ -145,9 +145,9 @@ int APIENTRY wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR szCmd
 	CloseHandle(handoru[1]);//ハンドル[1]を閉じる
 
 	//デバック用オブジェクト作成
-	/*CHero* hero = new CHero();
+	CHero* hero = new CHero();
 	hero->m_priority = 90;
-	TaskSystem::InsertObj(hero);*/
+	TaskSystem::InsertObj(hero);
 
 	TaskSystem::SortPriority();//描画順位変更
 
