@@ -44,7 +44,7 @@ void CHero::Action()
 	if (Input::KeyPush(VK_SPACE))
 	{
 		//弾丸オブジェクト作成
-		CBullet* bullet = new CBullet(m_x + 50.0f, m_y);
+		CBullet* bullet = new CBullet(m_x + 120.0f, m_y + 30.0f);
 		TaskSystem::InsertObj(bullet);
 	}
 
