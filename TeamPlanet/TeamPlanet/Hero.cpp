@@ -27,7 +27,7 @@ CHero::CHero()
 
 	//作成したヒットボックスの値を設定
 	m_p_hit_box->SetPos(m_x, m_y);
-	m_p_hit_box->SetWH(256.0f, 256.0f);
+	m_p_hit_box->SetWH(120.0f, 80.0f);
 	m_p_hit_box->SetElement(count);		//属性をcountにする
 	m_p_hit_box->SetInvisible(false);	//無敵モード無効
 }
@@ -39,6 +39,48 @@ CHero::~CHero()
 
 void CHero::Action()
 {
+	//右
+	if (Input::KeyPush(VK_RIGHT))
+	{
+		m_x += 3.0f;
+	}
+	//左
+	if (Input::KeyPush(VK_LEFT))
+	{
+		m_x -= 3.0f;
+	}
+	//上
+	if (Input::KeyPush(VK_UP))
+	{
+		m_y -= 3.0f;
+	}
+	//下
+	if (Input::KeyPush(VK_DOWN))
+	{
+		m_y += 3.0f;
+	}
+
+	//領域外に出ない処理
+	if (m_x < 0.0f)
+	{
+		m_x = 0.0f;
+	}
+	if (m_x > 800.0f - 120.0f)
+	{
+		m_x = 680.0f;
+	}
+	if (m_y < 0.0f)
+	{
+		m_y = 0.0f;
+	}
+	if (m_y > 600.0f - 80.0f)
+	{
+		m_y = 520.0f;
+	}
+
+	//当たり判定の位置更新
+	m_p_hit_box->SetPos(m_x, m_y);
+
 	//削除実行
 	//if (Input::KeyPush('Z'))
 	//{
@@ -52,36 +94,9 @@ void CHero::Action()
 	if (m_y <			 0.0f) m_vy = +1.0f;
 	if (m_y > 600.0f - 256.0f) m_vy = -1.0f;*/
 
-	//右
-	if (Input::KeyPush(VK_RIGHT))
-	{
-		m_x += 3.0f;
-	}
-
-	//左
-	if (Input::KeyPush(VK_LEFT))
-	{
-		m_x -= 3.0f;
-	}
-
-	//上
-	if (Input::KeyPush(VK_UP))
-	{
-		m_y -= 3.0f;
-	}
-
-	//下
-	if (Input::KeyPush(VK_DOWN))
-	{
-		m_y += 3.0f;
-	}
-
 	//移動方向に位置*速度を加える
 	/*m_x += m_vx*5.0f;
 	m_y += m_vy*5.0f;*/
-
-	//当たり判定の位置更新
-	m_p_hit_box->SetPos(m_x, m_y);
 }
 
 void CHero::Draw()
