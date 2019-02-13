@@ -16,6 +16,9 @@
     <Filter Include="ソース ファイル\Debug用">
       <UniqueIdentifier>{4047160e-27dd-4f41-b724-a04fbe9d5cf9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\弾丸">
+      <UniqueIdentifier>{bbd0f1e3-f213-471b-b1db-f1c6399cf604}</UniqueIdentifier>
+    </Filter>
     <Filter Include="ソース ファイル\Dust">
       <UniqueIdentifier>{c51d3a6e-8361-456e-ba1b-8c39f6d79484}</UniqueIdentifier>
     </Filter>
@@ -54,6 +57,9 @@
     <ClCompile Include="main.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>ソース ファイル\弾丸</Filter>
+    </ClCompile>
     <ClCompile Include="Dust.cpp">
       <Filter>ソース ファイル\Dust</Filter>
     </ClCompile>
@@ -88,6 +94,9 @@
     </ClInclude>
     <ClInclude Include="Hero.h">
       <Filter>ソース ファイル\Debug用</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>ソース ファイル\弾丸</Filter>
     </ClInclude>
     <ClInclude Include="Dust.h">
       <Filter>ソース ファイル\Dust</Filter>

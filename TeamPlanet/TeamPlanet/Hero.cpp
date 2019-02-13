@@ -3,6 +3,7 @@
 #define _HAS_ITERATOR_DEBUGGING (0)
 
 #include "Hero.h"
+#include "Bullet.h"
 
 CHero::CHero()
 {
@@ -39,6 +40,14 @@ CHero::~CHero()
 
 void CHero::Action()
 {
+	//弾丸発射
+	if (Input::KeyPush(VK_SPACE))
+	{
+		//弾丸オブジェクト作成
+		CBullet* bullet = new CBullet(m_x + 120.0f, m_y + 30.0f);
+		TaskSystem::InsertObj(bullet);
+	}
+
 	//右
 	if (Input::KeyPush(VK_RIGHT))
 	{

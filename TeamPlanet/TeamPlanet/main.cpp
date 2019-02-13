@@ -22,6 +22,7 @@
 
 //オブジェクトヘッダ---------------
 #include "Hero.h"
+#include "Bullet.h"
 #include "Dust.h"
 #include "Meteorite.h"
 
@@ -55,6 +56,7 @@ unsigned __stdcall TextureLoadSled(void *p)
 {
 	//イメージ読み込み
 	Draw::LoadImage(0, L"image\\Space ship.png");
+	Draw::LoadImage(1, L"image\\bullet.png");
 	Draw::LoadImage(2, L"image\\dust.png");
 	Draw::LoadImage(3, L"image\\meteorite.png");
 	_endthreadex(0);	//スレッド終了
