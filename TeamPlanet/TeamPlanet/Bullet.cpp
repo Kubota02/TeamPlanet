@@ -15,6 +15,9 @@ CBullet::CBullet(float x,float y)
 	//弾丸の移動ベクトル初期化
 	m_vx = 0.0f;
 
+	//弾丸のダメージ量初期化
+	m_damage = 20;
+
 	//ヒットボックス作成
 	m_p_hit_box = Collision::HitBoxInsert(this);
 
