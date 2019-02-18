@@ -1,6 +1,7 @@
 #pragma once
 //使用するヘッダ
 #include "Draw2DPolygon.h"
+#include "Audio.h"
 #include "TaskSystem.h"
 #include "Collision.h"
 
@@ -15,7 +16,4 @@ public:
 private:
 	float m_x;	//位置
 	float m_y;
-	float m_vx;	//移動ベクトル
-	float m_vy;
-
 };

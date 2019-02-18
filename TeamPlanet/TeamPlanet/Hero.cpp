@@ -46,7 +46,7 @@ void CHero::Action()
 	//弾丸発射
 	if (Input::KeyPush(VK_SPACE))
 	{
-		if (m_f == true)
+		if (m_f)
 		{
 			//弾丸オブジェクト作成
 			CBullet* bullet = new CBullet(m_x + 120.0f, m_y + 30.0f);
@@ -81,6 +81,27 @@ void CHero::Action()
 		m_y += 3.0f;
 	}
 
+	//ベクトルの長さを求める(三平方の定理)
+	//float r = 0.0f;
+	//r = m_vx*m_vx + m_vy*m_vy;
+	//r = sqrt(r);//rをルートを求める
+
+	////長さが0かどうか調べる
+	//if (r == 0.0f)
+	//{
+	//	;
+	//}
+	//else
+	//{
+	//	//正規化を行う
+	//	m_vx = 3.0f / r * m_vx;
+	//	m_vy = 3.0f / r * m_vy;
+	//}
+
+	////移動方向に位置*速度を加える
+	//m_x += m_vx;
+	//m_y += m_vy;
+
 	//領域外に出ない処理
 	if (m_x < 0.0f)
 	{
@@ -114,10 +135,6 @@ void CHero::Action()
 	if (m_x > 800.0f - 256.0f) m_vx = -1.0f;
 	if (m_y <			 0.0f) m_vy = +1.0f;
 	if (m_y > 600.0f - 256.0f) m_vy = -1.0f;*/
-
-	//移動方向に位置*速度を加える
-	/*m_x += m_vx*5.0f;
-	m_y += m_vy*5.0f;*/
 }
 
 void CHero::Draw()

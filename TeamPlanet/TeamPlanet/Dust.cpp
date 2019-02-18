@@ -7,11 +7,14 @@
 CDust::CDust()
 {
 	//塵の初期位置
-	m_x = 800.0f;
+	m_x = 850.0f;
 	m_y = 200.0f;
 
 	//初期移動方向
 	m_vx = -1.0f;
+
+	//塵の初期耐久
+	endurance = 40;
 
 	//Dustオブジェクトの各当たり判定の属性をバラバラにする
 	static int count = 0;

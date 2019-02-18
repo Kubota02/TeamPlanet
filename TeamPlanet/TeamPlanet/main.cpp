@@ -26,6 +26,7 @@
 #include "Dust.h"
 #include "Meteorite.h"
 #include "Background.h"
+#include "Select.h"
 
 //削除されていないメモリを出力にダンプする---
 #include <crtdbg.h>
@@ -47,6 +48,9 @@
 
 //グローバル変数---------
 bool g_ls_game_end = false;	//スレッド用ゲーム終了フラグ
+int g_SceneChange = STAGESELECT;//ゲーム画面フラグ(test用)
+//int g_SceneChange = TITLE;//ゲーム画面フラグ
+//bool g_key_flag = true;//キーフラグ
 
 //プロトタイプ宣言
 LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);	//ウィンドウプロジーシャー
@@ -61,6 +65,11 @@ unsigned __stdcall TextureLoadSled(void *p)
 	Draw::LoadImage(2, L"image\\dust.png");
 	Draw::LoadImage(3, L"image\\meteorite.png");
 	Draw::LoadImage(4, L"image\\Space1.png");
+	Draw::LoadImage(5, L"image\\Select.png");
+	Draw::LoadImage(6, L"image\\moon.png");
+	Draw::LoadImage(7, L"image\\saturn.png");
+	Draw::LoadImage(8, L"image\\Uranus.png");
+	
 	_endthreadex(0);	//スレッド終了
 	return 0;
 }
@@ -152,22 +161,54 @@ int APIENTRY wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR szCmd
 	CloseHandle(handoru[0]);//ハンドル[0]を閉じる
 	CloseHandle(handoru[1]);//ハンドル[1]を閉じる
 
-	//オブジェクト作成
-	CHero* hero = new CHero();
-	hero->m_priority = 90;
-	TaskSystem::InsertObj(hero);
+	CSelect* select;
+	CHero* hero;
+	CDust* dust;
+	CMeteorite* meteorite;
+	CBackground* background;
 
-	CDust* dust = new CDust();
-	dust->m_priority = 90;
-	TaskSystem::InsertObj(dust);
+	switch (g_SceneChange)
+	{
+	case STAGESELECT: //ステージセレクト初期化
+		select = new CSelect();
+		select->m_priority = 90;
+		TaskSystem::InsertObj(select);
+		g_SceneChange = STAGESELECT_MAIN;
+		break;
 
-	CMeteorite* meteorite = new CMeteorite();
-	meteorite->m_priority = 90;
-	TaskSystem::InsertObj(meteorite);
+	case STAGESELECT_MAIN: //ステージセレクト
+		g_SceneChange = GAME;
+		break;
 
-	CBackground* background = new CBackground();
-	background->m_priority = 80;
-	TaskSystem::InsertObj(background);
+	case GAME: //ステージ1初期化
+
+		//宇宙船
+		hero = new CHero();
+		hero->m_priority = 90;
+		TaskSystem::InsertObj(hero);
+
+		//塵
+		dust = new CDust();
+		dust->m_priority = 90;
+		TaskSystem::InsertObj(dust);
+
+		//隕石
+		meteorite = new CMeteorite();
+		meteorite->m_priority = 90;
+		TaskSystem::InsertObj(meteorite);
+
+		//ステージ1背景
+		background = new CBackground();
+		background->m_priority = 80;
+		TaskSystem::InsertObj(background);
+
+		g_SceneChange = GAME_MAIN;
+		break;
+
+	case GAME_MAIN: //ステージ1
+		break;
+	}
+	
 
 	TaskSystem::SortPriority();//描画順位変更
 

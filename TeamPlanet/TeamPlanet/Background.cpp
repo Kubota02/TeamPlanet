@@ -9,9 +9,6 @@ CBackground::CBackground()
 	//”wŒi‚Ì‰ŠúˆÊ’u
 	m_x = 0.0f;
 	m_y = 0.0f;
-
-	//‰ŠúˆÚ“®•ûŒü
-	m_vx = 0.0f;
 }
 
 CBackground::~CBackground()

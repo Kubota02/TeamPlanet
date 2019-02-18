@@ -13,6 +13,9 @@ CMeteorite::CMeteorite()
 	//初期移動方向
 	m_vx = -1.0f;
 
+	//隕石の初期耐久
+	endurance = 60;
+
 	//Meteoriteオブジェクトの各当たり判定の属性をバラバラにする
 	static int count = 0;
 	count++;

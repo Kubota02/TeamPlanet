@@ -129,6 +129,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Dust.cpp" />
     <ClCompile Include="Meteorite.cpp" />
+    <ClCompile Include="Select.cpp" />
     <ClCompile Include="TaskSystem.cpp" />
     <ClCompile Include="WindowCreate.cpp" />
   </ItemGroup>
@@ -144,6 +145,7 @@
     <ClInclude Include="Input.h" />
     <ClInclude Include="Dust.h" />
     <ClInclude Include="Meteorite.h" />
+    <ClInclude Include="Select.h" />
     <ClInclude Include="TaskSystem.h" />
     <ClInclude Include="WindowCreate.h" />
   </ItemGroup>

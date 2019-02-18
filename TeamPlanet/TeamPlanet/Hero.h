@@ -22,5 +22,7 @@ private:
 
 	bool m_f;   //’eŠÛ”­Ë§Œä—p
 
+	int hp;	//‘Ì—Í
+
 	HitBox* m_p_hit_box;//“–‚½‚è”»’è
 };

@@ -18,5 +18,7 @@ private:
 	float m_vx;	//ˆÚ“®ƒxƒNƒgƒ‹
 	float m_vy;
 
+	int endurance;	//‘Ï‹v—Í
+
 	HitBox* m_p_hit_box;//“–‚½‚è”»’è
 };
