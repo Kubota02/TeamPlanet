@@ -25,6 +25,7 @@
 #include "Bullet.h"
 #include "Dust.h"
 #include "Meteorite.h"
+#include "Background.h"
 
 //削除されていないメモリを出力にダンプする---
 #include <crtdbg.h>
@@ -59,6 +60,7 @@ unsigned __stdcall TextureLoadSled(void *p)
 	Draw::LoadImage(1, L"image\\bullet.png");
 	Draw::LoadImage(2, L"image\\dust.png");
 	Draw::LoadImage(3, L"image\\meteorite.png");
+	Draw::LoadImage(4, L"image\\Space1.png");
 	_endthreadex(0);	//スレッド終了
 	return 0;
 }
@@ -162,6 +164,10 @@ int APIENTRY wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR szCmd
 	CMeteorite* meteorite = new CMeteorite();
 	meteorite->m_priority = 90;
 	TaskSystem::InsertObj(meteorite);
+
+	CBackground* background = new CBackground();
+	background->m_priority = 80;
+	TaskSystem::InsertObj(background);
 
 	TaskSystem::SortPriority();//描画順位変更
 

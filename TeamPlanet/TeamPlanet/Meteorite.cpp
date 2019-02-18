@@ -6,14 +6,14 @@
 
 CMeteorite::CMeteorite()
 {
-	//主人公の初期位置
+	//隕石の初期位置
 	m_x = 800.0f;
 	m_y = 300.0f;
 
 	//初期移動方向
 	m_vx = -1.0f;
 
-	//HEROオブジェクトの各当たり判定の属性をバラバラにする
+	//Meteoriteオブジェクトの各当たり判定の属性をバラバラにする
 	static int count = 0;
 	count++;
 
@@ -35,7 +35,7 @@ CMeteorite::~CMeteorite()
 void CMeteorite::Action()
 {
 	//領域外に出たらオブジェクト破棄
-	if (m_x < 0.0f)
+	if (m_x < -100.0f)
 	{
 		is_delete = true;				//オブジェクトの削除
 		m_p_hit_box->SetDelete(true);	//当たり判定の削除

@@ -25,6 +25,9 @@
     <Filter Include="ソース ファイル\Meteorite">
       <UniqueIdentifier>{db46ef5a-4f85-45fb-9b3f-979959c99afd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Background">
+      <UniqueIdentifier>{88cdac8d-60d6-4582-b7ad-3eafb9548c42}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Audio.cpp">
@@ -66,6 +69,9 @@
     <ClCompile Include="Meteorite.cpp">
       <Filter>ソース ファイル\Meteorite</Filter>
     </ClCompile>
+    <ClCompile Include="Background.cpp">
+      <Filter>ソース ファイル\Background</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Audio.h">
@@ -103,6 +109,9 @@
     </ClInclude>
     <ClInclude Include="Meteorite.h">
       <Filter>ソース ファイル\Meteorite</Filter>
+    </ClInclude>
+    <ClInclude Include="Background.h">
+      <Filter>ソース ファイル\Background</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
