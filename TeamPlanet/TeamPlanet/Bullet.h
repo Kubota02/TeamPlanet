@@ -19,5 +19,7 @@ class CBullet : public CObj
 		float m_y;                    //弾丸の位置Y
 		float m_vx;                   //移動ベクトルX
 
+		int m_damage;                 //弾丸のダメージ量
+
 		HitBox* m_p_hit_box;          //当たり判定
 };
