@@ -20,5 +20,7 @@ private:
 	float m_vx;	//移動ベクトル
 	float m_vy;
 
+	bool m_f;   //弾丸発射制御用
+
 	HitBox* m_p_hit_box;//当たり判定
 };

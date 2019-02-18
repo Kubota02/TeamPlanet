@@ -19,6 +19,9 @@ CHero::CHero()
 	m_vx = 0.0f;
 	m_vy = 0.0f;
 
+	//弾丸発射制御用
+	m_f = true;
+
 	//HEROオブジェクトの各当たり判定の属性をバラバラにする
 	static int count = 0;
 	count++;
@@ -43,9 +46,18 @@ void CHero::Action()
 	//弾丸発射
 	if (Input::KeyPush(VK_SPACE))
 	{
-		//弾丸オブジェクト作成
-		CBullet* bullet = new CBullet(m_x + 120.0f, m_y + 30.0f);
-		TaskSystem::InsertObj(bullet);
+		if (m_f == true)
+		{
+			//弾丸オブジェクト作成
+			CBullet* bullet = new CBullet(m_x + 120.0f, m_y + 30.0f);
+			TaskSystem::InsertObj(bullet);
+
+			m_f = false;
+		}
+	}
+	else
+	{
+		m_f = true;
 	}
 
 	//右
