@@ -12,7 +12,6 @@ CDust::CDust()
 
 	//初期移動方向
 	m_vx = -1.0f;
-	//m_vy = -1.0f;
 
 	//HEROオブジェクトの各当たり判定の属性をバラバラにする
 	static int count = 0;
@@ -44,7 +43,6 @@ void CDust::Action()
 
 	//移動方向に位置*速度を加える
 	m_x += m_vx*2.0f;
-	//m_y += m_vy*5.0f;
 
 	//当たり判定の位置更新
 	m_p_hit_box->SetPos(m_x, m_y);
