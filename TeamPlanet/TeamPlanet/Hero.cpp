@@ -5,6 +5,9 @@
 #include "Hero.h"
 #include "Bullet.h"
 
+extern int g_SceneNumber;
+extern bool g_key_flag;
+
 CHero::CHero()
 {
 	//ランダムで初期値を決める
@@ -94,11 +97,11 @@ void CHero::Action()
 	//else
 	//{
 	//	//正規化を行う
-	//	m_vx = 3.0f / r * m_vx;
-	//	m_vy = 3.0f / r * m_vy;
+	//	m_vx = 3.0f / r * m_x;
+	//	m_vy = 3.0f / r * m_y;
 	//}
 
-	////移動方向に位置*速度を加える
+	////移動方向に位置を加える
 	//m_x += m_vx;
 	//m_y += m_vy;
 

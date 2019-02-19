@@ -4,6 +4,8 @@
 
 #include "Background.h"
 
+extern int g_SceneNumber;
+
 CBackground::CBackground()
 {
 	//”wŒi‚Ì‰ŠúˆÊ’u

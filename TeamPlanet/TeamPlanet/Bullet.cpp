@@ -5,6 +5,9 @@
 //使用ヘッダー
 #include "Bullet.h"
 
+extern int g_SceneNumber;
+extern bool g_key_flag;
+
 //コンストラクタ
 CBullet::CBullet(float x,float y)
 {

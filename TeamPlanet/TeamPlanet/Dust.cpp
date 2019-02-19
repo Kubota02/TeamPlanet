@@ -4,6 +4,9 @@
 
 #include "Dust.h"
 
+extern int g_SceneNumber;
+extern bool g_key_flag;
+
 CDust::CDust()
 {
 	//o‚Ì‰ŠúˆÊ’u

@@ -25,8 +25,13 @@ CSelect::~CSelect()
 
 void CSelect::Action()
 {
+	if (m_ani_time != 0)
+	{
+		m_ani_time++;
+	}
+
 	//左を押したら左に
-	if (Input::KeyPush(VK_LEFT) == true)
+	if (Input::KeyPush(VK_LEFT))
 	{
 		if (key_flag)
 		{
@@ -38,7 +43,7 @@ void CSelect::Action()
 		}
 	}
 	//右を押したら右に
-	else if (Input::KeyPush(VK_RIGHT) == true)
+	else if (Input::KeyPush(VK_RIGHT))
 	{
 		if (key_flag)
 		{
@@ -51,10 +56,11 @@ void CSelect::Action()
 	}
 	else key_flag = true;
 
-	if (Input::KeyPush(VK_RETURN) == true)
+	if (Input::KeyPush(VK_RETURN))
 	{
 		if (g_key_flag)
 		{
+			m_ani_time++;
 			g_key_flag = false;
 		}
 	}
@@ -66,20 +72,29 @@ void CSelect::Action()
 	//カーソル位置が左なら
 	if (m_cursor == LEFT)
 	{
-		g_SceneChange = GAME;
-		//is_delete = true;
+		if (m_ani_time == 25)
+		{
+			g_SceneChange = GAME;
+			is_delete = true;
+		}
 	}
-	//カーソル位置が右なら
+	//カーソル位置が中央なら
 	else if (m_cursor == RIGHT)
 	{
-		//g_SceneNumber = GAME;
-		//is_delete = true;
+		if (m_ani_time == 25)
+		{
+			//g_SceneChange = GAME;
+			//is_delete = true;
+		}
 	}
-	//カーソル位置が下なら
+	//カーソル位置が右なら
 	else if (m_cursor == UNDER)
 	{
-		//g_SceneNumber = GAME;
-		//is_delete = true;
+		if (m_ani_time == 25)
+		{
+			//g_SceneChange = GAME;
+			//is_delete = true;
+		}
 	}
 }
 

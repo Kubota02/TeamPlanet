@@ -4,6 +4,9 @@
 
 #include "Meteorite.h"
 
+extern int g_SceneNumber;
+extern bool g_key_flag;
+
 CMeteorite::CMeteorite()
 {
 	//è¦Î‚Ì‰ŠúˆÊ’u

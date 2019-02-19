@@ -104,10 +104,52 @@ unsigned __stdcall GameMainSled(void *p)
 		Dev::GetDeviceContext()->RSSetState(Dev::GetRS());//ラスタライズをセット
 
 		//ここからレンダリング開始
-
-		//リスト内のドロー実行
-		TaskSystem::ListDraw();
+		
+		TaskSystem::SortPriority();//描画順位変更
+		TaskSystem::ListDraw();//リスト内のドロー実行
 		Collision::DrawDebug();
+
+		CSelect* select;
+		CHero* hero;
+		CDust* dust;
+		CMeteorite* meteorite;
+		CBackground* background;
+
+		switch (g_SceneChange)
+		{
+		case STAGESELECT: //ステージセレクト初期化
+			select = new CSelect();
+			select->m_priority = 100;
+			TaskSystem::InsertObj(select);
+			g_SceneChange = STAGESELECT_MAIN;
+			break;
+
+		case STAGESELECT_MAIN: //ステージセレクト
+			break;
+
+		case GAME: //ステージ1初期化
+			hero = new CHero();
+			hero->m_priority = 90;
+			TaskSystem::InsertObj(hero);//宇宙船
+
+			dust = new CDust();
+			dust->m_priority = 90;
+			TaskSystem::InsertObj(dust);//塵
+
+			meteorite = new CMeteorite();
+			meteorite->m_priority = 90;
+			TaskSystem::InsertObj(meteorite);//隕石
+
+			background = new CBackground();
+			background->m_priority = 80;
+			TaskSystem::InsertObj(background);//背景(ステージ1)
+
+			g_SceneChange = GAME_MAIN;
+			break;
+
+		case GAME_MAIN: //ステージ1
+			break;
+		}
 
 		//レンダリング終了
 		Dev::GetSwapChain()->Present(1, 0);//60FPSでバックバッファとプライマリバッファの交換
@@ -161,57 +203,6 @@ int APIENTRY wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR szCmd
 	WaitForMultipleObjects(2, handoru, TRUE, INFINITE);//読み込みスレッドが終了まで待機
 	CloseHandle(handoru[0]);//ハンドル[0]を閉じる
 	CloseHandle(handoru[1]);//ハンドル[1]を閉じる
-
-	CSelect* select;
-	CHero* hero;
-	CDust* dust;
-	CMeteorite* meteorite;
-	CBackground* background;
-
-	switch (g_SceneChange)
-	{
-	case STAGESELECT: //ステージセレクト初期化
-		select = new CSelect();
-		select->m_priority = 100;
-		TaskSystem::InsertObj(select);
-		g_SceneChange = STAGESELECT_MAIN;
-		break;
-
-	case STAGESELECT_MAIN: //ステージセレクト
-		g_SceneChange = GAME;
-		break;
-
-	case GAME: //ステージ1初期化
-
-		//宇宙船
-		hero = new CHero();
-		hero->m_priority = 90;
-		TaskSystem::InsertObj(hero);
-
-		//塵
-		dust = new CDust();
-		dust->m_priority = 90;
-		TaskSystem::InsertObj(dust);
-
-		//隕石
-		meteorite = new CMeteorite();
-		meteorite->m_priority = 90;
-		TaskSystem::InsertObj(meteorite);
-
-		//ステージ1背景
-		background = new CBackground();
-		background->m_priority = 80;
-		TaskSystem::InsertObj(background);
-
-		g_SceneChange = GAME_MAIN;
-		break;
-
-	case GAME_MAIN: //ステージ1
-		break;
-	}
-	
-
-	TaskSystem::SortPriority();//描画順位変更
 
 	HANDLE game_handoru;
 	game_handoru = (HANDLE)_beginthreadex(NULL, 0, GameMainSled, NULL, 0, NULL);//ゲームメインスレッド実行
