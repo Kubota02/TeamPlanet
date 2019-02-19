@@ -33,6 +33,12 @@ enum
 	UNDER,
 };
 
+enum {
+	STAGE1,
+	STAGE2,
+	STAGE3,
+};
+
 //オブジェクトクラス
 class CObj
 {

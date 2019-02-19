@@ -50,7 +50,7 @@
 bool g_ls_game_end = false;	//スレッド用ゲーム終了フラグ
 int g_SceneChange = STAGESELECT;//ゲーム画面フラグ(test用)
 //int g_SceneChange = TITLE;//ゲーム画面フラグ
-//bool g_key_flag = true;//キーフラグ
+bool g_key_flag = true;//キーフラグ
 
 //プロトタイプ宣言
 LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);	//ウィンドウプロジーシャー
@@ -66,9 +66,10 @@ unsigned __stdcall TextureLoadSled(void *p)
 	Draw::LoadImage(3, L"image\\meteorite.png");
 	Draw::LoadImage(4, L"image\\Space1.png");
 	Draw::LoadImage(5, L"image\\Select.png");
-	Draw::LoadImage(6, L"image\\moon.png");
-	Draw::LoadImage(7, L"image\\saturn.png");
-	Draw::LoadImage(8, L"image\\Uranus.png");
+	Draw::LoadImage(6, L"image\\planet.png");
+	Draw::LoadImage(7, L"image\\moon.png");
+	Draw::LoadImage(8, L"image\\saturn.png");
+	Draw::LoadImage(9, L"image\\Uranus.png");
 	
 	_endthreadex(0);	//スレッド終了
 	return 0;
@@ -171,7 +172,7 @@ int APIENTRY wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR szCmd
 	{
 	case STAGESELECT: //ステージセレクト初期化
 		select = new CSelect();
-		select->m_priority = 90;
+		select->m_priority = 100;
 		TaskSystem::InsertObj(select);
 		g_SceneChange = STAGESELECT_MAIN;
 		break;
