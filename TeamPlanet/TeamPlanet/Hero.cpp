@@ -64,47 +64,51 @@ void CHero::Action()
 		m_f = true;
 	}
 
+	//初期化
+	m_vx = 0.0f;
+	m_vy = 0.0f;
+
 	//右
 	if (Input::KeyPush(VK_RIGHT))
 	{
-		m_x += 3.0f;
+		m_vx += 3.0f;
 	}
 	//左
 	if (Input::KeyPush(VK_LEFT))
 	{
-		m_x -= 3.0f;
+		m_vx -= 3.0f;
 	}
 	//上
 	if (Input::KeyPush(VK_UP))
 	{
-		m_y -= 3.0f;
+		m_vy -= 3.0f;
 	}
 	//下
 	if (Input::KeyPush(VK_DOWN))
 	{
-		m_y += 3.0f;
+		m_vy += 3.0f;
 	}
 
 	//ベクトルの長さを求める(三平方の定理)
-	//float r = 0.0f;
-	//r = m_vx*m_vx + m_vy*m_vy;
-	//r = sqrt(r);//rをルートを求める
+	float r = 0.0f;
+	r = m_vx*m_vx + m_vy*m_vy;
+	r = sqrt(r);//rをルートを求める
 
-	////長さが0かどうか調べる
-	//if (r == 0.0f)
-	//{
-	//	;
-	//}
-	//else
-	//{
-	//	//正規化を行う
-	//	m_vx = 3.0f / r * m_x;
-	//	m_vy = 3.0f / r * m_y;
-	//}
+	//長さが0かどうか調べる
+	if (r == 0.0f)
+	{
+		;
+	}
+	else
+	{
+		//正規化を行う
+		m_vx = 3.0f / r * m_vx;
+		m_vy = 3.0f / r * m_vy;
+	}
 
-	////移動方向に位置を加える
-	//m_x += m_vx;
-	//m_y += m_vy;
+	//移動方向に位置を加える
+	m_x += m_vx;
+	m_y += m_vy;
 
 	//領域外に出ない処理
 	if (m_x < 0.0f)
