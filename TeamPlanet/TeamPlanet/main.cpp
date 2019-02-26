@@ -63,7 +63,7 @@ unsigned __stdcall TextureLoadSled(void *p)
 	Draw::LoadImage(0, L"image\\Space ship.png");
 	Draw::LoadImage(1, L"image\\bullet.png");
 	Draw::LoadImage(2, L"image\\dust.png");
-	Draw::LoadImage(3, L"image\\meteorite.png");
+	Draw::LoadImage(3, L"image\\meteorite1.png");
 	Draw::LoadImage(4, L"image\\Space1.png");
 	Draw::LoadImage(5, L"image\\Select.png");
 	Draw::LoadImage(6, L"image\\planet.png");
@@ -132,13 +132,19 @@ unsigned __stdcall GameMainSled(void *p)
 			hero->m_priority = 90;
 			TaskSystem::InsertObj(hero);//âFíàëD
 
-			dust = new CDust();
-			dust->m_priority = 90;
-			TaskSystem::InsertObj(dust);//êo
+			for (int i = 0; i < 3; i++)
+			{
+				dust = new CDust();
+				dust->m_priority = 90;
+				TaskSystem::InsertObj(dust);//êo
+			}
 
-			meteorite = new CMeteorite();
-			meteorite->m_priority = 90;
-			TaskSystem::InsertObj(meteorite);//Ë¶êŒ
+			for (int i = 0; i < 3; i++)
+			{
+				meteorite = new CMeteorite();
+				meteorite->m_priority = 90;
+				TaskSystem::InsertObj(meteorite);//Ë¶êŒ
+			}
 
 			background = new CBackground();
 			background->m_priority = 80;

@@ -10,9 +10,11 @@ extern bool g_key_flag;
 CMeteorite::CMeteorite()
 {
 	//è¦Î‚Ì‰ŠúˆÊ’u
-	m_x = 800.0f;
-	m_y = 300.0f;
-	//m_y = rand() % 300 + 300;
+	//m_x = 800.0f;
+	//m_y = 300.0f;
+
+	m_x = rand() % 600 + 600;
+	m_y = rand() % 300;
 
 	//‰ŠúˆÚ“®•ûŒü
 	m_vx = -1.0f;

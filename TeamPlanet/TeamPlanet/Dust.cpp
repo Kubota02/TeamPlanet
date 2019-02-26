@@ -10,9 +10,10 @@ extern bool g_key_flag;
 CDust::CDust()
 {
 	//o‚Ì‰ŠúˆÊ’u
-	m_x = 850.0f;
-	m_y = 200.0f;
-	//m_y = rand() % 300 + 100;
+	//m_x = 850.0f;
+	//m_y = 200.0f;
+	m_x = rand() % 600 + 600;
+	m_y = rand() % 600;
 
 	//‰ŠúˆÚ“®•ûŒü
 	m_vx = -1.0f;
