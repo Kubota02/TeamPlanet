@@ -13,9 +13,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="ソース ファイル\Debug用">
-      <UniqueIdentifier>{4047160e-27dd-4f41-b724-a04fbe9d5cf9}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\弾丸">
       <UniqueIdentifier>{bbd0f1e3-f213-471b-b1db-f1c6399cf604}</UniqueIdentifier>
     </Filter>
@@ -30,6 +27,9 @@
     </Filter>
     <Filter Include="ソース ファイル\Select">
       <UniqueIdentifier>{6d15810d-44e6-4685-bf01-0b9199f7e56b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Hero">
+      <UniqueIdentifier>{4047160e-27dd-4f41-b724-a04fbe9d5cf9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -58,7 +58,7 @@
       <Filter>リソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="Hero.cpp">
-      <Filter>ソース ファイル\Debug用</Filter>
+      <Filter>ソース ファイル\Hero</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>ソース ファイル</Filter>
@@ -105,7 +105,7 @@
       <Filter>リソース ファイル</Filter>
     </ClInclude>
     <ClInclude Include="Hero.h">
-      <Filter>ソース ファイル\Debug用</Filter>
+      <Filter>ソース ファイル\Hero</Filter>
     </ClInclude>
     <ClInclude Include="Bullet.h">
       <Filter>ソース ファイル\弾丸</Filter>

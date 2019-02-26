@@ -83,8 +83,8 @@ void CSelect::Action()
 	{
 		if (m_ani_time == 25)
 		{
-			//g_SceneChange = GAME;
-			//is_delete = true;
+			g_SceneChange = GAME;
+			is_delete = true;
 		}
 	}
 	//カーソル位置が右なら
@@ -92,8 +92,8 @@ void CSelect::Action()
 	{
 		if (m_ani_time == 25)
 		{
-			//g_SceneChange = GAME;
-			//is_delete = true;
+			g_SceneChange = GAME;
+			is_delete = true;
 		}
 	}
 }
