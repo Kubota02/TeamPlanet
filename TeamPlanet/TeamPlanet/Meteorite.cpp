@@ -13,8 +13,8 @@ CMeteorite::CMeteorite()
 	//m_x = 800.0f;
 	//m_y = 300.0f;
 
-	m_x = rand() % 600 + 600;
-	m_y = rand() % 300;
+	m_x = rand() % 1000 + 1000;
+	m_y = rand() % 500;
 
 	//‰ŠúˆÚ“®•ûŒü
 	m_vx = -1.0f;

@@ -132,14 +132,14 @@ unsigned __stdcall GameMainSled(void *p)
 			hero->m_priority = 90;
 			TaskSystem::InsertObj(hero);//‰F’ˆ‘D
 
-			for (int i = 0; i < 3; i++)
+			for (int i = 0; i < 10; i++)
 			{
 				dust = new CDust();
 				dust->m_priority = 90;
 				TaskSystem::InsertObj(dust);//o
 			}
 
-			for (int i = 0; i < 3; i++)
+			for (int i = 0; i < 10; i++)
 			{
 				meteorite = new CMeteorite();
 				meteorite->m_priority = 90;

@@ -20,7 +20,10 @@ CBackground::~CBackground()
 
 void CBackground::Action()
 {
-	
+	if (g_SceneNumber == GAME_MAIN)
+	{
+
+	}
 }
 
 void CBackground::Draw()
