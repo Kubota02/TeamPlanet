@@ -53,6 +53,26 @@ void CMeteorite::Action()
 	//移動方向に位置*速度を加える
 	m_x += m_vx*2.0f;
 
+	//弾丸に当たった時のダメージ処理
+	for (int i = 0; i < 10; i++)
+	{
+		if (m_p_hit_box->GetHitData()[i] == nullptr)
+			continue;
+		if (m_p_hit_box->GetHitData()[i]->GetElement() == BULLET)
+		{
+			/*is_delete = true;
+			m_p_hit_box->SetDelete(true);*/
+			endurance += -20;
+		}
+	}
+
+	//耐久力が無くなった時の削除処理
+	if (endurance == 0)
+	{
+		is_delete = true;
+		m_p_hit_box->SetDelete(true);
+	}
+
 	//当たり判定の位置更新
 	m_p_hit_box->SetPos(m_x, m_y);
 }

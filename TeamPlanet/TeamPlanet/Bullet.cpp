@@ -54,10 +54,15 @@ void CBullet::Action()
 	}
 
 	//弾丸が他の物体と当たった時に削除
-	if (1)
+	for (int i = 0; i < 10; i++)
 	{
-		/*is_delete = true;
-		m_p_hit_box->SetDelete(true);*/
+		if (m_p_hit_box->GetHitData()[i] == nullptr)
+			continue;
+		if (m_p_hit_box->GetHitData()[i]->GetElement() != BULLET)
+		{
+			is_delete = true;             //オブジェクトの削除
+			m_p_hit_box->SetDelete(true); //当たり判定の削除	
+		}
 	}
 
 	//当たり判定の位置更新
