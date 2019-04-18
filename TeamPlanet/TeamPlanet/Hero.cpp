@@ -35,7 +35,7 @@ CHero::CHero()
 	//作成したヒットボックスの値を設定
 	m_p_hit_box->SetPos(m_x, m_y);
 	m_p_hit_box->SetWH(120.0f, 80.0f);
-	m_p_hit_box->SetElement(count);		//属性をcountにする
+	m_p_hit_box->SetElement(HERO);		//属性設定
 	m_p_hit_box->SetInvisible(false);	//無敵モード無効
 }
 
@@ -52,7 +52,7 @@ void CHero::Action()
 		if (m_f)
 		{
 			//弾丸オブジェクト作成
-			CBullet* bullet = new CBullet(m_x + 120.0f, m_y + 30.0f);
+			CBullet* bullet = new CBullet(m_x + 125.0f, m_y + 30.0f);
 			bullet->m_priority = 90;
 			TaskSystem::InsertObj(bullet);
 

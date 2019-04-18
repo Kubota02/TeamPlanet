@@ -35,6 +35,7 @@ public:
 	void SetElement(int element) { m_element = element; }				//属性セット
 	void SetInvisible(bool invisible) { m_ls_invisible = invisible; }	//無敵セット
 	HitBox** GetHitData() { return m_hit; }	//当たった相手のヒットボックス情報取得
+	int GetElement() { return m_element; }  //属性情報取得
 private:
 	//削除フラグ
 	bool ls_delete;	//削除フラグ
