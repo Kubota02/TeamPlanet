@@ -32,7 +32,7 @@ CMeteorite::CMeteorite()
 	//作成したヒットボックスの値を設定
 	m_p_hit_box->SetPos(m_x, m_y);
 	m_p_hit_box->SetWH(100.0f, 100.0f);
-	m_p_hit_box->SetElement(count);		//属性をcountにする
+	m_p_hit_box->SetElement(METEORITE);	//属性設定
 	m_p_hit_box->SetInvisible(false);	//無敵モード無効
 }
 

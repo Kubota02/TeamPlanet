@@ -39,6 +39,14 @@ enum {
 	STAGE3,
 };
 
+enum
+{
+	HERO = 0,
+	BULLET = 1,
+	DUST = 2,
+	METEORITE = 3,
+};
+
 //オブジェクトクラス
 class CObj
 {
