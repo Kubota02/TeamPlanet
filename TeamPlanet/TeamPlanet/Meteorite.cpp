@@ -60,9 +60,11 @@ void CMeteorite::Action()
 			continue;
 		if (m_p_hit_box->GetHitData()[i]->GetElement() == BULLET)
 		{
-			/*is_delete = true;
-			m_p_hit_box->SetDelete(true);*/
 			endurance += -20;
+		}
+		if (m_p_hit_box->GetHitData()[i]->GetElement() == HERO)
+		{
+			endurance = 0;
 		}
 	}
 
