@@ -27,6 +27,7 @@ CBullet::CBullet(float x,float y)
 	//作成したヒットボックスの値を設定
 	m_p_hit_box->SetPos(m_x, m_y);
 	m_p_hit_box->SetWH(50.0f, 30.0f);
+	m_p_hit_box->SetElement(BULLET);   //属性設定
 	m_p_hit_box->SetInvisible(false);  //無敵モード無効
 }
 
@@ -50,6 +51,18 @@ void CBullet::Action()
 	{
 		is_delete = true;              //オブジェクトの削除
 		m_p_hit_box->SetDelete(true);  //当たり判定の削除
+	}
+
+	//弾丸が他の物体と当たった時に削除
+	for (int i = 0; i < 10; i++)
+	{
+		if (m_p_hit_box->GetHitData()[i] == nullptr)
+			continue;
+		if (m_p_hit_box->GetHitData()[i]->GetElement() != BULLET)
+		{
+			is_delete = true;             //オブジェクトの削除
+			m_p_hit_box->SetDelete(true); //当たり判定の削除	
+		}
 	}
 
 	//当たり判定の位置更新

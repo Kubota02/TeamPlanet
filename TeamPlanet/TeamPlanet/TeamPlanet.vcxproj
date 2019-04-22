@@ -123,6 +123,9 @@
     <ClCompile Include="Collision.cpp" />
     <ClCompile Include="DeviceCreate.cpp" />
     <ClCompile Include="Draw2DPolygon.cpp" />
+    <ClCompile Include="Enemy1.cpp" />
+    <ClCompile Include="Enemy2.cpp" />
+    <ClCompile Include="Enemybullet.cpp" />
     <ClCompile Include="FontTex.cpp" />
     <ClCompile Include="Hero.cpp" />
     <ClCompile Include="Input.cpp" />
@@ -140,6 +143,9 @@
     <ClInclude Include="Collision.h" />
     <ClInclude Include="DeviceCreate.h" />
     <ClInclude Include="Draw2DPolygon.h" />
+    <ClInclude Include="Enemy1.h" />
+    <ClInclude Include="Enemy2.h" />
+    <ClInclude Include="Enemybullet.h" />
     <ClInclude Include="FontTex.h" />
     <ClInclude Include="Hero.h" />
     <ClInclude Include="Input.h" />

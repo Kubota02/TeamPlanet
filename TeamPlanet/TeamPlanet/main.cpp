@@ -27,6 +27,8 @@
 #include "Meteorite.h"
 #include "Background.h"
 #include "Select.h"
+#include "Enemy1.h"
+#include "Enemy2.h"
 
 //削除されていないメモリを出力にダンプする---
 #include <crtdbg.h>
@@ -60,16 +62,18 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);	//
 unsigned __stdcall TextureLoadSled(void *p)
 {
 	//イメージ読み込み
-	Draw::LoadImage(0, L"image\\Space ship.png");
-	Draw::LoadImage(1, L"image\\bullet.png");
-	Draw::LoadImage(2, L"image\\dust.png");
-	Draw::LoadImage(3, L"image\\meteorite1.png");
-	Draw::LoadImage(4, L"image\\Space1.png");
-	Draw::LoadImage(5, L"image\\Select.png");
-	Draw::LoadImage(6, L"image\\planet.png");
-	Draw::LoadImage(7, L"image\\moon.png");
-	Draw::LoadImage(8, L"image\\saturn.png");
-	Draw::LoadImage(9, L"image\\Uranus.png");
+	Draw::LoadImage(0,  L"image\\Space ship.png");
+	Draw::LoadImage(1,  L"image\\bullet.png");
+	Draw::LoadImage(2,  L"image\\dust.png");
+	Draw::LoadImage(3,  L"image\\meteorite1.png");
+	Draw::LoadImage(4,  L"image\\Space1.png");
+	Draw::LoadImage(5,  L"image\\Select.png");
+	Draw::LoadImage(6,  L"image\\planet.png");
+	Draw::LoadImage(7,  L"image\\moon.png");
+	Draw::LoadImage(8,  L"image\\saturn.png");
+	Draw::LoadImage(9,  L"image\\Uranus.png");
+	Draw::LoadImage(10, L"image\\enemy1.png");
+	Draw::LoadImage(11, L"image\\enemy2.png");
 	
 	_endthreadex(0);	//スレッド終了
 	return 0;
@@ -114,6 +118,8 @@ unsigned __stdcall GameMainSled(void *p)
 		CDust* dust;
 		CMeteorite* meteorite;
 		CBackground* background;
+		CEnemy1* enemy1;
+		CEnemy2* enemy2;
 
 		switch (g_SceneChange)
 		{
@@ -134,17 +140,25 @@ unsigned __stdcall GameMainSled(void *p)
 
 			for (int i = 0; i < 10; i++)
 			{
-				dust = new CDust();
-				dust->m_priority = 90;
-				TaskSystem::InsertObj(dust);//塵
+				//dust = new CDust();
+				//dust->m_priority = 90;
+				//TaskSystem::InsertObj(dust);//塵
 			}
 
 			for (int i = 0; i < 10; i++)
 			{
-				meteorite = new CMeteorite();
-				meteorite->m_priority = 90;
-				TaskSystem::InsertObj(meteorite);//隕石
+				//meteorite = new CMeteorite();
+				//meteorite->m_priority = 90;
+				//TaskSystem::InsertObj(meteorite);//隕石
 			}
+
+			/*enemy1 = new CEnemy1();
+			enemy1->m_priority = 90;
+			TaskSystem::InsertObj(enemy1);*/
+
+			enemy2 = new CEnemy2();
+			enemy2->m_priority = 90;
+			TaskSystem::InsertObj(enemy2);
 
 			background = new CBackground();
 			background->m_priority = 80;

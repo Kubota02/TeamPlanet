@@ -31,7 +31,7 @@ CDust::CDust()
 	//作成したヒットボックスの値を設定
 	m_p_hit_box->SetPos(m_x, m_y);
 	m_p_hit_box->SetWH(50.0f, 50.0f);
-	m_p_hit_box->SetElement(count);		//属性をcountにする
+	m_p_hit_box->SetElement(DUST);		//属性設定
 	m_p_hit_box->SetInvisible(false);	//無敵モード無効
 }
 
@@ -51,6 +51,30 @@ void CDust::Action()
 
 	//移動方向に位置*速度を加える
 	m_x += m_vx*2.0f;
+
+	//当たり判定の処理
+	for (int i = 0; i < 10; i++)
+	{
+		if (m_p_hit_box->GetHitData()[i] == nullptr)
+			continue;
+		//弾丸に当たった時
+		if (m_p_hit_box->GetHitData()[i]->GetElement() == BULLET)
+		{
+			endurance += -20;
+		}
+		//主人公に当たった時
+		if (m_p_hit_box->GetHitData()[i]->GetElement() == HERO)
+		{
+			endurance = 0;
+		}
+	}
+
+	//耐久力が無くなった時の削除処理
+	if (endurance == 0)
+	{
+		is_delete = true;
+		m_p_hit_box->SetDelete(true);
+	}
 
 	//当たり判定の位置更新
 	m_p_hit_box->SetPos(m_x, m_y);

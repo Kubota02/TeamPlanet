@@ -10,10 +10,6 @@ extern bool g_key_flag;
 
 CHero::CHero()
 {
-	//ランダムで初期値を決める
-	/*m_x = rand() % 300 + 100;
-	m_y = rand() % 300 + 100;*/
-
 	//主人公の初期位置
 	m_x = 0.0f;
 	m_y = 250.0f;
@@ -25,6 +21,9 @@ CHero::CHero()
 	//弾丸発射制御用
 	m_f = true;
 
+	//体力
+	m_hp = 100;
+
 	//HEROオブジェクトの各当たり判定の属性をバラバラにする
 	static int count = 0;
 	count++;
@@ -35,7 +34,7 @@ CHero::CHero()
 	//作成したヒットボックスの値を設定
 	m_p_hit_box->SetPos(m_x, m_y);
 	m_p_hit_box->SetWH(120.0f, 80.0f);
-	m_p_hit_box->SetElement(count);		//属性をcountにする
+	m_p_hit_box->SetElement(HERO);		//属性設定
 	m_p_hit_box->SetInvisible(false);	//無敵モード無効
 }
 
@@ -52,7 +51,7 @@ void CHero::Action()
 		if (m_f)
 		{
 			//弾丸オブジェクト作成
-			CBullet* bullet = new CBullet(m_x + 120.0f, m_y + 30.0f);
+			CBullet* bullet = new CBullet(m_x + 125.0f, m_y + 30.0f);
 			bullet->m_priority = 90;
 			TaskSystem::InsertObj(bullet);
 
@@ -128,21 +127,26 @@ void CHero::Action()
 		m_y = 520.0f;
 	}
 
+	//他の物体と当たった時の処理
+	for (int i = 0; i < 10; i++)
+	{
+		if (m_p_hit_box->GetHitData()[i] == nullptr)
+			continue;
+		if (m_p_hit_box->GetHitData()[i]->GetElement() != HERO)
+		{
+			m_hp += -20;
+		}
+	  }
+
+	//体力が無くなった時の削除処理
+	if (m_hp == 0)
+	{
+		is_delete = true;
+		m_p_hit_box->SetDelete(true);
+	}
+
 	//当たり判定の位置更新
 	m_p_hit_box->SetPos(m_x, m_y);
-
-	//削除実行
-	//if (Input::KeyPush('Z'))
-	//{
-	//	is_delete = true;				//オブジェクトの削除
-	//	m_p_hit_box->SetDelete(true);	//当たり判定の削除
-	//}
-
-	//領域に出ないように反射させる
-	/*if (m_x <			 0.0f) m_vx = +1.0f;
-	if (m_x > 800.0f - 256.0f) m_vx = -1.0f;
-	if (m_y <			 0.0f) m_vy = +1.0f;
-	if (m_y > 600.0f - 256.0f) m_vy = -1.0f;*/
 }
 
 void CHero::Draw()

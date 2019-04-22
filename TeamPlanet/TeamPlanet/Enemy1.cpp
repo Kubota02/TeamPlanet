@@ -2,66 +2,64 @@
 #define _SECURE_SCL (0)
 #define _HAS_ITERATOR_DEBUGGING (0)
 
-#include "Meteorite.h"
+#include "Enemy1.h"
 
 extern int g_SceneNumber;
 extern bool g_key_flag;
 
-CMeteorite::CMeteorite()
+//コンストラクタ
+CEnemy1::CEnemy1()
 {
-	//隕石の初期位置
-	//m_x = 800.0f;
-	//m_y = 300.0f;
-
-	m_x = rand() % 1000 + 1000;
-	m_y = rand() % 500;
+	//敵1の初期位置
+	m_x = rand() % 1100 + 1100;
+	m_y = rand() % 600;
 
 	//初期移動方向
 	m_vx = -1.0f;
 
-	//隕石の初期耐久
+	//敵1の初期耐久力
 	endurance = 60;
 
-	//Meteoriteオブジェクトの各当たり判定の属性をバラバラにする
-	static int count = 0;
-	count++;
-
-	//ヒットボックス作成()
+	//ヒットボックス作成
 	m_p_hit_box = Collision::HitBoxInsert(this);
 
 	//作成したヒットボックスの値を設定
 	m_p_hit_box->SetPos(m_x, m_y);
 	m_p_hit_box->SetWH(100.0f, 100.0f);
-	m_p_hit_box->SetElement(METEORITE);	//属性設定
-	m_p_hit_box->SetInvisible(false);	//無敵モード無効
+	m_p_hit_box->SetElement(ENEMY1);
+	m_p_hit_box->SetInvisible(false);
 }
 
-CMeteorite::~CMeteorite()
+//デストラクタ
+CEnemy1::~CEnemy1()
 {
 
 }
 
-void CMeteorite::Action()
+//アクション
+void CEnemy1::Action()
 {
 	//領域外に出たらオブジェクト破棄
 	if (m_x < -100.0f)
 	{
-		is_delete = true;				//オブジェクトの削除
-		m_p_hit_box->SetDelete(true);	//当たり判定の削除
+		is_delete = true;
+		m_p_hit_box->SetDelete(true);
 	}
 
 	//移動方向に位置*速度を加える
 	m_x += m_vx*2.0f;
 
-	//弾丸に当たった時のダメージ処理
+	//当たり判定の処理
 	for (int i = 0; i < 10; i++)
 	{
 		if (m_p_hit_box->GetHitData()[i] == nullptr)
 			continue;
+		//主人公の弾丸に当たった時
 		if (m_p_hit_box->GetHitData()[i]->GetElement() == BULLET)
 		{
 			endurance += -20;
 		}
+		//主人公に当たった時
 		if (m_p_hit_box->GetHitData()[i]->GetElement() == HERO)
 		{
 			endurance = 0;
@@ -79,8 +77,9 @@ void CMeteorite::Action()
 	m_p_hit_box->SetPos(m_x, m_y);
 }
 
-void CMeteorite::Draw()
+//ドロー
+void CEnemy1::Draw()
 {
 	//描画
-	Draw::Draw2D(3, m_x, m_y);
+	Draw::Draw2D(10, m_x, m_y);
 }
