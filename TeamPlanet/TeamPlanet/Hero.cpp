@@ -24,6 +24,8 @@ CHero::CHero()
 	//体力
 	m_hp = 100;
 
+	m_ani_time = 0;
+
 	//HEROオブジェクトの各当たり判定の属性をバラバラにする
 	static int count = 0;
 	count++;
@@ -147,10 +149,31 @@ void CHero::Action()
 
 	//当たり判定の位置更新
 	m_p_hit_box->SetPos(m_x, m_y);
+
+	if (Input::KeyPush(VK_SPACE))
+	{
+		m_ani_time++;
+		if (m_ani_time >= 16)
+		{
+			m_ani_time = 0;
+		}
+	}
+	else
+	{
+		m_ani_time = 0;
+	}
 }
 
 void CHero::Draw()
 {
 	//描画
-	Draw::Draw2D(0, m_x, m_y);
+	if (m_ani_time <= 4)
+	{
+		Draw::Draw2D(0, m_x, m_y);
+		
+	}
+	else
+	{
+		Draw::Draw2D(12, m_x, m_y);
+	}
 }

@@ -74,6 +74,7 @@ unsigned __stdcall TextureLoadSled(void *p)
 	Draw::LoadImage(9,  L"image\\Uranus.png");
 	Draw::LoadImage(10, L"image\\enemy1.png");
 	Draw::LoadImage(11, L"image\\enemy2.png");
+	Draw::LoadImage(12, L"image\\Space ship ani1.png");
 	
 	_endthreadex(0);	//スレッド終了
 	return 0;
