@@ -24,7 +24,8 @@ CHero::CHero()
 	//体力
 	m_hp = 100;
 
-	m_ani_time = 0;
+	//主人公アニメーション
+	//m_ani_time = 0;
 
 	//HEROオブジェクトの各当たり判定の属性をバラバラにする
 	static int count = 0;
@@ -59,11 +60,40 @@ void CHero::Action()
 
 			m_f = false;
 		}
+
+		/*m_ani_time++;
+
+		if (m_ani_time >= 6)
+			m_ani_time = 0;
+
+		if (m_ani_time == 4)
+		{
+			if (m_f)
+			{
+				//弾丸オブジェクト作成
+				CBullet* bullet = new CBullet(m_x + 125.0f, m_y + 30.0f);
+				bullet->m_priority = 90;
+				TaskSystem::InsertObj(bullet);
+
+				m_f = false;
+			}
+		}*/
 	}
 	else
 	{
 		m_f = true;
+		//m_ani_time = 0;
 	}
+
+	/*if (Input::KeyPush(VK_SPACE))
+	{
+		m_ani_time++;
+		
+	}
+	else
+	{
+		
+	}*/
 
 	//初期化
 	m_vx = 0.0f;
@@ -149,31 +179,35 @@ void CHero::Action()
 
 	//当たり判定の位置更新
 	m_p_hit_box->SetPos(m_x, m_y);
-
-	if (Input::KeyPush(VK_SPACE))
-	{
-		m_ani_time++;
-		if (m_ani_time >= 16)
-		{
-			m_ani_time = 0;
-		}
-	}
-	else
-	{
-		m_ani_time = 0;
-	}
 }
 
 void CHero::Draw()
 {
-	//描画
-	if (m_ani_time <= 4)
+	Draw::Draw2D(0, m_x, m_y);
+
+	/*if (m_f==true)
 	{
-		Draw::Draw2D(0, m_x, m_y);
-		
+		//描画
+		if (m_ani_time <= 0.001)
+		{
+			Draw::Draw2D(0, m_x, m_y);
+
+		}
+		else if (m_ani_time <= 2)
+		{
+			Draw::Draw2D(12, m_x, m_y);
+		}
+		else if (m_ani_time <= 3)
+		{
+			Draw::Draw2D(13, m_x, m_y);
+		}
+		else if (m_ani_time <= 6)
+		{
+			Draw::Draw2D(14, m_x, m_y);
+		}
 	}
 	else
 	{
-		Draw::Draw2D(12, m_x, m_y);
-	}
+		Draw::Draw2D(0, m_x, m_y);
+	}*/
 }
