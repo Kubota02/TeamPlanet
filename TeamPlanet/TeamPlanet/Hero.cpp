@@ -4,6 +4,7 @@
 
 #include "Hero.h"
 #include "Bullet.h"
+#include "Heart.h"
 
 extern int g_SceneNumber;
 extern bool g_key_flag;
@@ -176,6 +177,9 @@ void CHero::Action()
 		is_delete = true;
 		m_p_hit_box->SetDelete(true);
 	}
+
+	//体力表示
+
 
 	//当たり判定の位置更新
 	m_p_hit_box->SetPos(m_x, m_y);
