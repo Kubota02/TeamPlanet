@@ -47,7 +47,7 @@ void CBullet::Action()
 	m_x += m_vx;
 
 	//領域外に出たら削除
-	if (m_x > 850.0f - 50.0f)
+	if (m_x > 800.0f)
 	{
 		is_delete = true;              //オブジェクトの削除
 		m_p_hit_box->SetDelete(true);  //当たり判定の削除

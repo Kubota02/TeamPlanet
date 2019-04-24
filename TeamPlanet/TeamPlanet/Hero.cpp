@@ -4,7 +4,6 @@
 
 #include "Hero.h"
 #include "Bullet.h"
-#include "Heart.h"
 
 extern int g_SceneNumber;
 extern bool g_key_flag;
@@ -49,6 +48,14 @@ CHero::~CHero()
 
 void CHero::Action()
 {
+	////体力表示
+	//for (int i = 0; i < 5; i++)
+	//{
+	//	heart = new CHeart(i*60.0f, 5.0f);
+	//	heart->m_priority = 90;
+	//	TaskSystem::InsertObj(heart);
+	//}
+
 	//弾丸発射
 	if (Input::KeyPush(VK_SPACE))
 	{
@@ -139,6 +146,9 @@ void CHero::Action()
 		if (m_p_hit_box->GetHitData()[i]->GetElement() != HERO)
 		{
 			m_hp += -20;
+
+			//ハート減らす
+			
 		}
 	  }
 
@@ -148,9 +158,6 @@ void CHero::Action()
 		is_delete = true;
 		m_p_hit_box->SetDelete(true);
 	}
-
-	//体力表示
-
 
 	//当たり判定の位置更新
 	m_p_hit_box->SetPos(m_x, m_y);

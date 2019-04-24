@@ -5,6 +5,7 @@
 #include "Audio.h"
 #include "TaskSystem.h"
 #include "Collision.h"
+#include "Heart.h"
 
 //主人公クラス
 class CHero :public CObj
@@ -14,6 +15,7 @@ public:
 	~CHero();
 	void Action();
 	void Draw();
+
 private:
 	float m_x;	//位置
 	float m_y;
@@ -27,4 +29,6 @@ private:
 	int m_ani_time;  //主人公アニメーション
 
 	HitBox* m_p_hit_box;//当たり判定
+
+	CHeart* heart;
 };

@@ -125,6 +125,7 @@ unsigned __stdcall GameMainSled(void *p)
 		CBackground* background;
 		CEnemy1* enemy1;
 		CEnemy2* enemy2;
+		CHeart* heart;
 
 		switch (g_SceneChange)
 		{
@@ -142,6 +143,13 @@ unsigned __stdcall GameMainSled(void *p)
 			hero = new CHero();
 			hero->m_priority = 90;
 			TaskSystem::InsertObj(hero);//‰F’ˆ‘D
+
+			for (int i = 0; i < 5; i++)
+			{
+				heart = new CHeart(i*60.0f, 5.0f);
+				heart->m_priority = 90;
+				TaskSystem::InsertObj(heart);
+			}
 
 			for (int i = 0; i < 10; i++)
 			{
