@@ -24,5 +24,7 @@ private:
 
 	int m_hp;	//体力
 
+	int m_ani_time;  //主人公アニメーション
+
 	HitBox* m_p_hit_box;//当たり判定
 };
