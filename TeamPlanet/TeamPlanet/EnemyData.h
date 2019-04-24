@@ -38,5 +38,12 @@ struct ENEMYDATA
 	int y;			//Y座標
 	int enemy_speed;//敵のスピード
 	int hp;			//HP
+	int w;			//W座標
+	int h;			//H座標
+	int stop_time;	//停止時間
+	int out_time;	//帰還時間
+	int shot_pattern;//発射パターン
+	int shot_time;	//発射時間
+	int shot_speed;	//弾のスピード
 	int item;		//アイテム
 };

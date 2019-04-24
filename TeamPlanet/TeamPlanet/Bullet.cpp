@@ -43,6 +43,22 @@ void CBullet::Action()
 	//速度
 	m_vx += 3.0f;
 
+	//ベクトルの長さを求める(三平方の定理)
+	float r = 0.0f;
+	r = m_vx*m_vx;
+	r = sqrt(r);//rをルートを求める
+
+	//長さが0かどうか調べる
+	if (r == 0.0f)
+	{
+		;
+	}
+	else
+	{
+		//正規化を行う
+		m_vx = 3.0f / r * m_vx;
+	}
+
 	//位置の更新
 	m_x += m_vx;
 

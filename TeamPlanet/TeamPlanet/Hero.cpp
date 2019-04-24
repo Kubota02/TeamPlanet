@@ -93,16 +93,6 @@ void CHero::Action()
 		//m_ani_time = 0;
 	}
 
-	/*if (Input::KeyPush(VK_SPACE))
-	{
-		m_ani_time++;
-		
-	}
-	else
-	{
-		
-	}*/
-
 	//‰Šú‰»
 	m_vx = 0.0f;
 	m_vy = 0.0f;

@@ -16,12 +16,6 @@
     <Filter Include="ソース ファイル\弾丸">
       <UniqueIdentifier>{bbd0f1e3-f213-471b-b1db-f1c6399cf604}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\Dust">
-      <UniqueIdentifier>{c51d3a6e-8361-456e-ba1b-8c39f6d79484}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\Meteorite">
-      <UniqueIdentifier>{db46ef5a-4f85-45fb-9b3f-979959c99afd}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\Background">
       <UniqueIdentifier>{88cdac8d-60d6-4582-b7ad-3eafb9548c42}</UniqueIdentifier>
     </Filter>
@@ -31,17 +25,17 @@
     <Filter Include="ソース ファイル\Hero">
       <UniqueIdentifier>{4047160e-27dd-4f41-b724-a04fbe9d5cf9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\Enemy1">
-      <UniqueIdentifier>{a2731803-d527-4c40-b344-39d1a015504e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\Enemy2">
-      <UniqueIdentifier>{6225c294-78d5-43db-8100-0d813af72cfa}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\敵の弾丸">
       <UniqueIdentifier>{f7fb6748-9024-4c42-9594-38bb896854a4}</UniqueIdentifier>
     </Filter>
     <Filter Include="ソース ファイル\Heart">
       <UniqueIdentifier>{27692cd5-6cfc-42b8-83ef-33010d7d2d10}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Enemy">
+      <UniqueIdentifier>{ab39bb48-5a91-498a-9235-bbeae18ff5a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\EnemyData">
+      <UniqueIdentifier>{ca3b7fff-0681-4ace-9a6b-463a850b556e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -78,29 +72,23 @@
     <ClCompile Include="Bullet.cpp">
       <Filter>ソース ファイル\弾丸</Filter>
     </ClCompile>
-    <ClCompile Include="Dust.cpp">
-      <Filter>ソース ファイル\Dust</Filter>
-    </ClCompile>
-    <ClCompile Include="Meteorite.cpp">
-      <Filter>ソース ファイル\Meteorite</Filter>
-    </ClCompile>
     <ClCompile Include="Background.cpp">
       <Filter>ソース ファイル\Background</Filter>
     </ClCompile>
     <ClCompile Include="Select.cpp">
       <Filter>ソース ファイル\Select</Filter>
     </ClCompile>
-    <ClCompile Include="Enemy1.cpp">
-      <Filter>ソース ファイル\Enemy1</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy2.cpp">
-      <Filter>ソース ファイル\Enemy2</Filter>
-    </ClCompile>
     <ClCompile Include="Enemybullet.cpp">
       <Filter>ソース ファイル\敵の弾丸</Filter>
     </ClCompile>
     <ClCompile Include="Heart.cpp">
       <Filter>ソース ファイル\Heart</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>ソース ファイル\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyData.cpp">
+      <Filter>ソース ファイル\EnemyData</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -134,29 +122,23 @@
     <ClInclude Include="Bullet.h">
       <Filter>ソース ファイル\弾丸</Filter>
     </ClInclude>
-    <ClInclude Include="Dust.h">
-      <Filter>ソース ファイル\Dust</Filter>
-    </ClInclude>
-    <ClInclude Include="Meteorite.h">
-      <Filter>ソース ファイル\Meteorite</Filter>
-    </ClInclude>
     <ClInclude Include="Background.h">
       <Filter>ソース ファイル\Background</Filter>
     </ClInclude>
     <ClInclude Include="Select.h">
       <Filter>ソース ファイル\Select</Filter>
     </ClInclude>
-    <ClInclude Include="Enemy1.h">
-      <Filter>ソース ファイル\Enemy1</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy2.h">
-      <Filter>ソース ファイル\Enemy2</Filter>
-    </ClInclude>
     <ClInclude Include="Enemybullet.h">
       <Filter>ソース ファイル\敵の弾丸</Filter>
     </ClInclude>
     <ClInclude Include="Heart.h">
       <Filter>ソース ファイル\Heart</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>ソース ファイル\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyData.h">
+      <Filter>ソース ファイル\EnemyData</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

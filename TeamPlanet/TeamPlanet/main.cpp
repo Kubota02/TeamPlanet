@@ -20,15 +20,14 @@
 #include "FontTex.h"
 #include "Collision.h"
 
+#include "EnemyData.h"
+
 //オブジェクトヘッダ---------------
 #include "Hero.h"
 #include "Bullet.h"
-#include "Dust.h"
-#include "Meteorite.h"
+#include "Enemy.h"
 #include "Background.h"
 #include "Select.h"
-#include "Enemy1.h"
-#include "Enemy2.h"
 #include "Heart.h"
 
 //削除されていないメモリを出力にダンプする---
@@ -54,6 +53,7 @@ bool g_ls_game_end = false;	//スレッド用ゲーム終了フラグ
 int g_SceneChange = STAGESELECT;//ゲーム画面フラグ(test用)
 //int g_SceneChange = TITLE;//ゲーム画面フラグ
 bool g_key_flag = true;//キーフラグ
+extern ENEMYDATA e_data[ENEMY_NUM];
 
 //プロトタイプ宣言
 LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);	//ウィンドウプロジーシャー
@@ -118,13 +118,14 @@ unsigned __stdcall GameMainSled(void *p)
 		TaskSystem::ListDraw();//リスト内のドロー実行
 		Collision::DrawDebug();
 
+		//外部データの読み込み(敵情報)
+		unique_ptr<wchar_t> p;	//敵情報ポインター
+		int size;				//敵情報の大きさ
+
 		CSelect* select;
 		CHero* hero;
-		CDust* dust;
-		CMeteorite* meteorite;
+		CEnemy* enemy;
 		CBackground* background;
-		CEnemy1* enemy1;
-		CEnemy2* enemy2;
 		CHeart* heart;
 
 		switch (g_SceneChange)
@@ -144,34 +145,24 @@ unsigned __stdcall GameMainSled(void *p)
 			hero->m_priority = 90;
 			TaskSystem::InsertObj(hero);//宇宙船
 
+			p = Save::ExternalDataOpen(L"Enemy.csv", &size);//外部データ読み込み
+
+			for (int i = 0; i < ENEMY_NUM; ++i)
+			{
+				enemy = new CEnemy(e_data[i].enemy_type, e_data[i].in_time, e_data[i].x, e_data[i].y,
+					e_data[i].enemy_speed, e_data[i].hp, e_data[i].w, e_data[i].h, e_data[i].stop_time,
+					e_data[i].out_time, e_data[i].shot_pattern, e_data[i].shot_time, e_data[i].shot_speed, e_data[i].item);
+				enemy->m_priority = 90;
+				TaskSystem::InsertObj(enemy);//塵
+
+			}
+
 			for (int i = 0; i < 5; i++)
 			{
 				heart = new CHeart(i*60.0f, 5.0f);
 				heart->m_priority = 90;
-				TaskSystem::InsertObj(heart);
+				TaskSystem::InsertObj(heart);//体力
 			}
-
-			for (int i = 0; i < 10; i++)
-			{
-				//dust = new CDust();
-				//dust->m_priority = 90;
-				//TaskSystem::InsertObj(dust);//塵
-			}
-
-			for (int i = 0; i < 10; i++)
-			{
-				//meteorite = new CMeteorite();
-				//meteorite->m_priority = 90;
-				//TaskSystem::InsertObj(meteorite);//隕石
-			}
-
-			/*enemy1 = new CEnemy1();
-			enemy1->m_priority = 90;
-			TaskSystem::InsertObj(enemy1);*/
-
-			enemy2 = new CEnemy2();
-			enemy2->m_priority = 90;
-			TaskSystem::InsertObj(enemy2);
 
 			background = new CBackground();
 			background->m_priority = 80;

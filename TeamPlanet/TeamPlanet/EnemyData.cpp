@@ -13,7 +13,8 @@ using namespace std;
 
 void* EnemyData::m_data;		//敵情報
 int   EnemyData::m_data_size;	//敵情報サイズ
-ENEMYDATA e_data[ENEMY_NUM];
+
+ENEMYDATA e_data[ENEMY_NUM];	//敵のデータ
 
 void* EnemyData::GetData()
 {
@@ -100,13 +101,20 @@ unique_ptr<wchar_t> EnemyData::ExternalDataOpen(wchar_t* file_name, int* size)
 		{
 		//1列目は敵種類を表す。atoi関数で数値として代入。
 		case 1:e_data[row].enemy_type = atoi(buf); break;
-		//2列目は弾種類。以降省略。
+		//2列目は出現時間。以降省略。
 		case 2:e_data[row].in_time = atoi(buf); break;
 		case 3:e_data[row].x = atoi(buf); break;
 		case 4:e_data[row].y = atoi(buf); break;
 		case 5:e_data[row].enemy_speed = atoi(buf); break;
 		case 6:e_data[row].hp = atoi(buf); break;
-		case 7:e_data[row].item = atoi(buf); break;
+		case 7:e_data[row].w = atoi(buf); break;
+		case 8:e_data[row].h = atoi(buf); break;
+		case 9:e_data[row].stop_time = atoi(buf); break;
+		case 10:e_data[row].out_time = atoi(buf); break;
+		case 11:e_data[row].shot_pattern = atoi(buf); break;
+		case 12:e_data[row].shot_time = atoi(buf); break;
+		case 13:e_data[row].shot_speed = atoi(buf); break;
+		case 14:e_data[row].item = atoi(buf); break;
 		}
 		//バッファを初期化
 		memset(buf, 0, sizeof(buf));
