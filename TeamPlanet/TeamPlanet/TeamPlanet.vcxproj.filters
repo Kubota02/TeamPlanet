@@ -40,6 +40,9 @@
     <Filter Include="ソース ファイル\敵の弾丸">
       <UniqueIdentifier>{f7fb6748-9024-4c42-9594-38bb896854a4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Heart">
+      <UniqueIdentifier>{27692cd5-6cfc-42b8-83ef-33010d7d2d10}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Audio.cpp">
@@ -96,6 +99,9 @@
     <ClCompile Include="Enemybullet.cpp">
       <Filter>ソース ファイル\敵の弾丸</Filter>
     </ClCompile>
+    <ClCompile Include="Heart.cpp">
+      <Filter>ソース ファイル\Heart</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Audio.h">
@@ -148,6 +154,9 @@
     </ClInclude>
     <ClInclude Include="Enemybullet.h">
       <Filter>ソース ファイル\敵の弾丸</Filter>
+    </ClInclude>
+    <ClInclude Include="Heart.h">
+      <Filter>ソース ファイル\Heart</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

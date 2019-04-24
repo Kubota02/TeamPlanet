@@ -4,6 +4,7 @@
 
 #include "Hero.h"
 #include "Bullet.h"
+#include "Heart.h"
 
 extern int g_SceneNumber;
 extern bool g_key_flag;
@@ -23,6 +24,9 @@ CHero::CHero()
 
 	//体力
 	m_hp = 100;
+
+	//アニメーション
+	m_ani_time = 0;
 
 	//HEROオブジェクトの各当たり判定の属性をバラバラにする
 	static int count = 0;
@@ -127,6 +131,23 @@ void CHero::Action()
 		m_y = 520.0f;
 	}
 
+	////アニメーション
+	//if (Input::KeyPush(VK_SPACE))
+	//{
+	//	m_ani_time++;
+	//	if (m_ani_time >= 18)
+	//	{
+	//		m_ani_time = 0;
+	//	}
+	//}
+	//else
+	//{
+	//	m_ani_time = 0;
+	//}
+
+
+
+
 	//他の物体と当たった時の処理
 	for (int i = 0; i < 10; i++)
 	{
@@ -144,6 +165,9 @@ void CHero::Action()
 		is_delete = true;
 		m_p_hit_box->SetDelete(true);
 	}
+
+	//体力表示
+
 
 	//当たり判定の位置更新
 	m_p_hit_box->SetPos(m_x, m_y);

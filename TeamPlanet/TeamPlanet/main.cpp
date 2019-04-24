@@ -29,6 +29,7 @@
 #include "Select.h"
 #include "Enemy1.h"
 #include "Enemy2.h"
+#include "Heart.h"
 
 //削除されていないメモリを出力にダンプする---
 #include <crtdbg.h>
@@ -74,6 +75,10 @@ unsigned __stdcall TextureLoadSled(void *p)
 	Draw::LoadImage(9,  L"image\\Uranus.png");
 	Draw::LoadImage(10, L"image\\enemy1.png");
 	Draw::LoadImage(11, L"image\\enemy2.png");
+	Draw::LoadImage(12, L"image\\Space ship ani1.png");
+	Draw::LoadImage(13, L"image\\Space ship ani2.png");
+	Draw::LoadImage(14, L"image\\Space ship ani3.png");
+	Draw::LoadImage(15, L"image\\life.png");
 	
 	_endthreadex(0);	//スレッド終了
 	return 0;
