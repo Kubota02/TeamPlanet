@@ -25,8 +25,7 @@ private:
 	bool m_f;   //弾丸発射制御用
 
 	int m_hp;	//体力
-
-	int m_ani_time;  //主人公アニメーション
+	//int m_ani_time; //主人公アニメーション
 
 	HitBox* m_p_hit_box;//当たり判定
 
