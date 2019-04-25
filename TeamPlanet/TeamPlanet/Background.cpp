@@ -4,8 +4,6 @@
 
 #include "Background.h"
 
-extern int g_SceneNumber;
-
 CBackground::CBackground()
 {
 	//”wŒi‚Ì‰ŠúˆÊ’u
@@ -20,10 +18,7 @@ CBackground::~CBackground()
 
 void CBackground::Action()
 {
-	if (g_SceneNumber == GAME_MAIN)
-	{
-
-	}
+	
 }
 
 void CBackground::Draw()
