@@ -161,4 +161,5 @@ void CHero::Action()
 void CHero::Draw()
 {
 	Draw::Draw2D(0, m_x, m_y);
+	//Draw::Draw2D(20, m_x + 200.0f, m_y);
 }
