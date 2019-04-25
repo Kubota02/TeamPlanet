@@ -191,7 +191,7 @@ unsigned __stdcall GameMainSled(void *p)
 				heart->m_priority = 90;
 				TaskSystem::InsertObj(heart);//体力
 			}
-
+			
 			background = new CBackground();
 			background->m_priority = 80;
 			TaskSystem::InsertObj(background);//背景(ステージ1)
