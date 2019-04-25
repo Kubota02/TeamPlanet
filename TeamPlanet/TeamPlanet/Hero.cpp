@@ -143,7 +143,7 @@ void CHero::Action()
 			m_hp += -20;
 
 			//ÉnÅ[Égå∏ÇÁÇ∑
-			
+			;
 		}
 	  }
 
