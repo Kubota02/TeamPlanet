@@ -4,6 +4,7 @@
 
 #include "Hero.h"
 #include "Bullet.h"
+#include "Audio.h"
 
 extern int g_SceneNumber;
 extern bool g_key_flag;
@@ -142,7 +143,7 @@ void CHero::Action()
 			m_hp += -20;
 
 			//ÉnÅ[Égå∏ÇÁÇ∑
-			
+			;
 		}
 	  }
 
@@ -160,4 +161,5 @@ void CHero::Action()
 void CHero::Draw()
 {
 	Draw::Draw2D(0, m_x, m_y);
+	//Draw::Draw2D(20, m_x + 200.0f, m_y);
 }
