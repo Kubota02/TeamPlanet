@@ -63,22 +63,50 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);	//
 unsigned __stdcall TextureLoadSled(void *p)
 {
 	//イメージ読み込み
-	Draw::LoadImage(0,  L"image\\Space ship.png");
-	Draw::LoadImage(1,  L"image\\bullet.png");
-	Draw::LoadImage(2,  L"image\\dust.png");
-	Draw::LoadImage(3,  L"image\\meteorite1.png");
-	Draw::LoadImage(4,  L"image\\Space1.png");
-	Draw::LoadImage(5,  L"image\\Select.png");
-	Draw::LoadImage(6,  L"image\\planet.png");
-	Draw::LoadImage(7,  L"image\\moon.png");
-	Draw::LoadImage(8,  L"image\\saturn.png");
-	Draw::LoadImage(9,  L"image\\Uranus.png");
+	//主人公
+	Draw::LoadImage(0, L"image\\Space ship.png");
+	Draw::LoadImage(1, L"image\\bullet.png");
+	Draw::LoadImage(12, L"image\\Space ship 1.png");
+	Draw::LoadImage(13, L"image\\Space ship 2.png");
+	Draw::LoadImage(14, L"image\\Space ship fire.png");
+	Draw::LoadImage(15, L"image\\life.png");
+
+	//敵
+	Draw::LoadImage(2, L"image\\dust.png");
+	Draw::LoadImage(3, L"image\\meteorite1.png");
 	Draw::LoadImage(10, L"image\\enemy1.png");
 	Draw::LoadImage(11, L"image\\enemy2.png");
-	Draw::LoadImage(12, L"image\\Space ship ani1.png");
-	Draw::LoadImage(13, L"image\\Space ship ani2.png");
-	Draw::LoadImage(14, L"image\\Space ship ani3.png");
-	Draw::LoadImage(15, L"image\\life.png");
+	Draw::LoadImage(16, L"image\\satellite.png");
+	Draw::LoadImage(17, L"image\\solar.png");
+	Draw::LoadImage(18, L"image\\antenna.png");
+	Draw::LoadImage(19, L"image\\meteorite2.png");
+	Draw::LoadImage(20, L"image\\bulletE.png");
+
+	//爆発エフェクト
+	Draw::LoadImage(21, L"image\\boom1.png");
+	Draw::LoadImage(22, L"image\\boom2.png");
+	Draw::LoadImage(23, L"image\\boom3.png");
+
+	//ゲーム画面背景
+	Draw::LoadImage(4, L"image\\Space1.png");
+	Draw::LoadImage(24, L"image\\Space2.png");
+	Draw::LoadImage(25, L"image\\Space3.png");
+
+	//タイトル
+	Draw::LoadImage(26, L"image\\title.png");
+
+	//ゲームクリア
+	Draw::LoadImage(27, L"image\\gameclear.png");
+
+	//ゲームオーバー
+	Draw::LoadImage(28, L"image\\gameover.png");
+
+	//ゲームセレクト
+	Draw::LoadImage(5, L"image\\Select.png");
+	Draw::LoadImage(6, L"image\\planet.png");
+	Draw::LoadImage(7, L"image\\moon.png");
+	Draw::LoadImage(8, L"image\\saturn.png");
+	Draw::LoadImage(9, L"image\\Uranus.png");
 	
 	_endthreadex(0);	//スレッド終了
 	return 0;
@@ -88,7 +116,8 @@ unsigned __stdcall TextureLoadSled(void *p)
 unsigned __stdcall MusicLoadSled(void *p)
 {
 	//ミュージック情報取得
-	//Audio::LoadBackMusic("Test.ogg");
+	//Audio::LoadBackMusic(L"Select.ogg");
+	//Audio::LoadSEMusic(0,L"Bullet1.ogg");
 	//Audio::StartLoopMusic();//バックミュージックスタート
 	_endthreadex(0);	//スレッド終了
 	return 0;
