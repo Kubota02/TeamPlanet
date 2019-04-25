@@ -99,7 +99,7 @@ void CEnemy::Action()
 		}
 	}
 
-	//‘Ï‹v—Í‚ª–³‚­‚È‚Á‚½‚Ìíœˆ—
+	//HP‚ª–³‚­‚È‚Á‚½‚Ìíœˆ—
 	if (hp == 0)
 	{
 		is_delete = true;
