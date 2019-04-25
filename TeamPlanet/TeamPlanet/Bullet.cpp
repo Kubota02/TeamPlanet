@@ -60,7 +60,7 @@ void CBullet::Action()
 	}
 
 	//位置の更新
-	m_x += m_vx;
+	m_x += m_vx*5;
 
 	//領域外に出たら削除
 	if (m_x > 800.0f)

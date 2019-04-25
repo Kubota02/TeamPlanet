@@ -100,7 +100,7 @@ void CEnemy::Action()
 	}
 
 	//‘Ï‹v—Í‚ª–³‚­‚È‚Á‚½‚Ìíœˆ—
-	if (hp == 0)
+	if (hp <= 0)
 	{
 		is_delete = true;
 		m_p_hit_box->SetDelete(true);
