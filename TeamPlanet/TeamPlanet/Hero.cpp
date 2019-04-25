@@ -4,6 +4,7 @@
 
 #include "Hero.h"
 #include "Bullet.h"
+#include "Audio.h"
 
 extern int g_SceneNumber;
 extern bool g_key_flag;
@@ -65,6 +66,7 @@ void CHero::Action()
 			CBullet* bullet = new CBullet(m_x + 125.0f, m_y + 30.0f);
 			bullet->m_priority = 90;
 			TaskSystem::InsertObj(bullet);
+			//Audio::StartMusic(0);
 
 			m_f = false;
 		}

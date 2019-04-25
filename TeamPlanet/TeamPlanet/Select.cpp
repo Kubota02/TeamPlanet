@@ -25,6 +25,7 @@ CSelect::~CSelect()
 
 void CSelect::Action()
 {
+
 	if (m_ani_time != 0)
 	{
 		m_ani_time++;
