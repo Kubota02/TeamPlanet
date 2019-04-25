@@ -116,7 +116,8 @@ unsigned __stdcall TextureLoadSled(void *p)
 unsigned __stdcall MusicLoadSled(void *p)
 {
 	//ミュージック情報取得
-	//Audio::LoadBackMusic("Test.ogg");
+	Audio::LoadBackMusic("Select.ogg");
+	Audio::LoadSEMusic(0, "Bullet1.ogg");
 	//Audio::StartLoopMusic();//バックミュージックスタート
 	_endthreadex(0);	//スレッド終了
 	return 0;
