@@ -29,6 +29,7 @@
 #include "Background.h"
 #include "Select.h"
 #include "Heart.h"
+#include "Title.h"
 
 //削除されていないメモリを出力にダンプする---
 #include <crtdbg.h>
@@ -50,8 +51,8 @@
 
 //グローバル変数---------
 bool g_ls_game_end = false;	//スレッド用ゲーム終了フラグ
-int g_SceneChange = STAGESELECT;//ゲーム画面フラグ(test用)
-//int g_SceneChange = TITLE;//ゲーム画面フラグ
+//int g_SceneChange = STAGESELECT;//ゲーム画面フラグ(test用)
+int g_SceneChange = TITLE;//ゲーム画面フラグ
 bool g_key_flag = true;//キーフラグ
 extern ENEMYDATA e_data[ENEMY_NUM];
 
@@ -154,6 +155,7 @@ unsigned __stdcall GameMainSled(void *p)
 		unique_ptr<wchar_t> p;	//敵情報ポインター
 		int size;				//敵情報の大きさ
 
+		CTitle* title;
 		CSelect* select;
 		CHero* hero;
 		CEnemy* enemy;
@@ -162,6 +164,16 @@ unsigned __stdcall GameMainSled(void *p)
 
 		switch (g_SceneChange)
 		{
+		case TITLE: //ステージセレクト初期化
+			title = new CTitle();
+			title->m_priority = 110;
+			TaskSystem::InsertObj(title);
+			g_SceneChange = TITLE_MAIN;
+			break;
+
+		case TITLE_MAIN: //ステージセレクト
+			break;
+
 		case STAGESELECT: //ステージセレクト初期化
 			select = new CSelect();
 			select->m_priority = 100;

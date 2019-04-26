@@ -133,6 +133,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Select.cpp" />
     <ClCompile Include="TaskSystem.cpp" />
+    <ClCompile Include="Title.cpp" />
     <ClCompile Include="WindowCreate.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -151,6 +152,7 @@
     <ClInclude Include="Input.h" />
     <ClInclude Include="Select.h" />
     <ClInclude Include="TaskSystem.h" />
+    <ClInclude Include="Title.h" />
     <ClInclude Include="WindowCreate.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

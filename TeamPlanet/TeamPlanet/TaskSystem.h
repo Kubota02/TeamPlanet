@@ -8,8 +8,8 @@ using namespace std;
 
 enum SceneChange
 {
-	//TITLE				 = 0,
-	//TITLE_MAIN			 = 1,
+	TITLE				 = 0,
+	TITLE_MAIN			 = 1,
 	STAGESELECT		 = 2,
 	STAGESELECT_MAIN	 = 3,
 	//STORY				 = 4,
