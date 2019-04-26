@@ -27,6 +27,4 @@ private:
 	int m_hp;	//‘Ì—Í
 
 	HitBox* m_p_hit_box;//“–‚½‚è”»’è
-
-	CHeart* heart;
 };

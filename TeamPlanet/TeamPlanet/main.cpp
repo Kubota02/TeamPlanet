@@ -206,14 +206,7 @@ unsigned __stdcall GameMainSled(void *p)
 
 			heart = new CHeart();
 			heart->m_priority = 90;
-			TaskSystem::InsertObj(heart);
-
-			/*for (int i = 0; i < heart_num; i++)
-			{
-				heart = new CHeart(i*60.0f, 5.0f);
-				heart->m_priority = 90;
-				TaskSystem::InsertObj(heart);
-			}*/
+			TaskSystem::InsertObj(heart);//ƒn[ƒg
 			
 			background = new CBackground();
 			background->m_priority = 80;
