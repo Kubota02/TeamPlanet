@@ -42,14 +42,6 @@ CHero::~CHero()
 
 void CHero::Action()
 {
-	////‘Ì—Í•\Ž¦
-	//for (int i = 0; i < 5; i++)
-	//{
-	//	heart = new CHeart(i*60.0f, 5.0f);
-	//	heart->m_priority = 90;
-	//	TaskSystem::InsertObj(heart);
-	//}
-
 	//’eŠÛ”­ŽË
 	if (Input::KeyPush(VK_SPACE))
 	{
