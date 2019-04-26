@@ -18,7 +18,6 @@ CTitle::CTitle()
 	m_y2 = 430.0f;
 
 	m_ani_time = 0;
-	key_flag = true;
 
 	m_vx = 7.0f;
 }
@@ -78,6 +77,6 @@ void CTitle::Draw()
 	}
 	else
 	{
-		Draw::Draw2D(14, m_x2, m_y2);
+		Draw::Draw2D(14, m_x2-70, m_y2);
 	}
 }

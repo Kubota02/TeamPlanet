@@ -21,6 +21,5 @@ private:
 	float m_y2;
 	float m_vx;
 
-	bool key_flag;  //キーが押されているかチェック用
 	int m_ani_time;//アニメーション
 };

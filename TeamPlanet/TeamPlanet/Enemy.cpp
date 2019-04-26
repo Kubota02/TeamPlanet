@@ -114,14 +114,45 @@ void CEnemy::Action()
 
 void CEnemy::Draw()
 {
+	//•`‰æ
 	if (enemy_type == 2)
 	{
-		//•`‰æ
+		//o
 		Draw::Draw2D(enemy_type, x, y);
 	}
 	if (enemy_type == 3)
 	{
-		//•`‰æ
+		//è¦Î1
+		Draw::Draw2D(enemy_type, x, y);
+	}
+	if (enemy_type == 10)
+	{
+		//“G1
+		Draw::Draw2D(enemy_type, x, y);
+	}
+	if (enemy_type == 11)
+	{
+		//“G2
+		Draw::Draw2D(enemy_type, x, y);
+	}
+	if (enemy_type == 16)
+	{
+		//‰q¯
+		Draw::Draw2D(enemy_type, x, y);
+	}
+	if (enemy_type == 17)
+	{
+		//ƒ\[ƒ‰[
+		Draw::Draw2D(enemy_type, x, y);
+	}
+	if (enemy_type == 18)
+	{
+		//ƒAƒ“ƒeƒi
+		Draw::Draw2D(enemy_type, x, y);
+	}
+	if (enemy_type == 19)
+	{
+		//è¦Î2
 		Draw::Draw2D(enemy_type, x, y);
 	}
 }
