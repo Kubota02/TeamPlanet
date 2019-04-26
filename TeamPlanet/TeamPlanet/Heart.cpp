@@ -5,15 +5,11 @@
 //使用ヘッダー
 #include "Heart.h"
 
-extern int g_SceneNumber;
-extern bool g_key_flag;
+extern int heart_num;
 
 //コンストラクタ
-CHeart::CHeart(float x, float y)
+CHeart::CHeart()
 {
-	m_x = x;
-	m_y = y;
-
 	m_name = HEART;
 }
 
@@ -32,5 +28,9 @@ void CHeart::Action()
 //ドロー
 void CHeart::Draw()
 {
-	Draw::Draw2D(15, m_x, m_y);
+	//Draw::Draw2D(15, m_x, m_y);
+	for (int i = 0; i < heart_num; i++)
+	{
+		Draw::Draw2D(15, i*60.0f, 5.0f);
+	}
 }

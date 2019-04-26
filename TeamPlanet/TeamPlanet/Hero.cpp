@@ -8,6 +8,7 @@
 
 extern int g_SceneNumber;
 extern bool g_key_flag;
+extern int heart_num;
 
 CHero::CHero()
 {
@@ -135,7 +136,8 @@ void CHero::Action()
 			m_hp += -20;
 
 			//ƒn[ƒgŒ¸‚ç‚·
-			;
+			if (heart_num > 0)
+				heart_num += -1;
 		}
 	  }
 
