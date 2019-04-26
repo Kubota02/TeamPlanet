@@ -30,6 +30,8 @@
 #include "Select.h"
 #include "Heart.h"
 #include "Title.h"
+#include "GameOver.h"
+#include "GameClear.h"
 
 //削除されていないメモリを出力にダンプする---
 #include <crtdbg.h>
@@ -51,7 +53,6 @@
 
 //グローバル変数---------
 bool g_ls_game_end = false;	//スレッド用ゲーム終了フラグ
-//int g_SceneChange = STAGESELECT;//ゲーム画面フラグ(test用)
 int g_SceneChange = TITLE;//ゲーム画面フラグ
 bool g_key_flag = true;//キーフラグ
 extern ENEMYDATA e_data[ENEMY_NUM];
@@ -161,6 +162,8 @@ unsigned __stdcall GameMainSled(void *p)
 		CEnemy* enemy;
 		CBackground* background;
 		CHeart* heart;
+		CGameOver* gameover;
+		CGameClear* gameclear;
 
 		switch (g_SceneChange)
 		{
@@ -220,6 +223,42 @@ unsigned __stdcall GameMainSled(void *p)
 			break;
 
 		case GAME_MAIN: //ステージ1
+			break;
+
+		case GAME2: //ステージ2初期化
+
+			g_SceneChange = GAME_MAIN2;
+			break;
+
+		case GAME_MAIN2: //ステージ2
+			break;
+
+		case GAME3: //ステージ3初期化
+
+			g_SceneChange = GAME_MAIN3;
+			break;
+
+		case GAME_MAIN3: //ステージ3
+			break;
+
+		case GAMEOVER: //ゲームオーバー初期化
+			gameover = new CGameOver();
+			gameover->m_priority = 80;
+			TaskSystem::InsertObj(gameover);
+			g_SceneChange = GAMEOVER_MAIN;
+			break;
+
+		case GAMEOVER_MAIN: //ゲームオーバー
+			break;
+
+		case GAMECLEAR: //ゲームクリア初期化
+			gameclear = new CGameClear();
+			gameclear->m_priority = 70;
+			TaskSystem::InsertObj(gameclear);
+			g_SceneChange = GAMECLEAR_MAIN;
+			break;
+
+		case GAMECLEAR_MAIN: //ゲームクリア
 			break;
 		}
 

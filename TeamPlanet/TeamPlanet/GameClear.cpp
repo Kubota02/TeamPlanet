@@ -1,0 +1,31 @@
+//STLデバック機能をOFFにする
+#define _SECURE_SCL (0)
+#define _HAS_ITERATOR_DEBUGGING (0)
+
+#include "GameClear.h"
+
+extern int g_SceneChange;
+extern bool g_key_flag;
+
+CGameClear::CGameClear()
+{
+	//背景の初期位置
+	m_x = 0.0f;
+	m_y = 0.0f;
+}
+
+CGameClear::~CGameClear()
+{
+
+}
+
+void CGameClear::Action()
+{
+
+}
+
+void CGameClear::Draw()
+{
+	//描画
+	Draw::Draw2D(27, m_x, m_y);
+}

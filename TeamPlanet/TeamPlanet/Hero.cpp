@@ -6,7 +6,7 @@
 #include "Bullet.h"
 #include "Audio.h"
 
-extern int g_SceneNumber;
+extern int g_SceneChange;
 extern bool g_key_flag;
 extern int heart_num;
 
@@ -146,6 +146,8 @@ void CHero::Action()
 	{
 		is_delete = true;
 		m_p_hit_box->SetDelete(true);
+		g_SceneChange = GAMEOVER;
+		is_delete = true;
 	}
 
 	//“–‚½‚è”»’è‚ÌˆÊ’uXV
