@@ -21,7 +21,7 @@ CGameOver::~CGameOver()
 
 void CGameOver::Action()
 {
-
+	
 }
 
 void CGameOver::Draw()

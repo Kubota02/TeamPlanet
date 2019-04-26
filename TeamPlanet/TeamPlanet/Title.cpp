@@ -18,7 +18,6 @@ CTitle::CTitle()
 	m_y2 = 430.0f;
 
 	m_ani_time = 0;
-	key_flag = true;
 
 	m_vx = 7.0f;
 }
