@@ -57,6 +57,9 @@ int g_SceneChange = TITLE;//ゲーム画面フラグ
 bool g_key_flag = true;//キーフラグ
 extern ENEMYDATA e_data[ENEMY_NUM];
 
+bool m_hit; //ハートに渡す用
+int heart_num = 5; //ハートの数
+
 //プロトタイプ宣言
 LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);	//ウィンドウプロジーシャー
 
@@ -201,11 +204,11 @@ unsigned __stdcall GameMainSled(void *p)
 
 			}
 
-			for (int i = 0; i < 5; i++)
+			for (int i = 0; i < heart_num; i++)
 			{
 				heart = new CHeart(i*60.0f, 5.0f);
 				heart->m_priority = 90;
-				TaskSystem::InsertObj(heart);//体力
+				TaskSystem::InsertObj(heart);
 			}
 			
 			background = new CBackground();
