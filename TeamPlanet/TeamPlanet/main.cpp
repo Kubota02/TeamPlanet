@@ -29,6 +29,9 @@
 #include "Background.h"
 #include "Select.h"
 #include "Heart.h"
+#include "Title.h"
+#include "GameOver.h"
+#include "GameClear.h"
 
 //削除されていないメモリを出力にダンプする---
 #include <crtdbg.h>
@@ -50,10 +53,12 @@
 
 //グローバル変数---------
 bool g_ls_game_end = false;	//スレッド用ゲーム終了フラグ
-int g_SceneChange = STAGESELECT;//ゲーム画面フラグ(test用)
-//int g_SceneChange = TITLE;//ゲーム画面フラグ
+int g_SceneChange = TITLE;//ゲーム画面フラグ
 bool g_key_flag = true;//キーフラグ
 extern ENEMYDATA e_data[ENEMY_NUM];
+
+bool m_hit; //ハートに渡す用
+int heart_num = 5; //ハートの数
 
 //プロトタイプ宣言
 LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);	//ウィンドウプロジーシャー
@@ -158,14 +163,27 @@ unsigned __stdcall GameMainSled(void *p)
 		unique_ptr<wchar_t> p;	//敵情報ポインター
 		int size;				//敵情報の大きさ
 
+		CTitle* title;
 		CSelect* select;
 		CHero* hero;
 		CEnemy* enemy;
 		CBackground* background;
 		CHeart* heart;
+		CGameOver* gameover;
+		CGameClear* gameclear;
 
 		switch (g_SceneChange)
 		{
+		case TITLE: //ステージセレクト初期化
+			title = new CTitle();
+			title->m_priority = 110;
+			TaskSystem::InsertObj(title);
+			g_SceneChange = TITLE_MAIN;
+			break;
+
+		case TITLE_MAIN: //ステージセレクト
+			break;
+
 		case STAGESELECT: //ステージセレクト初期化
 			select = new CSelect();
 			select->m_priority = 100;
@@ -198,15 +216,10 @@ unsigned __stdcall GameMainSled(void *p)
 
 			}
 
-			for (int i = 0; i < 5; i++)
-			{
-				heart = new CHeart(i*60.0f, 5.0f);
-				heart->m_priority = 90;
-				TaskSystem::InsertObj(heart);//体力
-			}
-
+			heart = new CHeart();
+			heart->m_priority = 90;
+			TaskSystem::InsertObj(heart);//ハート
 			
-
 			background = new CBackground();
 			background->m_priority = 80;
 			TaskSystem::InsertObj(background);//背景(ステージ1)
@@ -215,6 +228,42 @@ unsigned __stdcall GameMainSled(void *p)
 			break;
 
 		case GAME_MAIN: //ステージ1
+			break;
+
+		case GAME2: //ステージ2初期化
+
+			g_SceneChange = GAME_MAIN2;
+			break;
+
+		case GAME_MAIN2: //ステージ2
+			break;
+
+		case GAME3: //ステージ3初期化
+
+			g_SceneChange = GAME_MAIN3;
+			break;
+
+		case GAME_MAIN3: //ステージ3
+			break;
+
+		case GAMEOVER: //ゲームオーバー初期化
+			gameover = new CGameOver();
+			gameover->m_priority = 80;
+			TaskSystem::InsertObj(gameover);
+			g_SceneChange = GAMEOVER_MAIN;
+			break;
+
+		case GAMEOVER_MAIN: //ゲームオーバー
+			break;
+
+		case GAMECLEAR: //ゲームクリア初期化
+			gameclear = new CGameClear();
+			gameclear->m_priority = 70;
+			TaskSystem::InsertObj(gameclear);
+			g_SceneChange = GAMECLEAR_MAIN;
+			break;
+
+		case GAMECLEAR_MAIN: //ゲームクリア
 			break;
 		}
 

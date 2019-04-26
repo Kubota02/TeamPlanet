@@ -5,7 +5,7 @@
 #include "Enemy.h"
 #include "Audio.h"
 
-extern int g_SceneNumber;
+extern int g_SceneChange;
 extern bool g_key_flag;
 
 CEnemy::CEnemy(int enemy_type, int in_time, int x, int y, int enemy_speed, int hp,

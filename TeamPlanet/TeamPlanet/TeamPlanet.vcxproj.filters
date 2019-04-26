@@ -37,6 +37,15 @@
     <Filter Include="ソース ファイル\EnemyData">
       <UniqueIdentifier>{ca3b7fff-0681-4ace-9a6b-463a850b556e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Title">
+      <UniqueIdentifier>{1966f628-c161-44c4-b70d-553d7a256267}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameOver">
+      <UniqueIdentifier>{db2a107d-a9e3-44ac-b260-dbb2a698fb76}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameClear">
+      <UniqueIdentifier>{3ff10dce-0aa0-476b-b048-85aa22a965e4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Audio.cpp">
@@ -90,6 +99,15 @@
     <ClCompile Include="EnemyData.cpp">
       <Filter>ソース ファイル\EnemyData</Filter>
     </ClCompile>
+    <ClCompile Include="Title.cpp">
+      <Filter>ソース ファイル\Title</Filter>
+    </ClCompile>
+    <ClCompile Include="GameOver.cpp">
+      <Filter>ソース ファイル\GameOver</Filter>
+    </ClCompile>
+    <ClCompile Include="GameClear.cpp">
+      <Filter>ソース ファイル\GameClear</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Audio.h">
@@ -139,6 +157,15 @@
     </ClInclude>
     <ClInclude Include="EnemyData.h">
       <Filter>ソース ファイル\EnemyData</Filter>
+    </ClInclude>
+    <ClInclude Include="Title.h">
+      <Filter>ソース ファイル\Title</Filter>
+    </ClInclude>
+    <ClInclude Include="GameOver.h">
+      <Filter>ソース ファイル\GameOver</Filter>
+    </ClInclude>
+    <ClInclude Include="GameClear.h">
+      <Filter>ソース ファイル\GameClear</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

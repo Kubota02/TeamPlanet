@@ -9,7 +9,7 @@
 class CHeart : public CObj
 {
 	public:
-		CHeart(float x,float y);      //コンストラクタ
+		CHeart();      //コンストラクタ
 		~CHeart();                    //デストラクタ
 		void Action();                //アクション
 		void Draw();                  //ドロー

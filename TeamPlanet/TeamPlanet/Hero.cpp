@@ -6,8 +6,9 @@
 #include "Bullet.h"
 #include "Audio.h"
 
-extern int g_SceneNumber;
+extern int g_SceneChange;
 extern bool g_key_flag;
+extern int heart_num;
 
 CHero::CHero()
 {
@@ -42,14 +43,6 @@ CHero::~CHero()
 
 void CHero::Action()
 {
-	////体力表示
-	//for (int i = 0; i < 5; i++)
-	//{
-	//	heart = new CHeart(i*60.0f, 5.0f);
-	//	heart->m_priority = 90;
-	//	TaskSystem::InsertObj(heart);
-	//}
-
 	//弾丸発射
 	if (Input::KeyPush(VK_SPACE))
 	{
@@ -143,7 +136,8 @@ void CHero::Action()
 			m_hp += -20;
 
 			//ハート減らす
-			;
+			if (heart_num > 0)
+				heart_num += -1;
 		}
 	  }
 
@@ -152,6 +146,7 @@ void CHero::Action()
 	{
 		is_delete = true;
 		m_p_hit_box->SetDelete(true);
+		g_SceneChange = GAMEOVER;
 		Audio::StartMusic(2);
 	}
 
@@ -161,6 +156,22 @@ void CHero::Action()
 
 void CHero::Draw()
 {
-	Draw::Draw2D(0, m_x, m_y);
+	//Draw::Draw2D(0, m_x, m_y);
 	//Draw::Draw2D(20, m_x + 200.0f, m_y);
+
+	switch (heart_num)
+	{
+		case 5:
+		case 4:
+			Draw::Draw2D(0, m_x, m_y);
+			break;
+		case 3:
+		case 2:
+			Draw::Draw2D(12, m_x, m_y);
+			break;
+		case 1:
+			Draw::Draw2D(13, m_x, m_y);
+			break;
+	}
+
 }

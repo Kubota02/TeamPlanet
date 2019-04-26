@@ -127,12 +127,15 @@
     <ClCompile Include="Enemybullet.cpp" />
     <ClCompile Include="EnemyData.cpp" />
     <ClCompile Include="FontTex.cpp" />
+    <ClCompile Include="GameClear.cpp" />
+    <ClCompile Include="GameOver.cpp" />
     <ClCompile Include="Heart.cpp" />
     <ClCompile Include="Hero.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Select.cpp" />
     <ClCompile Include="TaskSystem.cpp" />
+    <ClCompile Include="Title.cpp" />
     <ClCompile Include="WindowCreate.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -146,11 +149,14 @@
     <ClInclude Include="Enemybullet.h" />
     <ClInclude Include="EnemyData.h" />
     <ClInclude Include="FontTex.h" />
+    <ClInclude Include="GameClear.h" />
+    <ClInclude Include="GameOver.h" />
     <ClInclude Include="Heart.h" />
     <ClInclude Include="Hero.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="Select.h" />
     <ClInclude Include="TaskSystem.h" />
+    <ClInclude Include="Title.h" />
     <ClInclude Include="WindowCreate.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
