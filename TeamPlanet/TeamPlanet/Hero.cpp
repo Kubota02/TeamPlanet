@@ -152,6 +152,7 @@ void CHero::Action()
 	{
 		is_delete = true;
 		m_p_hit_box->SetDelete(true);
+		Audio::StartMusic(2);
 	}
 
 	//“–‚½‚è”»’è‚ÌˆÊ’uXV

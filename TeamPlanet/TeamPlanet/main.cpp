@@ -116,8 +116,15 @@ unsigned __stdcall TextureLoadSled(void *p)
 unsigned __stdcall MusicLoadSled(void *p)
 {
 	//ミュージック情報取得
-	Audio::LoadBackMusic("Select.ogg");
+	Audio::LoadBackMusic(4,"Select.ogg");
 	Audio::LoadSEMusic(0, "Bullet1.ogg");
+	Audio::LoadSEMusic(1, "Bullet2.ogg");
+	Audio::LoadSEMusic(2, "boom1.ogg");
+	Audio::LoadSEMusic(3, "boom3.ogg");
+	Audio::LoadSEMusic(5, "selectButton.ogg");
+	Audio::LoadSEMusic(6, "selectE.ogg");
+	Audio::LoadBackMusic(7, "moon.ogg");
+
 	//Audio::StartLoopMusic();//バックミュージックスタート
 	_endthreadex(0);	//スレッド終了
 	return 0;
@@ -170,6 +177,11 @@ unsigned __stdcall GameMainSled(void *p)
 			break;
 
 		case GAME: //ステージ1初期化
+			
+			//オーディオ、、、だってわからんと思ったんやもん
+			Audio::StartLoopMusic(7);
+			Audio::LoopMusicVolume(7, 0.03f);
+
 			hero = new CHero();
 			hero->m_priority = 90;
 			TaskSystem::InsertObj(hero);//宇宙船
@@ -192,7 +204,9 @@ unsigned __stdcall GameMainSled(void *p)
 				heart->m_priority = 90;
 				TaskSystem::InsertObj(heart);//体力
 			}
+
 			
+
 			background = new CBackground();
 			background->m_priority = 80;
 			TaskSystem::InsertObj(background);//背景(ステージ1)

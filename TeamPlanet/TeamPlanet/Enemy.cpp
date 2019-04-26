@@ -3,6 +3,7 @@
 #define _HAS_ITERATOR_DEBUGGING (0)
 
 #include "Enemy.h"
+#include "Audio.h"
 
 extern int g_SceneNumber;
 extern bool g_key_flag;
@@ -100,10 +101,11 @@ void CEnemy::Action()
 	}
 
 	//HP‚ª–³‚­‚È‚Á‚½‚Ìíœˆ—
-	if (hp == 0)
+	if (hp <= 0)
 	{
 		is_delete = true;
 		m_p_hit_box->SetDelete(true);
+		Audio::StartMusic(3);
 	}
 
 	//“–‚½‚è”»’è‚ÌˆÊ’uXV
