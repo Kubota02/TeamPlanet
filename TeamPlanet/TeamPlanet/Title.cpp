@@ -30,27 +30,38 @@ CTitle::~CTitle()
 
 void CTitle::Action()
 {
+	Audio::StartLoopMusic(8);//バックミュージックスタート
+	Audio::LoopMusicVolume(8, 0.03f);
+
 	if (m_ani_time != 0)
 	{
+		
 		m_ani_time++;
 		m_x2 += m_vx;
 	}
 
 	if (Input::KeyPush(VK_RETURN))
 	{
+		Audio::StartMusic(9);
+		Audio::SEMusicVolume(9, 0.3f);
+
 		if (g_key_flag)
 		{
+			
 			m_ani_time++;
 			g_key_flag = false;
 		}
 	}
 	else
 	{
+		
 		g_key_flag = true;
 	}
 	
 	if (m_ani_time == 100)
 	{
+		
+		Audio::StopLoopMusic(8);
 		g_SceneChange = STAGESELECT;
 		is_delete = true;
 	}

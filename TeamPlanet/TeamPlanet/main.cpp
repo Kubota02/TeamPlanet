@@ -129,6 +129,8 @@ unsigned __stdcall MusicLoadSled(void *p)
 	Audio::LoadSEMusic(5, "selectButton.ogg");
 	Audio::LoadSEMusic(6, "selectE.ogg");
 	Audio::LoadBackMusic(7, "moon.ogg");
+	Audio::LoadBackMusic(8, "Title.ogg");
+	Audio::LoadSEMusic(9, "Fire.ogg");
 
 	//Audio::StartLoopMusic();//バックミュージックスタート
 	_endthreadex(0);	//スレッド終了
@@ -251,6 +253,7 @@ unsigned __stdcall GameMainSled(void *p)
 			gameover->m_priority = 80;
 			TaskSystem::InsertObj(gameover);
 			g_SceneChange = GAMEOVER_MAIN;
+			Audio::StopLoopMusic(7);
 			break;
 
 		case GAMEOVER_MAIN: //ゲームオーバー
