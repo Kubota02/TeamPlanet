@@ -25,7 +25,8 @@ CSelect::~CSelect()
 
 void CSelect::Action()
 {
-	//Audio::StartLoopMusic();//バックミュージックスタート
+	Audio::StartLoopMusic(4);//バックミュージックスタート
+	Audio::LoopMusicVolume(4, 0.03f);
 
 	if (m_ani_time != 0)
 	{
@@ -41,6 +42,7 @@ void CSelect::Action()
 			{
 				m_cursor--;
 				key_flag = false;
+				Audio::StartMusic(5);
 			}
 		}
 	}
@@ -53,6 +55,7 @@ void CSelect::Action()
 			{
 				m_cursor++;
 				key_flag = false;
+				Audio::StartMusic(5);
 			}
 		}
 	}
@@ -64,6 +67,7 @@ void CSelect::Action()
 		{
 			m_ani_time++;
 			g_key_flag = false;
+			Audio::StartMusic(6);
 		}
 	}
 	else
@@ -76,6 +80,7 @@ void CSelect::Action()
 	{
 		if (m_ani_time == 25)
 		{
+			Audio::StopLoopMusic(4);
 			g_SceneChange = GAME;
 			is_delete = true;
 		}

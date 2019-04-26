@@ -147,7 +147,7 @@ void CHero::Action()
 		is_delete = true;
 		m_p_hit_box->SetDelete(true);
 		g_SceneChange = GAMEOVER;
-		is_delete = true;
+		Audio::StartMusic(2);
 	}
 
 	//ìñÇΩÇËîªíËÇÃà íuçXêV
@@ -156,6 +156,22 @@ void CHero::Action()
 
 void CHero::Draw()
 {
-	Draw::Draw2D(0, m_x, m_y);
+	//Draw::Draw2D(0, m_x, m_y);
 	//Draw::Draw2D(20, m_x + 200.0f, m_y);
+
+	switch (heart_num)
+	{
+		case 5:
+		case 4:
+			Draw::Draw2D(0, m_x, m_y);
+			break;
+		case 3:
+		case 2:
+			Draw::Draw2D(12, m_x, m_y);
+			break;
+		case 1:
+			Draw::Draw2D(13, m_x, m_y);
+			break;
+	}
+
 }
