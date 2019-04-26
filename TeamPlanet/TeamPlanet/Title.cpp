@@ -66,6 +66,6 @@ void CTitle::Draw()
 	}
 	else
 	{
-		Draw::Draw2D(14, m_x2, m_y2);
+		Draw::Draw2D(14, m_x2-70, m_y2);
 	}
 }
