@@ -37,6 +37,9 @@
     <Filter Include="ソース ファイル\EnemyData">
       <UniqueIdentifier>{ca3b7fff-0681-4ace-9a6b-463a850b556e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Title">
+      <UniqueIdentifier>{1966f628-c161-44c4-b70d-553d7a256267}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Audio.cpp">
@@ -90,6 +93,9 @@
     <ClCompile Include="EnemyData.cpp">
       <Filter>ソース ファイル\EnemyData</Filter>
     </ClCompile>
+    <ClCompile Include="Title.cpp">
+      <Filter>ソース ファイル\Title</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Audio.h">
@@ -139,6 +145,9 @@
     </ClInclude>
     <ClInclude Include="EnemyData.h">
       <Filter>ソース ファイル\EnemyData</Filter>
+    </ClInclude>
+    <ClInclude Include="Title.h">
+      <Filter>ソース ファイル\Title</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
