@@ -70,7 +70,7 @@ unsigned __stdcall TextureLoadSled(void *p)
 	//イメージ読み込み
 	//主人公
 	Draw::LoadImage(0, L"image\\Space ship.png");
-	Draw::LoadImage(1, L"image\\bullet.png");
+	Draw::LoadImage(1, L"image\\bullet1.png");
 	Draw::LoadImage(12, L"image\\Space ship 1.png");
 	Draw::LoadImage(13, L"image\\Space ship 2.png");
 	Draw::LoadImage(14, L"image\\Space ship fire.png");
@@ -131,6 +131,7 @@ unsigned __stdcall MusicLoadSled(void *p)
 	Audio::LoadBackMusic(7, "moon.ogg");
 	Audio::LoadBackMusic(8, "Title.ogg");
 	Audio::LoadSEMusic(9, "Fire.ogg");
+
 
 	//Audio::StartLoopMusic();//バックミュージックスタート
 	_endthreadex(0);	//スレッド終了
