@@ -29,6 +29,7 @@
 #include "Background.h"
 #include "Select.h"
 #include "Heart.h"
+#include "Time.h"
 #include "Title.h"
 #include "GameOver.h"
 #include "GameClear.h"
@@ -174,6 +175,7 @@ unsigned __stdcall GameMainSled(void *p)
 		CHeart* heart;
 		CGameOver* gameover;
 		CGameClear* gameclear;
+		CTime* time;
 
 		switch (g_SceneChange)
 		{
@@ -198,7 +200,8 @@ unsigned __stdcall GameMainSled(void *p)
 			break;
 
 		case GAME: //ステージ1初期化
-			
+			heart_num = 5;
+
 			//オーディオ、、、だってわからんと思ったんやもん
 			Audio::StartLoopMusic(7);
 			Audio::LoopMusicVolume(7, 0.03f);
@@ -222,6 +225,10 @@ unsigned __stdcall GameMainSled(void *p)
 			heart = new CHeart();
 			heart->m_priority = 90;
 			TaskSystem::InsertObj(heart);//ハート
+
+			time = new CTime();
+			time->m_priority = 90;
+			TaskSystem::InsertObj(time);
 			
 			background = new CBackground();
 			background->m_priority = 80;
