@@ -135,6 +135,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Select.cpp" />
     <ClCompile Include="TaskSystem.cpp" />
+    <ClCompile Include="Time.cpp" />
     <ClCompile Include="Title.cpp" />
     <ClCompile Include="WindowCreate.cpp" />
   </ItemGroup>
@@ -156,6 +157,7 @@
     <ClInclude Include="Input.h" />
     <ClInclude Include="Select.h" />
     <ClInclude Include="TaskSystem.h" />
+    <ClInclude Include="Time.h" />
     <ClInclude Include="Title.h" />
     <ClInclude Include="WindowCreate.h" />
   </ItemGroup>
