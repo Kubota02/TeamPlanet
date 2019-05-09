@@ -41,14 +41,18 @@ void CGameOver::Action()
 	{
 		g_key_flag = true;
 	}
-	//Audio::StartLoopMusic(10);//バックミュージックスタート
-	//Audio::LoopMusicVolume(10, 0.03f);
-}
+
+	if (m_ani_time >= 100)
+	{
+		Audio::StartLoopMusic(10);//バックミュージックスタート
+		Audio::LoopMusicVolume(10, 0.03f);
+	}
 
 	if (m_ani_time >= 200)
 	{
 		if (Input::KeyPush(VK_RETURN))
 		{
+			Audio::StopLoopMusic(10);
 			g_SceneChange = STAGESELECT;
 			is_delete = true;
 		}
