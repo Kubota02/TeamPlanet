@@ -138,7 +138,8 @@ unsigned __stdcall MusicLoadSled(void *p)
 	Audio::LoadBackMusic(7, "moon.ogg");
 	Audio::LoadBackMusic(8, "Title.ogg");
 	Audio::LoadSEMusic(9, "Fire.ogg");
-
+	//Audio::LoadBackMusic(10, "gameover.ogg");
+	
 
 	//Audio::StartLoopMusic();//バックミュージックスタート
 	_endthreadex(0);	//スレッド終了

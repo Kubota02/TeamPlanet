@@ -21,7 +21,8 @@ CGameOver::~CGameOver()
 
 void CGameOver::Action()
 {
-	
+	//Audio::StartLoopMusic(10);//バックミュージックスタート
+	//Audio::LoopMusicVolume(10, 0.03f);
 }
 
 void CGameOver::Draw()
