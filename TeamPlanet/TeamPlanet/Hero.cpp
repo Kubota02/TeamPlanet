@@ -9,6 +9,7 @@
 extern int g_SceneChange;
 extern bool g_key_flag;
 extern int heart_num;
+int h_hp = 100;	//体力
 
 CHero::CHero()
 {
@@ -24,7 +25,7 @@ CHero::CHero()
 	m_f = true;
 
 	//体力
-	m_hp = 100;
+	h_hp = 100;
 
 	//ヒットボックス作成()
 	m_p_hit_box = Collision::HitBoxInsert(this);
@@ -133,7 +134,7 @@ void CHero::Action()
 			continue;
 		if (m_p_hit_box->GetHitData()[i]->GetElement() != HERO)
 		{
-			m_hp += -20;
+			h_hp += -20;
 
 			//ハート減らす
 			if (heart_num > 0)
@@ -142,12 +143,13 @@ void CHero::Action()
 	  }
 
 	//体力が無くなった時の削除処理
-	if (m_hp <= 0)
+	if (h_hp <= 0)
 	{
 		is_delete = true;
 		m_p_hit_box->SetDelete(true);
-		g_SceneChange = GAMEOVER;
+		Audio::StopLoopMusic(7);
 		Audio::StartMusic(2);
+		g_SceneChange = GAMEOVER;
 	}
 
 	//当たり判定の位置更新

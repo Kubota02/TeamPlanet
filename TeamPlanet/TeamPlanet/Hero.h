@@ -23,7 +23,6 @@ private:
 	float m_vy;
 
 	bool m_f;   //’eŠÛ”­Ë§Œä—p
-	int m_hp;	//‘Ì—Í
 
 	HitBox* m_p_hit_box;//“–‚½‚è”»’è
 };
