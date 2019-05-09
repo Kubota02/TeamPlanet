@@ -69,6 +69,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);	//
 unsigned __stdcall TextureLoadSled(void *p)
 {
 	//イメージ読み込み
+	//32,33は0,1に競合するので使用しないで
 	//主人公
 	Draw::LoadImage(0, L"image\\Space ship.png");
 	Draw::LoadImage(1, L"image\\bullet1.png");
@@ -79,9 +80,9 @@ unsigned __stdcall TextureLoadSled(void *p)
 	Draw::LoadImage(29, L"image\\defense.png");
 	Draw::LoadImage(30, L"image\\speed.png");
 	Draw::LoadImage(31, L"image\\meter.png");
-	Draw::LoadImage(32, L"image\\moon meter.png");
-	Draw::LoadImage(33, L"image\\saturn meter.png");
-	Draw::LoadImage(34, L"image\\Uranus meter.png");
+	Draw::LoadImage(34, L"image\\moon meter.png");
+	Draw::LoadImage(35, L"image\\saturn meter.png");
+	Draw::LoadImage(36, L"image\\Uranus meter.png");
 
 	//敵
 	Draw::LoadImage(2, L"image\\dust.png");

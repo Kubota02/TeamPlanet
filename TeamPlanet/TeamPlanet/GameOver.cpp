@@ -6,12 +6,15 @@
 
 extern int g_SceneChange;
 extern bool g_key_flag;
+extern int h_hp;
 
 CGameOver::CGameOver()
 {
 	//”wŒi‚Ì‰ŠúˆÊ’u
 	m_x = 0.0f;
 	m_y = 0.0f;
+
+	m_ani_time = 0;
 }
 
 CGameOver::~CGameOver()
@@ -21,11 +24,39 @@ CGameOver::~CGameOver()
 
 void CGameOver::Action()
 {
-	
+	if (m_ani_time != 0)
+	{
+		m_ani_time++;
+	}
+
+	if (h_hp == 0)
+	{
+		if (g_key_flag)
+		{
+			m_ani_time++;
+			g_key_flag = false;
+		}
+	}
+	else
+	{
+		g_key_flag = true;
+	}
+
+	if (m_ani_time >= 200)
+	{
+		if (Input::KeyPush(VK_RETURN))
+		{
+			g_SceneChange = STAGESELECT;
+			is_delete = true;
+		}
+	}
 }
 
 void CGameOver::Draw()
 {
-	//•`‰æ
-	Draw::Draw2D(28, m_x, m_y);
+	if (m_ani_time >= 100)
+	{
+		//•`‰æ
+		Draw::Draw2D(28, m_x, m_y);
+	}
 }
