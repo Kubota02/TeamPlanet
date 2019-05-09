@@ -75,7 +75,7 @@ void CCherClass::CreateCharTex(wchar_t c, HDC hdc, TEXTMETRIC TM)
 	//フォント情報の書き込み
 	int iOfs_x = GM.gmptGlyphOrigin.x;
 	int iOfs_y = TM.tmAscent - GM.gmptGlyphOrigin.y;	//iOfs_x,iOfs_y : 書き出し位置(左上)
-	int iBmp_w = GM.gmBlackBoxX + (4 - (GM.gmBlackBoxX % 4));
+	int iBmp_w = GM.gmBlackBoxX + (4 - (GM.gmBlackBoxX % 4)) % 4;
 	int iBmp_h = GM.gmBlackBoxY;						//iBmp_w,iBmp_h : フォントビットマップの幅高
 	int Level = 17;										//Level : α値の段階(GGO_GRAY4_BITMAPなので17段階)
 	DWORD Alpha, Color;
