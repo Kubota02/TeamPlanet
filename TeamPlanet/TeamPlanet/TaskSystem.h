@@ -49,7 +49,6 @@ enum
 	BULLET = 1,
 	ENEMY = 2,
 	ENEMYBULLET = 3,
-	HEART = 4,
 };
 
 //オブジェクトクラス
@@ -65,8 +64,6 @@ public:
 	virtual ~CObj() {};
 	virtual void Action() = 0;
 	virtual void Draw() = 0;
-
-	unsigned int GetName() { return m_name; };
 
 	unsigned int m_name;//オブジェクトの名前
 
