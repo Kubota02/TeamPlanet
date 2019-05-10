@@ -70,9 +70,11 @@ unsigned __stdcall TextureLoadSled(void *p)
 {
 	//イメージ読み込み
 	//32,33は0,1に競合するので使用しないで
+	//現在＜40＞
 	//主人公
 	Draw::LoadImage(0, L"image\\Space ship.png");
 	Draw::LoadImage(1, L"image\\bullet1.png");
+	Draw::LoadImage(41, L"image\\bullet2.png");
 	Draw::LoadImage(12, L"image\\Space ship 1.png");
 	Draw::LoadImage(13, L"image\\Space ship 2.png");
 	Draw::LoadImage(14, L"image\\Space ship fire.png");
@@ -94,6 +96,12 @@ unsigned __stdcall TextureLoadSled(void *p)
 	Draw::LoadImage(18, L"image\\antenna.png");
 	Draw::LoadImage(19, L"image\\meteorite2.png");
 	Draw::LoadImage(20, L"image\\bulletE.png");
+
+	//アイテム
+	Draw::LoadImage(37, L"image\\defence.png");
+	Draw::LoadImage(38, L"image\\lifeup.png");
+	Draw::LoadImage(39, L"image\\speed.png");
+	Draw::LoadImage(40, L"image\\time.png");
 
 	//爆発エフェクト
 	Draw::LoadImage(21, L"image\\boom1.png");
