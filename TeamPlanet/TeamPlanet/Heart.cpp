@@ -10,7 +10,7 @@ extern int heart_num;
 //コンストラクタ
 CHeart::CHeart()
 {
-	m_name = HEART;
+	
 }
 
 //デストラクタ

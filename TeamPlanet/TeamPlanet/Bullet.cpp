@@ -26,7 +26,7 @@ CBullet::CBullet(float x,float y)
 
 	//作成したヒットボックスの値を設定
 	m_p_hit_box->SetPos(m_x, m_y);
-	m_p_hit_box->SetWH(50.0f, 30.0f);
+	m_p_hit_box->SetWH(60.0f, 35.0f);
 	m_p_hit_box->SetElement(BULLET);   //属性設定
 	m_p_hit_box->SetInvisible(false);  //無敵モード無効
 }
