@@ -49,6 +49,9 @@
     <Filter Include="ソース ファイル\Time">
       <UniqueIdentifier>{8da3bc27-af54-482f-a6a6-9415701dea2c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Gauge">
+      <UniqueIdentifier>{6f57e89a-8b69-415b-aa12-e99c2bf4471b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Audio.cpp">
@@ -114,6 +117,9 @@
     <ClCompile Include="Time.cpp">
       <Filter>ソース ファイル\Time</Filter>
     </ClCompile>
+    <ClCompile Include="Gauge.cpp">
+      <Filter>ソース ファイル\Gauge</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Audio.h">
@@ -175,6 +181,9 @@
     </ClInclude>
     <ClInclude Include="Time.h">
       <Filter>ソース ファイル\Time</Filter>
+    </ClInclude>
+    <ClInclude Include="Gauge.h">
+      <Filter>ソース ファイル\Gauge</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

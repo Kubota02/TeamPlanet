@@ -11,6 +11,9 @@ extern int heart_num;
 //コンストラクタ
 CTime::CTime()
 {
+	m_x = 400.0f;
+	m_y = 20.0f;
+
 	//制限時間の初期化
 	m_time = 3600;
 
@@ -51,13 +54,13 @@ void CTime::Draw()
 
 	if (second < 10)
 	{
-		swprintf_s(str, L"残り0%d秒", second);
+		swprintf_s(str, L"0%d", second);
 	}
 	else
 	{
-		swprintf_s(str, L"残り%d秒", second);
+		swprintf_s(str, L"%d", second);
 	}
-
+	Draw::Draw2D(39, m_x-14, m_y-20);
 	//フォント描画
-	Font::StrDraw(str, 650.0f, 20.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f);
+	Font::StrDraw(str, m_x, m_y+13, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f);
 }

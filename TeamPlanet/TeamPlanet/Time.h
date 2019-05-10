@@ -17,6 +17,8 @@ class CTime : public CObj
 
 		int GetTime() { return m_time; }
 	private:
+		float m_x;      //ˆÊ’uX
+		float m_y;      //ˆÊ’uY
 		int m_time;      //ŽžŠÔ
 		wchar_t str[128];//•¶Žš—ñ‰»—p
 };
