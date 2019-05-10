@@ -33,6 +33,7 @@
 #include "Title.h"
 #include "GameOver.h"
 #include "GameClear.h"
+#include "Gauge.h"
 
 //削除されていないメモリを出力にダンプする---
 #include <crtdbg.h>
@@ -84,6 +85,7 @@ unsigned __stdcall TextureLoadSled(void *p)
 	Draw::LoadImage(34, L"image\\moon meter.png");
 	Draw::LoadImage(35, L"image\\saturn meter.png");
 	Draw::LoadImage(36, L"image\\Uranus meter.png");
+	Draw::LoadImage(39, L"image\\stopwatch.png");
 
 	//敵
 	Draw::LoadImage(2, L"image\\dust.png");
@@ -190,6 +192,7 @@ unsigned __stdcall GameMainSled(void *p)
 		CGameOver* gameover;
 		CGameClear* gameclear;
 		CTime* time;
+		CGauge* gauge;
 
 		switch (g_SceneChange)
 		{
@@ -243,6 +246,10 @@ unsigned __stdcall GameMainSled(void *p)
 			time = new CTime();
 			time->m_priority = 90;
 			TaskSystem::InsertObj(time);
+
+			gauge = new CGauge();
+			gauge->m_priority = 90;
+			TaskSystem::InsertObj(gauge);//ゲージ
 			
 			background = new CBackground();
 			background->m_priority = 80;
