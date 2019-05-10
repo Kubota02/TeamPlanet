@@ -75,7 +75,7 @@ unique_ptr<wchar_t> EnemyData::ExternalDataOpen(wchar_t* file_name, int* size)
 	memset(buf, 0, sizeof(buf));
 	_wfopen_s(&fp,file_name, L"r");
 
-	//while (fgetc(fp) != '\n'); //ƒwƒbƒ_“Ç‚Ý”ò‚Î‚µ
+	while (fgetc(fp) != '\n'); //ƒwƒbƒ_“Ç‚Ý”ò‚Î‚µ
 	//while (fgetc(fp) != '\n' && !feof(fp));
 
 	while (1)

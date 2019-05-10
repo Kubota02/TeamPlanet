@@ -1,19 +1,25 @@
 #pragma once
-
-//使用ヘッダー
+//使用するヘッダ
 #include "Draw2DPolygon.h"
+#include "Input.h"
 #include "Audio.h"
 #include "TaskSystem.h"
+#include "Collision.h"
 
-//Defenseクラス
+#include "Hero.h"
+
+//シールドアイテムクラス
 class CDefense : public CObj
 {
-	public:
-		CDefense(float x,float y);     //コンストラクタ
-		~CDefense();                   //デストラクタ
-		void Action();                 //アクション
-		void Draw();                   //ドロー
-	private:
-		float m_x;                     //位置X
-		float m_y;                     //位置Y
+public:
+	CDefense(int x, int y);
+	~CDefense();
+	void Action();
+	void Draw();
+private:
+	int m_x;		//位置
+	int m_y;
+	int m_vx;		//移動ベクトル
+
+	HitBox* m_p_hit_box;//当たり判定
 };

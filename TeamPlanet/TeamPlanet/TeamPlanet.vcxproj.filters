@@ -52,6 +52,9 @@
     <Filter Include="ソース ファイル\Gauge">
       <UniqueIdentifier>{6f57e89a-8b69-415b-aa12-e99c2bf4471b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Defense">
+      <UniqueIdentifier>{d7a87074-5825-4455-82a9-762cef53cfff}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Audio.cpp">
@@ -120,6 +123,9 @@
     <ClCompile Include="Gauge.cpp">
       <Filter>ソース ファイル\Gauge</Filter>
     </ClCompile>
+    <ClCompile Include="Defense.cpp">
+      <Filter>ソース ファイル\Defense</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Audio.h">
@@ -184,6 +190,9 @@
     </ClInclude>
     <ClInclude Include="Gauge.h">
       <Filter>ソース ファイル\Gauge</Filter>
+    </ClInclude>
+    <ClInclude Include="Defense.h">
+      <Filter>ソース ファイル\Defense</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

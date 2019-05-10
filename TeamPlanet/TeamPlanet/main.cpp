@@ -79,8 +79,6 @@ unsigned __stdcall TextureLoadSled(void *p)
 	Draw::LoadImage(13, L"image\\Space ship 2.png");
 	Draw::LoadImage(14, L"image\\Space ship fire.png");
 	Draw::LoadImage(15, L"image\\life.png");
-	Draw::LoadImage(29, L"image\\defense.png");
-	Draw::LoadImage(30, L"image\\speed.png");
 	Draw::LoadImage(31, L"image\\meter.png");
 	Draw::LoadImage(34, L"image\\moon meter.png");
 	Draw::LoadImage(35, L"image\\saturn meter.png");
@@ -99,7 +97,8 @@ unsigned __stdcall TextureLoadSled(void *p)
 	Draw::LoadImage(20, L"image\\bulletE.png");
 
 	//ƒAƒCƒeƒ€
-	Draw::LoadImage(37, L"image\\defence.png");
+	Draw::LoadImage(29, L"image\\defense.png");
+	Draw::LoadImage(30, L"image\\speed.png");
 	Draw::LoadImage(38, L"image\\lifeup.png");
 	//Draw::LoadImage(39, L"image\\time.png");
 

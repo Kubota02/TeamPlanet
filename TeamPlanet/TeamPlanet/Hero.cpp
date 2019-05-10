@@ -27,6 +27,12 @@ CHero::CHero()
 	//体力
 	h_hp = 100;
 
+	//効果時間用
+	d_time = 0;
+
+	//アイテム効果の制御用
+	defense_flag = false;
+
 	//ヒットボックス作成()
 	m_p_hit_box = Collision::HitBoxInsert(this);
 
@@ -44,6 +50,15 @@ CHero::~CHero()
 
 void CHero::Action()
 {
+	//初期化
+	m_vx = 0.0f;
+	m_vy = 0.0f;
+
+	if (d_time != 0)
+	{
+		d_time++;
+	}
+
 	//弾丸発射
 	if (Input::KeyPush(VK_SPACE))
 	{
@@ -63,10 +78,7 @@ void CHero::Action()
 		m_f = true;
 	}
 
-	//初期化
-	m_vx = 0.0f;
-	m_vy = 0.0f;
-
+	
 	//右
 	if (Input::KeyPush(VK_RIGHT))
 	{
@@ -105,10 +117,6 @@ void CHero::Action()
 		m_vy = 3.0f / r * m_vy;
 	}
 
-	//移動方向に位置を加える
-	m_x += m_vx;
-	m_y += m_vy;
-
 	//領域外に出ない処理
 	if (m_x < 0.0f)
 	{
@@ -132,13 +140,18 @@ void CHero::Action()
 	{
 		if (m_p_hit_box->GetHitData()[i] == nullptr)
 			continue;
-		if (m_p_hit_box->GetHitData()[i]->GetElement() != HERO)
+		if (m_p_hit_box->GetHitData()[i]->GetElement() == ENEMY)
 		{
 			h_hp += -20;
 
 			//ハート減らす
 			if (heart_num > 0)
 				heart_num += -1;
+		}
+		if (m_p_hit_box->GetHitData()[i]->GetElement() == DEFENSE)
+		{
+			defense_flag = true;
+			d_time++;
 		}
 	  }
 
@@ -151,6 +164,27 @@ void CHero::Action()
 		Audio::StartMusic(2);
 		g_SceneChange = GAMEOVER;
 	}
+
+	//シールド
+	if (defense_flag)
+	{
+		m_p_hit_box->SetInvisible(true);
+		defense_flag = true;
+		if (d_time == 180)
+		{
+			m_p_hit_box->SetInvisible(false);
+			defense_flag = false;
+		}
+	}
+	else
+	{
+		m_p_hit_box->SetInvisible(false);
+		defense_flag = false;
+	}
+
+	//移動方向に位置を加える
+	m_x += m_vx;
+	m_y += m_vy;
 
 	//当たり判定の位置更新
 	m_p_hit_box->SetPos(m_x, m_y);

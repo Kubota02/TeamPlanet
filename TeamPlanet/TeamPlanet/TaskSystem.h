@@ -49,6 +49,8 @@ enum
 	BULLET = 1,
 	ENEMY = 2,
 	ENEMYBULLET = 3,
+	DEFENSE = 4,
+	LIFEUP = 5,
 };
 
 //オブジェクトクラス

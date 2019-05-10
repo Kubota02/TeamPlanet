@@ -5,6 +5,7 @@
 #include "Collision.h"
 
 #include "EnemyData.h"
+#include "Defense.h"
 
 //oƒNƒ‰ƒX
 class CEnemy :public CObj

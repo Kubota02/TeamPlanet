@@ -106,6 +106,19 @@ void CEnemy::Action()
 		is_delete = true;
 		m_p_hit_box->SetDelete(true);
 		Audio::StartMusic(3);
+
+		for (int i = 0; i < 10; i++)
+		{
+			if (m_p_hit_box->GetHitData()[i] == nullptr)
+				continue;
+			if (item == 1 && m_p_hit_box->GetHitData()[i]->GetElement() == BULLET)
+			{
+				//シールドアイテムオブジェクト作成
+				CDefense* d = new CDefense(x, y);
+				d->m_priority = 90;
+				TaskSystem::InsertObj(d);
+			}
+		}
 	}
 
 	//当たり判定の位置更新
