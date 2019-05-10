@@ -92,14 +92,3 @@ void CTaskSystem::ListDraw()
 		ip->get()->Draw();
 	}
 }
-
-CObj* CTaskSystem::GetObj(unsigned int n)
-{
-	for (auto itr = m_task_list->begin(); itr != m_task_list->end(); itr++)
-	{
-		if ((*itr)->GetName() == n)
-			return (*itr).get();
-	}
-
-	return NULL;
-}
