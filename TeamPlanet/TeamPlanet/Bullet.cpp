@@ -15,6 +15,9 @@ CBullet::CBullet(float x,float y)
 	m_x = x;
 	m_y = y;
 
+	//アニメーションタイム
+	m_ani_time = 0;
+
 	//弾丸の移動ベクトル初期化
 	m_vx = 0.0f;
 
@@ -88,5 +91,21 @@ void CBullet::Action()
 //ドロー
 void CBullet::Draw()
 {
-	Draw::Draw2D(1, m_x, m_y);
+	//アニメーション
+	m_ani_time++;
+
+	if (m_ani_time == 12)
+	{
+		m_ani_time = 0;
+	}
+
+	//Draw::Draw2D(1, m_x, m_y);
+	if (m_ani_time <= 6)
+	{
+		Draw::Draw2D(1, m_x, m_y);
+	}
+	if (m_ani_time > 6 && m_ani_time <= 12)
+	{
+		Draw::Draw2D(30, m_x, m_y);
+	}
 }

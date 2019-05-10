@@ -21,5 +21,7 @@ class CBullet : public CObj
 
 		int m_damage;                 //弾丸のダメージ量
 
+		int m_ani_time;               //アニメーションタイム
+
 		HitBox* m_p_hit_box;          //当たり判定
 };

@@ -74,13 +74,13 @@ unsigned __stdcall TextureLoadSled(void *p)
 	//主人公
 	Draw::LoadImage(0, L"image\\Space ship.png");
 	Draw::LoadImage(1, L"image\\bullet1.png");
-	Draw::LoadImage(41, L"image\\bullet2.png");
+	Draw::LoadImage(30, L"image\\bullet2.png");
 	Draw::LoadImage(12, L"image\\Space ship 1.png");
 	Draw::LoadImage(13, L"image\\Space ship 2.png");
 	Draw::LoadImage(14, L"image\\Space ship fire.png");
 	Draw::LoadImage(15, L"image\\life.png");
 	Draw::LoadImage(29, L"image\\defense.png");
-	Draw::LoadImage(30, L"image\\speed.png");
+	//Draw::LoadImage(30, L"image\\speed.png");
 	Draw::LoadImage(31, L"image\\meter.png");
 	Draw::LoadImage(34, L"image\\moon meter.png");
 	Draw::LoadImage(35, L"image\\saturn meter.png");
@@ -100,8 +100,7 @@ unsigned __stdcall TextureLoadSled(void *p)
 	//アイテム
 	Draw::LoadImage(37, L"image\\defence.png");
 	Draw::LoadImage(38, L"image\\lifeup.png");
-	Draw::LoadImage(39, L"image\\speed.png");
-	Draw::LoadImage(40, L"image\\time.png");
+	//Draw::LoadImage(39, L"image\\time.png");
 
 	//爆発エフェクト
 	Draw::LoadImage(21, L"image\\boom1.png");
