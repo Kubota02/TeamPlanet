@@ -106,6 +106,6 @@ void CBullet::Draw()
 	}
 	if (m_ani_time > 6 && m_ani_time <= 12)
 	{
-		Draw::Draw2D(30, m_x, m_y);
+		Draw::Draw2D(32, m_x, m_y);
 	}
 }

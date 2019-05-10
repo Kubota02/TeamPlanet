@@ -13,9 +13,9 @@ ID3D11Buffer*		Draw::m_pIndexBuffer;		//インデックスバッファ
 
 //テクスチャに必要なモノ
 ID3D11SamplerState*		  Draw::m_pSampleLinear;//テクスチャ―サンプラー
-ID3D11ShaderResourceView* Draw::m_pTexture[32]; //テクスチャリソース
-float Draw::m_width[32];	//テクスチャの横幅
-float Draw::m_height[32];	//テクスチャの縦幅
+ID3D11ShaderResourceView* Draw::m_pTexture[50]; //テクスチャリソース
+float Draw::m_width[100];	//テクスチャの横幅
+float Draw::m_height[100];	//テクスチャの縦幅
 
 //イメージ情報読み込み
 void CDraw2DPolygon::LoadImage(int id, wchar_t*img_name)
