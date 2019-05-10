@@ -10,8 +10,8 @@ extern int g_SceneChange;
 //コンストラクタ
 CGauge::CGauge()
 {
-	m_x = 450.0f;
-	m_y = 15.0f;
+	m_x = 480.0f;
+	m_y = 20.0f;
 }
 
 //デストラクタ
@@ -29,5 +29,6 @@ void CGauge::Action()
 //ドロー
 void CGauge::Draw()
 {
-	Draw::Draw2D(34, m_x, m_y);
+	Draw::Draw2D(34, m_x, m_y);//ゲージ
+	Draw::Draw2D(31, m_x, m_y);//メーター
 }
