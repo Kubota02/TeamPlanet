@@ -19,6 +19,7 @@ class CTime : public CObj
 	private:
 		float m_x;      //ˆÊ’uX
 		float m_y;      //ˆÊ’uY
-		int m_time;      //ŽžŠÔ
+		int m_time;     //ŽžŠÔ
+		int second;     //•b
 		wchar_t str[128];//•¶Žš—ñ‰»—p
 };

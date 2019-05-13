@@ -49,7 +49,6 @@ void CTime::Action()
 //ドロー
 void CTime::Draw()
 {
-	int second;//秒
 	second = (m_time / 60) % 60;//60フレームで一秒
 
 	if (second < 10)

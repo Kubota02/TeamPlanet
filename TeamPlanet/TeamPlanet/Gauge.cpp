@@ -6,6 +6,7 @@
 #include "Gauge.h"
 
 extern int g_SceneChange;
+extern int heart_num;
 
 //コンストラクタ
 CGauge::CGauge()
@@ -23,7 +24,10 @@ CGauge::~CGauge()
 //アクション
 void CGauge::Action()
 {
-
+	if (heart_num <= 0)
+	{
+		is_delete = true;
+	}
 }
 
 //ドロー

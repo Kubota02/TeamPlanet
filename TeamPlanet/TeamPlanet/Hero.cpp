@@ -33,6 +33,12 @@ CHero::CHero()
 	//アイテム効果の制御用
 	defense_flag = false;
 
+	//タイムアイテムの制御用
+	time_flag = false;
+
+	//ハートアイテムの制御用
+	heart_flag = false;
+
 	//ヒットボックス作成()
 	m_p_hit_box = Collision::HitBoxInsert(this);
 
@@ -180,6 +186,29 @@ void CHero::Action()
 	{
 		m_p_hit_box->SetInvisible(false);
 		defense_flag = false;
+	}
+
+	//タイムアイテム効果
+	if (time_flag == true)
+	{
+
+	}
+	else
+	{
+
+	}
+
+	//ハートアイテム効果
+	if (heart_flag == true)
+	{
+		if (heart_num == 5)
+			;
+		else if (1)//とりあえず放置ｈｅａｒｔ
+			heart_num += 1;
+	}
+	else
+	{
+		heart_flag = false;
 	}
 
 	//移動方向に位置を加える
