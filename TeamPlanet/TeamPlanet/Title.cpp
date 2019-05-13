@@ -42,7 +42,7 @@ void CTitle::Action()
 	if (Input::KeyPush(VK_RETURN))
 	{
 		Audio::StartMusic(9);
-		Audio::SEMusicVolume(9, 0.3f);
+		Audio::SEMusicVolume(9, 0.2f);
 
 		if (g_key_flag)
 		{
