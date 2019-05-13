@@ -16,6 +16,8 @@ class CTime : public CObj
 		void Draw();    //ドロー
 
 		int GetTime() { return m_time; }
+		void TimeUp();
+
 	private:
 		float m_x;      //位置X
 		float m_y;      //位置Y

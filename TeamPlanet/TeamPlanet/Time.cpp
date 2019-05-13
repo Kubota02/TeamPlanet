@@ -11,6 +11,8 @@ extern int heart_num;
 //コンストラクタ
 CTime::CTime()
 {
+	m_name = TIME;
+
 	m_x = 400.0f;
 	m_y = 20.0f;
 
@@ -62,4 +64,9 @@ void CTime::Draw()
 	Draw::Draw2D(39, m_x-14, m_y-20);
 	//フォント描画
 	Font::StrDraw(str, m_x, m_y+13, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f);
+}
+
+void CTime::TimeUp()
+{
+	
 }
