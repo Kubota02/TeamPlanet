@@ -100,7 +100,7 @@ unsigned __stdcall TextureLoadSled(void *p)
 	Draw::LoadImage(29, L"image\\defense.png");
 	Draw::LoadImage(30, L"image\\speed.png");
 	Draw::LoadImage(38, L"image\\lifeup.png");
-	//Draw::LoadImage(39, L"image\\time.png");
+	Draw::LoadImage(40, L"image\\time.png");
 
 	//爆発エフェクト
 	Draw::LoadImage(21, L"image\\boom1.png");
@@ -244,7 +244,7 @@ unsigned __stdcall GameMainSled(void *p)
 
 			time = new CTime();
 			time->m_priority = 90;
-			TaskSystem::InsertObj(time);
+			TaskSystem::InsertObj(time);//タイム
 
 			gauge = new CGauge();
 			gauge->m_priority = 90;

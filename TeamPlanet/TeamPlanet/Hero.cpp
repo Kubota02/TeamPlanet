@@ -5,6 +5,7 @@
 #include "Hero.h"
 #include "Bullet.h"
 #include "Audio.h"
+#include "Time.h"
 
 extern int g_SceneChange;
 extern bool g_key_flag;
@@ -159,6 +160,14 @@ void CHero::Action()
 			defense_flag = true;
 			d_time++;
 		}
+		if (m_p_hit_box->GetHitData()[i]->GetElement() == LIFEUP)
+		{
+			heart_flag = true;
+		}
+		if (m_p_hit_box->GetHitData()[i]->GetElement() == TIMEUP)
+		{
+			time_flag = true;
+		}
 	  }
 
 	//体力が無くなった時の削除処理
@@ -191,11 +200,7 @@ void CHero::Action()
 	//タイムアイテム効果
 	if (time_flag == true)
 	{
-
-	}
-	else
-	{
-
+		
 	}
 
 	//ハートアイテム効果
@@ -203,12 +208,11 @@ void CHero::Action()
 	{
 		if (heart_num == 5)
 			;
-		else if (1)//とりあえず放置ｈｅａｒｔ
+		else
+		{
 			heart_num += 1;
-	}
-	else
-	{
-		heart_flag = false;
+			heart_flag = false;
+		}
 	}
 
 	//移動方向に位置を加える

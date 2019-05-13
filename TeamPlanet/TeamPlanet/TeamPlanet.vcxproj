@@ -132,12 +132,14 @@
     <ClCompile Include="GameOver.cpp" />
     <ClCompile Include="Gauge.cpp" />
     <ClCompile Include="Heart.cpp" />
+    <ClCompile Include="Heartitem.cpp" />
     <ClCompile Include="Hero.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Select.cpp" />
     <ClCompile Include="TaskSystem.cpp" />
     <ClCompile Include="Time.cpp" />
+    <ClCompile Include="Timeitem.cpp" />
     <ClCompile Include="Title.cpp" />
     <ClCompile Include="WindowCreate.cpp" />
   </ItemGroup>
@@ -157,11 +159,13 @@
     <ClInclude Include="GameOver.h" />
     <ClInclude Include="Gauge.h" />
     <ClInclude Include="Heart.h" />
+    <ClInclude Include="Heartitem.h" />
     <ClInclude Include="Hero.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="Select.h" />
     <ClInclude Include="TaskSystem.h" />
     <ClInclude Include="Time.h" />
+    <ClInclude Include="Timeitem.h" />
     <ClInclude Include="Title.h" />
     <ClInclude Include="WindowCreate.h" />
   </ItemGroup>

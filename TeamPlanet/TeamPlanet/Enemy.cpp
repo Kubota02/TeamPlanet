@@ -118,6 +118,18 @@ void CEnemy::Action()
 				d->m_priority = 90;
 				TaskSystem::InsertObj(d);
 			}
+			else if (item == 2 && m_p_hit_box->GetHitData()[i]->GetElement() == BULLET)
+			{
+				////ハートアイテムオブジェクト作成
+				//CHeartitem* h = new CHeartitem(x, y);
+				//h->m_priority = 90;
+				//TaskSystem::InsertObj(h);
+
+				//タイムアイテムオブジェクト作成
+				CTimeitem* t = new CTimeitem(x, y);
+				t->m_priority = 90;
+				TaskSystem::InsertObj(t);
+			}
 		}
 	}
 

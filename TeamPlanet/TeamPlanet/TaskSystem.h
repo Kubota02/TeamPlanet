@@ -51,6 +51,7 @@ enum
 	ENEMYBULLET = 3,
 	DEFENSE = 4,
 	LIFEUP = 5,
+	TIMEUP = 6,
 };
 
 //オブジェクトクラス

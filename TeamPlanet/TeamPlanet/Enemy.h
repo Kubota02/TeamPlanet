@@ -6,6 +6,8 @@
 
 #include "EnemyData.h"
 #include "Defense.h"
+#include "Heartitem.h"
+#include "Timeitem.h"
 
 //oƒNƒ‰ƒX
 class CEnemy :public CObj
