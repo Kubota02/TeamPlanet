@@ -7,6 +7,7 @@
 
 extern int g_SceneChange;
 extern int heart_num;
+extern int total;
 
 //コンストラクタ
 CGauge::CGauge()
@@ -24,7 +25,14 @@ CGauge::~CGauge()
 //アクション
 void CGauge::Action()
 {
+	//ハートが無くなった時に自身を削除
 	if (heart_num <= 0)
+	{
+		is_delete = true;
+	}
+
+	//得点が目標得点に到達したら自身を削除
+	if (total >= 50)
 	{
 		is_delete = true;
 	}

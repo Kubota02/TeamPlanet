@@ -7,6 +7,7 @@
 
 extern int g_SceneChange;
 extern int heart_num;
+extern int total;
 
 //コンストラクタ
 CTime::CTime()
@@ -43,6 +44,12 @@ void CTime::Action()
 
 	//時間が無くなったら自身を削除
 	if (m_time == 0)
+	{
+		is_delete = true;
+	}
+
+	//得点が目標得点に到達したら自身を削除
+	if (total >= 50)
 	{
 		is_delete = true;
 	}

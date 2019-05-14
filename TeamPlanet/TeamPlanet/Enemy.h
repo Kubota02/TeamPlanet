@@ -14,7 +14,7 @@ class CEnemy :public CObj
 {
 public:
 	CEnemy(int enemy_type, int in_time, int x, int y, int enemy_speed, int hp, int w, int h,
-		int stop_time, int out_time, int shot_pattern, int shot_time, int shot_speed, int item);
+		int stop_time, int out_time, int shot_pattern, int shot_time, int shot_speed, int item, int point);
 	~CEnemy();
 	void Action();
 	void Draw();
@@ -36,6 +36,7 @@ private:
 	int shot_time;	//発射
 	int shot_speed;//弾のスピード
 	int item;		//アイテム
+	int point;		//得点
 
 	HitBox* m_p_hit_box;//当たり判定
 };

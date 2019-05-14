@@ -10,6 +10,7 @@
 extern int g_SceneChange;
 extern bool g_key_flag;
 extern int heart_num;
+extern int total;
 int h_hp = 100;	//体力
 
 CHero::CHero()
@@ -219,6 +220,13 @@ void CHero::Action()
 	//移動方向に位置を加える
 	m_x += m_vx;
 	m_y += m_vy;
+
+	//得点が目標得点に到達したら自身を削除
+	if (total >= 50)
+	{
+		is_delete = true;
+		m_p_hit_box->SetDelete(true);
+	}
 
 	//当たり判定の位置更新
 	m_p_hit_box->SetPos(m_x, m_y);
