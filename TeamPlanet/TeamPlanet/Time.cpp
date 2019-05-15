@@ -20,6 +20,8 @@ CTime::CTime()
 	//制限時間の初期化
 	m_time = 3600;
 
+	add_time = 3;
+
 	//フォント作成用
 	Font::CreateStrTex(L"0123456789");
 }
@@ -36,6 +38,8 @@ void CTime::Action()
 	//時間を減らしていく
 	m_time--;
 
+	//second = (m_time / 60) % 60;//60フレームで一秒
+
 	//ハートが無くなった時に自身を削除
 	if (heart_num == 0)
 	{
@@ -43,7 +47,7 @@ void CTime::Action()
 	}
 
 	//時間が無くなったら自身を削除
-	if (m_time == 0)
+	if (second == 0)
 	{
 		is_delete = true;
 	}
@@ -71,9 +75,4 @@ void CTime::Draw()
 	Draw::Draw2D(39, m_x-14, m_y-20);
 	//フォント描画
 	Font::StrDraw(str, m_x, m_y+13, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f);
-}
-
-void CTime::TimeUp()
-{
-	
 }

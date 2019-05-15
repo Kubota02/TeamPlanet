@@ -202,7 +202,7 @@ void CHero::Action()
 	if (time_flag == true)
 	{
 		CTime* time = (CTime*)TaskSystem::GetObj(TIME);
-		time->TimeUp();
+		
 	}
 
 	//ハートアイテム効果
