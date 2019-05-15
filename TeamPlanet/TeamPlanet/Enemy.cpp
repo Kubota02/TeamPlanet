@@ -56,10 +56,6 @@ CEnemy::CEnemy(int enemy_type, int in_time, int x, int y, int enemy_speed, int h
 	//初期移動方向
 	m_vx = -1.0f;
 
-	//Dustオブジェクトの各当たり判定の属性をバラバラにする
-	static int count = 0;
-	count++;
-
 	//ヒットボックス作成()
 	m_p_hit_box = Collision::HitBoxInsert(this);
 
@@ -102,6 +98,11 @@ void CEnemy::Action()
 		{
 			hp = 0;
 		}
+		//自分のHPが0かつ弾丸に当たった時
+		if (hp <= 0 && m_p_hit_box->GetHitData()[i]->GetElement() == BULLET)
+		{
+ 			total += point;
+		}
 	}
 
 	//HPが無くなった時の削除処理
@@ -109,11 +110,10 @@ void CEnemy::Action()
 	{
 		is_delete = true;
 		m_p_hit_box->SetDelete(true);
-		total += point;
 		Audio::StartMusic(3);
 
 		for (int i = 0; i < 10; i++)
-		{
+		{		
 			if (m_p_hit_box->GetHitData()[i] == nullptr)
 				continue;
 			if (item == 1 && m_p_hit_box->GetHitData()[i]->GetElement() == BULLET)
@@ -135,14 +135,13 @@ void CEnemy::Action()
 				t->m_priority = 90;
 				TaskSystem::InsertObj(t);
 			}
+			//得点が目標得点に到達したらゲームクリア
+ 			if (total >= 50)
+			{
+				g_SceneChange = GAMECLEAR;
+				is_delete = true;
+			}
 		}
-	}
-
-	//得点が目標得点に到達したらゲームクリア
-	if (total >= 50)
-	{
-		g_SceneChange = GAMECLEAR;
-		is_delete = true;
 	}
 
 	//当たり判定の位置更新
