@@ -46,4 +46,5 @@ struct ENEMYDATA
 	int shot_time;	//発射時間
 	int shot_speed;	//弾のスピード
 	int item;		//アイテム
+	int point;		//得点
 };

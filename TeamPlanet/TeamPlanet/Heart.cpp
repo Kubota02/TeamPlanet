@@ -6,6 +6,7 @@
 #include "Heart.h"
 
 extern int heart_num;
+extern int total;
 
 //コンストラクタ
 CHeart::CHeart()
@@ -22,7 +23,11 @@ CHeart::~CHeart()
 //アクション
 void CHeart::Action()
 {
-
+	//得点が目標得点に到達したら自身を削除
+	if (total >= 50)
+	{
+		is_delete = true;
+	}
 }
 
 //ドロー

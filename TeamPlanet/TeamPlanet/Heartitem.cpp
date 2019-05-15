@@ -3,17 +3,17 @@
 #define _HAS_ITERATOR_DEBUGGING (0)
 
 //使用ヘッダー
-#include "Defense.h"
-
-extern int total;
+#include "Heartitem.h"
 
 //コンストラクタ
-CDefense::CDefense(int x, int y)
+CHeartitem::CHeartitem(float x, float y)
 {
+	//位置の初期化
 	m_x = x;
 	m_y = y;
 
-	m_vx -= 3;
+	//移動ベクトルの初期化
+	m_vx = -3.0f;
 
 	//ヒットボックス作成
 	m_p_hit_box = Collision::HitBoxInsert(this);
@@ -21,19 +21,20 @@ CDefense::CDefense(int x, int y)
 	//作成したヒットボックスの値を設定
 	m_p_hit_box->SetPos(m_x, m_y);
 	m_p_hit_box->SetWH(70.0f, 70.0f);
-	m_p_hit_box->SetElement(DEFENSE);		//属性設定
-	m_p_hit_box->SetInvisible(false);	//無敵モード無効
+	m_p_hit_box->SetElement(LIFEUP);   //属性設定
+	m_p_hit_box->SetInvisible(false);  //無敵モード無効
 }
 
 //デストラクタ
-CDefense::~CDefense()
+CHeartitem::~CHeartitem()
 {
 
 }
 
 //アクション
-void CDefense::Action()
+void CHeartitem::Action()
 {
+	//移動
 	m_x += m_vx;
 
 	//領域外に出たらオブジェクト破棄
@@ -56,19 +57,12 @@ void CDefense::Action()
 		}
 	}
 
-	//得点が目標得点に到達したら自身を削除
-	if (total >= 50)
-	{
-		is_delete = true;
-		m_p_hit_box->SetDelete(true);
-	}
-
 	//当たり判定の位置更新
 	m_p_hit_box->SetPos(m_x, m_y);
 }
 
 //ドロー
-void CDefense::Draw()
+void CHeartitem::Draw()
 {
-	Draw::Draw2D(29, m_x, m_y);
+	Draw::Draw2D(38, m_x, m_y);
 }

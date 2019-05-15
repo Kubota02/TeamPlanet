@@ -7,9 +7,10 @@
 
 extern int g_SceneChange;
 extern bool g_key_flag;
+extern int total;
 
 CEnemy::CEnemy(int enemy_type, int in_time, int x, int y, int enemy_speed, int hp,
-	int w, int h,int stop_time, int out_time, int shot_pattern, int shot_time, int shot_speed, int item)
+	int w, int h, int stop_time, int out_time, int shot_pattern, int shot_time, int shot_speed, int item, int point)
 {
 	//敵の種類
 	this->enemy_type = enemy_type;
@@ -48,6 +49,9 @@ CEnemy::CEnemy(int enemy_type, int in_time, int x, int y, int enemy_speed, int h
 
 	//アイテム
 	this->item = item;
+
+	//得点
+	this->point = point;
 
 	//初期移動方向
 	m_vx = -1.0f;
@@ -105,6 +109,7 @@ void CEnemy::Action()
 	{
 		is_delete = true;
 		m_p_hit_box->SetDelete(true);
+		total += point;
 		Audio::StartMusic(3);
 
 		for (int i = 0; i < 10; i++)
@@ -118,7 +123,26 @@ void CEnemy::Action()
 				d->m_priority = 90;
 				TaskSystem::InsertObj(d);
 			}
+			else if (item == 2 && m_p_hit_box->GetHitData()[i]->GetElement() == BULLET)
+			{
+				////ハートアイテムオブジェクト作成
+				//CHeartitem* h = new CHeartitem(x, y);
+				//h->m_priority = 90;
+				//TaskSystem::InsertObj(h);
+
+				//タイムアイテムオブジェクト作成
+				CTimeitem* t = new CTimeitem(x, y);
+				t->m_priority = 90;
+				TaskSystem::InsertObj(t);
+			}
 		}
+	}
+
+	//得点が目標得点に到達したらゲームクリア
+	if (total >= 50)
+	{
+		g_SceneChange = GAMECLEAR;
+		is_delete = true;
 	}
 
 	//当たり判定の位置更新

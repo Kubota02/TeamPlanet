@@ -5,10 +5,12 @@
 #include "Hero.h"
 #include "Bullet.h"
 #include "Audio.h"
+#include "Time.h"
 
 extern int g_SceneChange;
 extern bool g_key_flag;
 extern int heart_num;
+extern int total;
 int h_hp = 100;	//体力
 
 CHero::CHero()
@@ -32,6 +34,12 @@ CHero::CHero()
 
 	//アイテム効果の制御用
 	defense_flag = false;
+
+	//タイムアイテムの制御用
+	time_flag = false;
+
+	//ハートアイテムの制御用
+	heart_flag = false;
 
 	//ヒットボックス作成()
 	m_p_hit_box = Collision::HitBoxInsert(this);
@@ -153,6 +161,14 @@ void CHero::Action()
 			defense_flag = true;
 			d_time++;
 		}
+		if (m_p_hit_box->GetHitData()[i]->GetElement() == LIFEUP)
+		{
+			heart_flag = true;
+		}
+		if (m_p_hit_box->GetHitData()[i]->GetElement() == TIMEUP)
+		{
+			time_flag = true;
+		}
 	  }
 
 	//体力が無くなった時の削除処理
@@ -182,9 +198,35 @@ void CHero::Action()
 		defense_flag = false;
 	}
 
+	//タイムアイテム効果
+	if (time_flag == true)
+	{
+		CTime* time = (CTime*)TaskSystem::GetObj(TIME);
+		time->TimeUp();
+	}
+
+	//ハートアイテム効果
+	if (heart_flag == true)
+	{
+		if (heart_num == 5)
+			;
+		else
+		{
+			heart_num += 1;
+			heart_flag = false;
+		}
+	}
+
 	//移動方向に位置を加える
 	m_x += m_vx;
 	m_y += m_vy;
+
+	//得点が目標得点に到達したら自身を削除
+	if (total >= 50)
+	{
+		is_delete = true;
+		m_p_hit_box->SetDelete(true);
+	}
 
 	//当たり判定の位置更新
 	m_p_hit_box->SetPos(m_x, m_y);

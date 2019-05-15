@@ -55,6 +55,12 @@
     <Filter Include="ソース ファイル\Defense">
       <UniqueIdentifier>{d7a87074-5825-4455-82a9-762cef53cfff}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Heartitem">
+      <UniqueIdentifier>{26ab9d28-f9c5-4459-81dc-ab20317f9593}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Timeitem">
+      <UniqueIdentifier>{ea1c11b2-ec2b-4a06-b4bc-86d06fb2a862}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Audio.cpp">
@@ -126,6 +132,12 @@
     <ClCompile Include="Defense.cpp">
       <Filter>ソース ファイル\Defense</Filter>
     </ClCompile>
+    <ClCompile Include="Heartitem.cpp">
+      <Filter>ソース ファイル\Heartitem</Filter>
+    </ClCompile>
+    <ClCompile Include="Timeitem.cpp">
+      <Filter>ソース ファイル\Timeitem</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Audio.h">
@@ -193,6 +205,12 @@
     </ClInclude>
     <ClInclude Include="Defense.h">
       <Filter>ソース ファイル\Defense</Filter>
+    </ClInclude>
+    <ClInclude Include="Heartitem.h">
+      <Filter>ソース ファイル\Heartitem</Filter>
+    </ClInclude>
+    <ClInclude Include="Timeitem.h">
+      <Filter>ソース ファイル\Timeitem</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

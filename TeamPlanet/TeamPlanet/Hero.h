@@ -26,6 +26,8 @@ private:
 
 	int d_time;//時間管理用
 	bool defense_flag;//シールドアイテムの制御用
+	bool time_flag;//タイムアイテムの制御用
+	bool heart_flag;//ハートアイテムの制御用
 
 	HitBox* m_p_hit_box;//当たり判定
 };

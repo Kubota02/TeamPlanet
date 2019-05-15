@@ -61,6 +61,7 @@ extern ENEMYDATA e_data[ENEMY_NUM];
 
 bool m_hit; //ハートに渡す用
 int heart_num = 5; //ハートの数
+int total;
 
 //プロトタイプ宣言
 LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);	//ウィンドウプロジーシャー
@@ -100,7 +101,7 @@ unsigned __stdcall TextureLoadSled(void *p)
 	Draw::LoadImage(29, L"image\\defense.png");
 	Draw::LoadImage(30, L"image\\speed.png");
 	Draw::LoadImage(38, L"image\\lifeup.png");
-	//Draw::LoadImage(39, L"image\\time.png");
+	Draw::LoadImage(40, L"image\\time.png");
 
 	//爆発エフェクト
 	Draw::LoadImage(21, L"image\\boom1.png");
@@ -217,6 +218,7 @@ unsigned __stdcall GameMainSled(void *p)
 
 		case GAME: //ステージ1初期化
 			heart_num = 5;
+			total = 0;
 
 			//オーディオ、、、だってわからんと思ったんやもん
 			Audio::StartLoopMusic(7);
@@ -232,7 +234,8 @@ unsigned __stdcall GameMainSled(void *p)
 			{
 				enemy = new CEnemy(e_data[i].enemy_type, e_data[i].in_time, e_data[i].x, e_data[i].y,
 					e_data[i].enemy_speed, e_data[i].hp, e_data[i].w, e_data[i].h, e_data[i].stop_time,
-					e_data[i].out_time, e_data[i].shot_pattern, e_data[i].shot_time, e_data[i].shot_speed, e_data[i].item);
+					e_data[i].out_time, e_data[i].shot_pattern, e_data[i].shot_time, e_data[i].shot_speed,
+					e_data[i].item, e_data[i].point);
 				enemy->m_priority = 90;
 				TaskSystem::InsertObj(enemy);//塵
 
@@ -244,14 +247,14 @@ unsigned __stdcall GameMainSled(void *p)
 
 			time = new CTime();
 			time->m_priority = 90;
-			TaskSystem::InsertObj(time);
+			TaskSystem::InsertObj(time);//タイム
 
 			gauge = new CGauge();
 			gauge->m_priority = 90;
 			TaskSystem::InsertObj(gauge);//ゲージ
 			
 			background = new CBackground();
-			background->m_priority = 80;
+			background->m_priority = 60;
 			TaskSystem::InsertObj(background);//背景(ステージ1)
 
 			g_SceneChange = GAME_MAIN;
@@ -278,7 +281,7 @@ unsigned __stdcall GameMainSled(void *p)
 
 		case GAMEOVER: //ゲームオーバー初期化
 			gameover = new CGameOver();
-			gameover->m_priority = 80;
+			gameover->m_priority = 70;
 			TaskSystem::InsertObj(gameover);
 			g_SceneChange = GAMEOVER_MAIN;
 			Audio::StopLoopMusic(7);

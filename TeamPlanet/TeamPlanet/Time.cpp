@@ -7,10 +7,13 @@
 
 extern int g_SceneChange;
 extern int heart_num;
+extern int total;
 
 //コンストラクタ
 CTime::CTime()
 {
+	m_name = TIME;
+
 	m_x = 400.0f;
 	m_y = 20.0f;
 
@@ -44,12 +47,17 @@ void CTime::Action()
 	{
 		is_delete = true;
 	}
+
+	//得点が目標得点に到達したら自身を削除
+	if (total >= 50)
+	{
+		is_delete = true;
+	}
 }
 
 //ドロー
 void CTime::Draw()
 {
-	int second;//秒
 	second = (m_time / 60) % 60;//60フレームで一秒
 
 	if (second < 10)
@@ -63,4 +71,9 @@ void CTime::Draw()
 	Draw::Draw2D(39, m_x-14, m_y-20);
 	//フォント描画
 	Font::StrDraw(str, m_x, m_y+13, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f);
+}
+
+void CTime::TimeUp()
+{
+	
 }

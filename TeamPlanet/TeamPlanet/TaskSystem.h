@@ -51,6 +51,8 @@ enum
 	ENEMYBULLET = 3,
 	DEFENSE = 4,
 	LIFEUP = 5,
+	TIMEUP = 6,
+	TIME = 7,
 };
 
 //オブジェクトクラス
@@ -66,6 +68,8 @@ public:
 	virtual ~CObj() {};
 	virtual void Action() = 0;
 	virtual void Draw() = 0;
+
+	unsigned int GetName() { return m_name; };
 
 	unsigned int m_name;//オブジェクトの名前
 

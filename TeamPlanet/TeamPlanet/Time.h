@@ -16,9 +16,12 @@ class CTime : public CObj
 		void Draw();    //ドロー
 
 		int GetTime() { return m_time; }
+		void TimeUp();
+
 	private:
 		float m_x;      //位置X
 		float m_y;      //位置Y
-		int m_time;      //時間
+		int m_time;     //時間
+		int second;     //秒
 		wchar_t str[128];//文字列化用
 };
