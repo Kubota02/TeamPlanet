@@ -47,7 +47,7 @@ void CTime::Action()
 	}
 
 	//ŠÔ‚ª–³‚­‚È‚Á‚½‚ç©g‚ğíœ
-	if (second == 0)
+	if (m_time == 0)
 	{
 		is_delete = true;
 	}
