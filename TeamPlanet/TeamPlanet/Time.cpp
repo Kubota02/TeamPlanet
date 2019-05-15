@@ -38,8 +38,6 @@ void CTime::Action()
 	//時間を減らしていく
 	m_time--;
 
-	//second = (m_time / 60) % 60;//60フレームで一秒
-
 	//ハートが無くなった時に自身を削除
 	if (heart_num == 0)
 	{
@@ -47,7 +45,7 @@ void CTime::Action()
 	}
 
 	//時間が無くなったら自身を削除
-	if (m_time == 0)
+	if (second == 0)
 	{
 		is_delete = true;
 	}

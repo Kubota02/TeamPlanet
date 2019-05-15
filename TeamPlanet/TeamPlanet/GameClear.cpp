@@ -14,6 +14,13 @@ CGameClear::CGameClear()
 	m_x = 0.0f;
 	m_y = 0.0f;
 
+	//宇宙船の初期位置
+	m_x2 = -120.0f;
+	m_y2 = 430.0f;
+
+	//移動ベクトルの初期化
+	m_vx = 7.0f;
+
 	m_ani_time = 0;
 }
 
@@ -24,6 +31,7 @@ CGameClear::~CGameClear()
 
 void CGameClear::Action()
 {
+
 	if (m_ani_time != 0)
 	{
 		m_ani_time++;
@@ -40,6 +48,11 @@ void CGameClear::Action()
 	else
 	{
 		g_key_flag = true;
+	}
+
+	if (m_ani_time >= 100)
+	{
+		m_x2 += m_vx;
 	}
 
 	if (m_ani_time >= 200)
@@ -59,5 +72,6 @@ void CGameClear::Draw()
 	if (m_ani_time >= 100)
 	{
 		Draw::Draw2D(27, m_x, m_y);
+		Draw::Draw2D(14, m_x2, m_y2);
 	}
 }
