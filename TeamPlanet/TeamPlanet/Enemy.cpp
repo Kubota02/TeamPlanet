@@ -135,13 +135,14 @@ void CEnemy::Action()
 				t->m_priority = 90;
 				TaskSystem::InsertObj(t);
 			}
-			//得点が目標得点に到達したらゲームクリア
- 			if (total >= 50)
-			{
-				g_SceneChange = GAMECLEAR;
-				is_delete = true;
-			}
 		}
+	}
+
+	//得点が目標得点に到達したらゲームクリア
+	if (total >= 50)
+	{
+		g_SceneChange = GAMECLEAR;
+		is_delete = true;
 	}
 
 	//当たり判定の位置更新

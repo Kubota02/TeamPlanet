@@ -12,8 +12,16 @@ extern int total;
 //コンストラクタ
 CGauge::CGauge()
 {
+	//ゲージ
 	m_x = 480.0f;
 	m_y = 20.0f;
+
+	//メーター
+	m_x2 = 480.0f;
+	m_y2 = 20.0f;
+
+	//アニメーション
+	m_ani_time = 0;
 }
 
 //デストラクタ
@@ -25,6 +33,8 @@ CGauge::~CGauge()
 //アクション
 void CGauge::Action()
 {
+	m_ani_time = total;
+
 	//ハートが無くなった時に自身を削除
 	if (heart_num <= 0)
 	{
@@ -41,6 +51,9 @@ void CGauge::Action()
 //ドロー
 void CGauge::Draw()
 {
-	Draw::Draw2D(34, m_x, m_y);//ゲージ
-	Draw::Draw2D(31, m_x, m_y);//メーター
+	//ゲージ
+	Draw::Draw2D(34, m_x - m_ani_time, m_y);
+
+	//メーター
+	Draw::Draw2D(31, m_x2, m_y2);
 }
