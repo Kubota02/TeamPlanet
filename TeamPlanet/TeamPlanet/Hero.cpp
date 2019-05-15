@@ -198,13 +198,6 @@ void CHero::Action()
 		defense_flag = false;
 	}
 
-	//タイムアイテム効果
-	if (time_flag == true)
-	{
-		CTime* time = (CTime*)TaskSystem::GetObj(TIME);
-		time->TimeUp();
-	}
-
 	//ハートアイテム効果
 	if (heart_flag == true)
 	{
@@ -215,6 +208,13 @@ void CHero::Action()
 			heart_num += 1;
 			heart_flag = false;
 		}
+	}
+
+	//タイムアイテム効果
+	if (time_flag == true)
+	{
+		CTime* time = (CTime*)TaskSystem::GetObj(TIME);
+
 	}
 
 	//移動方向に位置を加える
@@ -234,9 +234,6 @@ void CHero::Action()
 
 void CHero::Draw()
 {
-	//Draw::Draw2D(0, m_x, m_y);
-	//Draw::Draw2D(20, m_x + 200.0f, m_y);
-
 	switch (heart_num)
 	{
 		case 5:
@@ -251,5 +248,4 @@ void CHero::Draw()
 			Draw::Draw2D(13, m_x, m_y);
 			break;
 	}
-
 }
