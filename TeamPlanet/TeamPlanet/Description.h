@@ -19,4 +19,5 @@ private:
 	float m_y;
 
 	int m_ani_time;//アニメーション
+	int m_time; //猶予時間
 };
