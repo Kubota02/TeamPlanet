@@ -148,6 +148,7 @@ unsigned __stdcall MusicLoadSled(void *p)
 	Audio::LoadBackMusic(8, "Title.ogg");
 	Audio::LoadSEMusic(9, "Fire.ogg");
 	Audio::LoadBackMusic(10, "gameover.ogg");
+	Audio::LoadBackMusic(11, "gameclear.ogg");
 	
 
 	//Audio::StartLoopMusic();//バックミュージックスタート
@@ -261,6 +262,7 @@ unsigned __stdcall GameMainSled(void *p)
 			break;
 
 		case GAME_MAIN: //ステージ1
+			
 			break;
 
 		case GAME2: //ステージ2初期化

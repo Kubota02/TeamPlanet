@@ -34,6 +34,7 @@ void CGameClear::Action()
 
 	if (m_ani_time != 0)
 	{
+		//Audio::StopLoopMusic(8);
 		m_ani_time++;
 	}
 
@@ -52,6 +53,8 @@ void CGameClear::Action()
 
 	if (m_ani_time >= 100)
 	{
+		Audio::StartLoopMusic(11);//バックミュージックスタート
+		Audio::LoopMusicVolume(11, 0.03f);
 		m_x2 += m_vx;
 	}
 
@@ -59,7 +62,7 @@ void CGameClear::Action()
 	{
 		if (Input::KeyPush(VK_RETURN))
 		{
-			Audio::StopLoopMusic(10);
+			Audio::StopLoopMusic(11);
 			g_SceneChange = STAGESELECT;
 			is_delete = true;
 		}
