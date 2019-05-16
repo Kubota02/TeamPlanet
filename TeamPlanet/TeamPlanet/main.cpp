@@ -153,6 +153,7 @@ unsigned __stdcall MusicLoadSled(void *p)
 	Audio::LoadSEMusic(9, "Fire.ogg");
 	Audio::LoadBackMusic(10, "gameover.ogg");
 	Audio::LoadBackMusic(11, "gameclear.ogg");
+	Audio::LoadBackMusic(12, "Sethumei.ogg");
 	
 
 	//Audio::StartLoopMusic();//バックミュージックスタート
