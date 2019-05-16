@@ -20,8 +20,9 @@ class CTime : public CObj
 	private:
 		float m_x;      //位置X
 		float m_y;      //位置Y
-		int m_time;     //時間
 		int second;     //秒
-		int add_time;
 		wchar_t str[128];//文字列化用
+
+		int m_time;
+		int time;   //残り時間
 };

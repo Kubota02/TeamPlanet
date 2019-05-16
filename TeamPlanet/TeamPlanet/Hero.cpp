@@ -35,7 +35,7 @@ CHero::CHero()
 	//アイテム効果の制御用
 	defense_flag = false;
 
-	//タイムアイテムの制御用
+	////タイムアイテムの制御用
 	time_flag = false;
 
 	//ハートアイテムの制御用
@@ -210,12 +210,12 @@ void CHero::Action()
 		}
 	}
 
-	//タイムアイテム効果
-	if (time_flag == true)
-	{
-		CTime* time = (CTime*)TaskSystem::GetObj(TIME);
-
-	}
+	////タイムアイテム効果
+	//if (time_flag == true)
+	//{
+	//	CTime* time = (CTime*)TaskSystem::GetObj(TIME);
+	//	
+	//}
 
 	//移動方向に位置を加える
 	m_x += m_vx;

@@ -8,6 +8,7 @@
 extern int g_SceneChange;
 extern int heart_num;
 extern int total;
+//extern int g_time;
 
 //コンストラクタ
 CTime::CTime()
@@ -17,10 +18,11 @@ CTime::CTime()
 	m_x = 400.0f;
 	m_y = 20.0f;
 
-	//制限時間の初期化
-	m_time = 3600;
+	//時間管理用
+	m_time = 0;
 
-	add_time = 3;
+	//残り時間
+	time = 60;
 
 	//フォント作成用
 	Font::CreateStrTex(L"0123456789");
@@ -35,8 +37,15 @@ CTime::~CTime()
 //アクション
 void CTime::Action()
 {
-	//時間を減らしていく
-	m_time--;
+	//m_time--;
+
+	m_time++;
+
+	if (m_time == 60)
+	{
+		time--;
+		m_time = 0;
+	}
 
 	//ハートが無くなった時に自身を削除
 	if (heart_num == 0)
@@ -45,7 +54,7 @@ void CTime::Action()
 	}
 
 	//時間が無くなったら自身を削除
-	if (second == 0)
+	if (time == 0)
 	{
 		is_delete = true;
 	}
@@ -60,17 +69,30 @@ void CTime::Action()
 //ドロー
 void CTime::Draw()
 {
-	second = (m_time / 60) % 60;//60フレームで一秒
+	//second = (m_time / 60) % 60;//60フレームで一秒
 
-	if (second < 10)
+	//if (second < 10)
+	//{
+	//	swprintf_s(str, L"0%d", second);
+	//}
+	//else
+	//{
+	//	swprintf_s(str, L"%d", second);
+	//}
+	//Draw::Draw2D(39, m_x-14, m_y-20);
+	////フォント描画
+	//Font::StrDraw(str, m_x, m_y+13, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f);
+
+	if (time < 10)
 	{
-		swprintf_s(str, L"0%d", second);
+		swprintf_s(str, L"0%d", time);
 	}
 	else
 	{
-		swprintf_s(str, L"%d", second);
+		swprintf_s(str, L"%d", time);
 	}
-	Draw::Draw2D(39, m_x-14, m_y-20);
-	//フォント描画
-	Font::StrDraw(str, m_x, m_y+13, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f);
+
+	Draw::Draw2D(39, m_x - 14, m_y - 20);
+
+	Font::StrDraw(str, m_x, m_y + 13, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f);
 }

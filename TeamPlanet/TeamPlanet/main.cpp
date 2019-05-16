@@ -60,9 +60,9 @@ int g_SceneChange = TITLE;//ゲーム画面フラグ
 bool g_key_flag = true;//キーフラグ
 extern ENEMYDATA e_data[ENEMY_NUM];
 
-bool m_hit; //ハートに渡す用
 int heart_num = 5; //ハートの数
 int total;
+//int g_time = 60; //残り時間
 
 //プロトタイプ宣言
 LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);	//ウィンドウプロジーシャー
