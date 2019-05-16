@@ -34,7 +34,7 @@ void CGameClear::Action()
 
 	if (m_ani_time != 0)
 	{
-		//Audio::StopLoopMusic(8);
+		
 		m_ani_time++;
 	}
 
@@ -42,6 +42,7 @@ void CGameClear::Action()
 	{
 		if (g_key_flag)
 		{
+			
 			m_ani_time++;
 			g_key_flag = false;
 		}
@@ -53,6 +54,8 @@ void CGameClear::Action()
 
 	if (m_ani_time >= 100)
 	{
+		Audio::StartMusic(9);
+		Audio::SEMusicVolume(9, 0.07f);
 		Audio::StartLoopMusic(11);//バックミュージックスタート
 		Audio::LoopMusicVolume(11, 0.03f);
 		m_x2 += m_vx;

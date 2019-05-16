@@ -25,22 +25,25 @@ CDescription::~CDescription()
 void CDescription::Action()
 {
 	m_time++;
-
+Audio::StartLoopMusic(12);//バックミュージックスタート
+		Audio::LoopMusicVolume(12, 0.03f);
 	if (m_time >= 180)
 	{
+		
 		if (m_ani_time != 0)
 		{
 			m_ani_time++;
 		}
 
+
 		if (Input::KeyPush(VK_RETURN))
 		{
+			Audio::StopLoopMusic(12);
 			g_SceneChange = STAGESELECT;
 			is_delete = true;
 
 			if (g_key_flag)
 			{
-
 				m_ani_time++;
 				g_key_flag = false;
 			}
