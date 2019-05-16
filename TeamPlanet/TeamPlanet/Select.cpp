@@ -78,7 +78,7 @@ void CSelect::Action()
 	//カーソル位置が左なら
 	if (m_cursor == LEFT)
 	{
-		if (m_ani_time >= 50)
+		if (m_ani_time >= 25)
 		{
 			Audio::StopLoopMusic(4);
 			g_SceneChange = GAME;
