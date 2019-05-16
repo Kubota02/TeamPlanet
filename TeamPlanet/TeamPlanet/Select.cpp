@@ -78,7 +78,7 @@ void CSelect::Action()
 	//カーソル位置が左なら
 	if (m_cursor == LEFT)
 	{
-		if (m_ani_time == 50)
+		if (m_ani_time >= 50)
 		{
 			Audio::StopLoopMusic(4);
 			g_SceneChange = GAME;
@@ -88,7 +88,7 @@ void CSelect::Action()
 	//カーソル位置が中央なら
 	else if (m_cursor == RIGHT)
 	{
-		if (m_ani_time == 25)
+		if (m_ani_time >= 25)
 		{
 			g_SceneChange = GAME;
 			is_delete = true;
@@ -97,7 +97,7 @@ void CSelect::Action()
 	//カーソル位置が右なら
 	else if (m_cursor == UNDER)
 	{
-		if (m_ani_time == 25)
+		if (m_ani_time >= 25)
 		{
 			g_SceneChange = GAME;
 			is_delete = true;

@@ -56,7 +56,7 @@ void CTitle::Action()
 		g_key_flag = true;
 	}
 	
-	if (m_ani_time == 100)
+	if (m_ani_time >= 100)
 	{
 		Audio::StopLoopMusic(8);
 		g_SceneChange = DESCRIPTION;

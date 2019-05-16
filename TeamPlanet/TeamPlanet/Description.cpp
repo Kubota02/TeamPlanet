@@ -30,11 +30,14 @@ void CDescription::Action()
 
 	if (Input::KeyPush(VK_RETURN))
 	{
+		g_SceneChange = STAGESELECT;
+		is_delete = true;
+
 		if (g_key_flag)
 		{
 
 			m_ani_time++;
-			g_key_flag = false;
+			g_key_flag = false; 
 		}
 	}
 	else
@@ -43,11 +46,11 @@ void CDescription::Action()
 		g_key_flag = true;
 	}
 
-	if (m_ani_time == 100)
+	/*if (m_ani_time >= 100)
 	{
 		g_SceneChange = STAGESELECT;
 		is_delete = true;
-	}
+	}*/
 }
 
 void CDescription::Draw()
