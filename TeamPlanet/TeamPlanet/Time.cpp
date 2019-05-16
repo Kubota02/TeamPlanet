@@ -41,6 +41,7 @@ void CTime::Action()
 
 	m_time++;
 
+	//1•b‚²‚Æ‚É1Œ¸‚ç‚·
 	if (m_time == 60)
 	{
 		time--;

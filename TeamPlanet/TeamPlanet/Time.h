@@ -16,6 +16,7 @@ class CTime : public CObj
 		void Draw();    //ƒhƒ[
 
 		int GetTime() { return m_time; }
+		void SetTime(int t) { time += t; }
 
 	private:
 		float m_x;      //ˆÊ’uX
