@@ -58,7 +58,7 @@ void CGameClear::Action()
 		m_x2 += m_vx;
 	}
 
-	if (m_ani_time >= 200)
+	if (m_ani_time >= 240)
 	{
 		if (Input::KeyPush(VK_RETURN))
 		{
