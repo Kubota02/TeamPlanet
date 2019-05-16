@@ -34,7 +34,6 @@ void CTitle::Action()
 
 	if (m_ani_time != 0)
 	{
-		
 		m_ani_time++;
 		m_x2 += m_vx;
 	}
@@ -59,9 +58,8 @@ void CTitle::Action()
 	
 	if (m_ani_time == 100)
 	{
-		
 		Audio::StopLoopMusic(8);
-		g_SceneChange = STAGESELECT;
+		g_SceneChange = DESCRIPTION;
 		is_delete = true;
 	}
 }

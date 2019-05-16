@@ -61,6 +61,9 @@
     <Filter Include="ソース ファイル\Timeitem">
       <UniqueIdentifier>{ea1c11b2-ec2b-4a06-b4bc-86d06fb2a862}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Description">
+      <UniqueIdentifier>{83fa5004-05f3-4233-9be5-e5bbcda951d1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Audio.cpp">
@@ -138,6 +141,9 @@
     <ClCompile Include="Timeitem.cpp">
       <Filter>ソース ファイル\Timeitem</Filter>
     </ClCompile>
+    <ClCompile Include="Description.cpp">
+      <Filter>ソース ファイル\Description</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Audio.h">
@@ -211,6 +217,9 @@
     </ClInclude>
     <ClInclude Include="Timeitem.h">
       <Filter>ソース ファイル\Timeitem</Filter>
+    </ClInclude>
+    <ClInclude Include="Description.h">
+      <Filter>ソース ファイル\Description</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

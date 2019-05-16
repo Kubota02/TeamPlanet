@@ -34,6 +34,7 @@
 #include "GameOver.h"
 #include "GameClear.h"
 #include "Gauge.h"
+#include "Description.h"
 
 //削除されていないメモリを出力にダンプする---
 #include <crtdbg.h>
@@ -128,6 +129,9 @@ unsigned __stdcall TextureLoadSled(void *p)
 	Draw::LoadImage(7, L"image\\moon.png");
 	Draw::LoadImage(8, L"image\\saturn.png");
 	Draw::LoadImage(9, L"image\\Uranus.png");
+
+	//操作説明
+	Draw::LoadImage(41, L"image\\description.png");
 	
 	_endthreadex(0);	//スレッド終了
 	return 0;
@@ -193,6 +197,7 @@ unsigned __stdcall GameMainSled(void *p)
 		CGameClear* gameclear;
 		CTime* time;
 		CGauge* gauge;
+		CDescription* description;
 
 		switch (g_SceneChange)
 		{
@@ -206,9 +211,19 @@ unsigned __stdcall GameMainSled(void *p)
 		case TITLE_MAIN: //ステージセレクト
 			break;
 
+		case DESCRIPTION: //操作説明初期化
+			description = new CDescription();
+			description->m_priority = 100;
+			TaskSystem::InsertObj(description);
+			g_SceneChange = DESCRIPTION_MAIN;
+			break;
+
+		case DESCRIPTION_MAIN: //操作説明
+			break;
+
 		case STAGESELECT: //ステージセレクト初期化
 			select = new CSelect();
-			select->m_priority = 100;
+			select->m_priority = 90;
 			TaskSystem::InsertObj(select);
 			g_SceneChange = STAGESELECT_MAIN;
 			break;
@@ -225,7 +240,7 @@ unsigned __stdcall GameMainSled(void *p)
 			Audio::LoopMusicVolume(7, 0.03f);
 
 			hero = new CHero();
-			hero->m_priority = 90;
+			hero->m_priority = 80;
 			TaskSystem::InsertObj(hero);//宇宙船
 
 			p = Save::ExternalDataOpen(L"Enemy.csv", &size);//外部データ読み込み
@@ -236,21 +251,21 @@ unsigned __stdcall GameMainSled(void *p)
 					e_data[i].enemy_speed, e_data[i].hp, e_data[i].w, e_data[i].h, e_data[i].stop_time,
 					e_data[i].out_time, e_data[i].shot_pattern, e_data[i].shot_time, e_data[i].shot_speed,
 					e_data[i].item, e_data[i].point);
-				enemy->m_priority = 90;
+				enemy->m_priority = 80;
 				TaskSystem::InsertObj(enemy);//塵
 
 			}
 
 			heart = new CHeart();
-			heart->m_priority = 90;
+			heart->m_priority = 80;
 			TaskSystem::InsertObj(heart);//ハート
 
 			time = new CTime();
-			time->m_priority = 90;
+			time->m_priority = 80;
 			TaskSystem::InsertObj(time);//タイム
 
 			gauge = new CGauge();
-			gauge->m_priority = 90;
+			gauge->m_priority = 80;
 			TaskSystem::InsertObj(gauge);//ゲージ
 			
 			background = new CBackground();

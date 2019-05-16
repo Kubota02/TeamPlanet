@@ -59,7 +59,6 @@ void CGameClear::Action()
 	{
 		if (Input::KeyPush(VK_RETURN))
 		{
-			Audio::StopLoopMusic(10);
 			g_SceneChange = STAGESELECT;
 			is_delete = true;
 		}
