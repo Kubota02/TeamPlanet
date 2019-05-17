@@ -11,6 +11,7 @@ extern int g_SceneChange;
 extern bool g_key_flag;
 extern int heart_num;
 extern int total;
+extern CTime* g_time;
 int h_hp = 100;	//体力
 
 CHero::CHero()
@@ -210,12 +211,14 @@ void CHero::Action()
 		}
 	}
 
-	////タイムアイテム効果
-	//if (time_flag == true)
-	//{
-	//	CTime* time = (CTime*)TaskSystem::GetObj(TIME);
-	//	
-	//}
+	//タイムアイテム効果
+	if (time_flag == true)
+	{
+		CTime* time = (CTime*)TaskSystem::GetObj(TIME);
+		time->SetTime();
+		time->AddTime(5);
+		time_flag = false;
+	}
 
 	//移動方向に位置を加える
 	m_x += m_vx;
