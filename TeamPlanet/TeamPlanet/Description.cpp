@@ -38,6 +38,7 @@ Audio::StartLoopMusic(12);//バックミュージックスタート
 
 		if (Input::KeyPush(VK_RETURN))
 		{
+			Audio::StartMusic(6);
 			Audio::StopLoopMusic(12);
 			g_SceneChange = STAGESELECT;
 			is_delete = true;
