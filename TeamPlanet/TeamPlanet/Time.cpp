@@ -70,20 +70,6 @@ void CTime::Action()
 //ドロー
 void CTime::Draw()
 {
-	//second = (m_time / 60) % 60;//60フレームで一秒
-
-	//if (second < 10)
-	//{
-	//	swprintf_s(str, L"0%d", second);
-	//}
-	//else
-	//{
-	//	swprintf_s(str, L"%d", second);
-	//}
-	//Draw::Draw2D(39, m_x-14, m_y-20);
-	////フォント描画
-	//Font::StrDraw(str, m_x, m_y+13, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f);
-
 	if (time < 10)
 	{
 		swprintf_s(str, L"0%d", time);
