@@ -69,7 +69,7 @@ void CHero::Action()
 	}
 
 	//íeä€î≠éÀ
-	if (Input::KeyPush(VK_SPACE))
+	if (Input::KeyPush('L'))
 	{
 		if (m_f)
 		{
@@ -87,24 +87,23 @@ void CHero::Action()
 		m_f = true;
 	}
 
-	
 	//âE
-	if (Input::KeyPush(VK_RIGHT))
+	if (Input::KeyPush('D'))
 	{
 		m_vx += 3.0f;
 	}
 	//ç∂
-	if (Input::KeyPush(VK_LEFT))
+	if (Input::KeyPush('A'))
 	{
 		m_vx -= 3.0f;
 	}
 	//è„
-	if (Input::KeyPush(VK_UP))
+	if (Input::KeyPush('W'))
 	{
 		m_vy -= 3.0f;
 	}
 	//â∫
-	if (Input::KeyPush(VK_DOWN))
+	if (Input::KeyPush('S'))
 	{
 		m_vy += 3.0f;
 	}
