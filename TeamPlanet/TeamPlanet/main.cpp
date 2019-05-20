@@ -35,6 +35,7 @@
 #include "GameClear.h"
 #include "Gauge.h"
 #include "Description.h"
+#include "Back.h"
 
 //削除されていないメモリを出力にダンプする---
 #include <crtdbg.h>
@@ -72,7 +73,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);	//
 unsigned __stdcall TextureLoadSled(void *p)
 {
 	//イメージ読み込み
-	//限界＜50＞
+	//限界＜41/50＞
 	//主人公
 	Draw::LoadImage(0, L"image\\Space ship.png");
 	Draw::LoadImage(1, L"image\\bullet1.png");
@@ -110,9 +111,12 @@ unsigned __stdcall TextureLoadSled(void *p)
 	Draw::LoadImage(23, L"image\\boom3.png");
 
 	//ゲーム画面背景
-	Draw::LoadImage(4, L"image\\Space1.png");
-	Draw::LoadImage(24, L"image\\Space2.png");
-	Draw::LoadImage(25, L"image\\Space3.png");
+	Draw::LoadImage(4, L"image\\Space10.png");
+	Draw::LoadImage(24, L"image\\Space20.png");
+	Draw::LoadImage(25, L"image\\Space30.png");
+	Draw::LoadImage(42, L"image\\Space1.png");
+	Draw::LoadImage(43, L"image\\Space2.png");
+	Draw::LoadImage(44, L"image\\Space3.png");
 
 	//タイトル
 	Draw::LoadImage(26, L"image\\title.png");
@@ -200,6 +204,7 @@ unsigned __stdcall GameMainSled(void *p)
 		CTime* time;
 		CGauge* gauge;
 		CDescription* description;
+		CBack* back;
 
 		switch (g_SceneChange)
 		{
@@ -267,12 +272,16 @@ unsigned __stdcall GameMainSled(void *p)
 			TaskSystem::InsertObj(time);//タイム
 
 			gauge = new CGauge();
-			gauge->m_priority = 80;
+			gauge->m_priority = 60;
 			TaskSystem::InsertObj(gauge);//ゲージ
 			
 			background = new CBackground();
 			background->m_priority = 60;
 			TaskSystem::InsertObj(background);//背景(ステージ1)
+
+			back = new CBack();
+			back->m_priority = 50;
+			TaskSystem::InsertObj(back);//背景の背景(ステージ1)
 
 			g_SceneChange = GAME_MAIN;
 			break;

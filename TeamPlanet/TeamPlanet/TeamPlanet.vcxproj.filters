@@ -64,6 +64,9 @@
     <Filter Include="ソース ファイル\Description">
       <UniqueIdentifier>{83fa5004-05f3-4233-9be5-e5bbcda951d1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Back">
+      <UniqueIdentifier>{3113f433-5e42-4134-a09d-da8b6e2e2279}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Audio.cpp">
@@ -144,6 +147,9 @@
     <ClCompile Include="Description.cpp">
       <Filter>ソース ファイル\Description</Filter>
     </ClCompile>
+    <ClCompile Include="Back.cpp">
+      <Filter>ソース ファイル\Back</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Audio.h">
@@ -220,6 +226,9 @@
     </ClInclude>
     <ClInclude Include="Description.h">
       <Filter>ソース ファイル\Description</Filter>
+    </ClInclude>
+    <ClInclude Include="Back.h">
+      <Filter>ソース ファイル\Back</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
