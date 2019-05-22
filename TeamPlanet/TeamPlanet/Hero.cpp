@@ -32,15 +32,13 @@ CHero::CHero()
 
 	//効果時間用
 	d_time = 0;
+	s_time = 0;
 
 	//アイテム効果の制御用
 	defense_flag = false;
-
-	////タイムアイテムの制御用
 	time_flag = false;
-
-	//ハートアイテムの制御用
 	heart_flag = false;
+	speed_flag = false;
 
 	//ヒットボックス作成()
 	m_p_hit_box = Collision::HitBoxInsert(this);
@@ -67,6 +65,10 @@ void CHero::Action()
 	{
 		d_time++;
 	}
+	if (s_time != 0)
+	{
+		s_time++;
+	}
 
 	//弾丸発射
 	if (Input::KeyPush('L'))
@@ -90,22 +92,22 @@ void CHero::Action()
 	//右
 	if (Input::KeyPush('D'))
 	{
-		m_vx += 3.0f;
+		m_vx += 2.0f;
 	}
 	//左
 	if (Input::KeyPush('A'))
 	{
-		m_vx -= 3.0f;
+		m_vx -= 2.0f;
 	}
 	//上
 	if (Input::KeyPush('W'))
 	{
-		m_vy -= 3.0f;
+		m_vy -= 2.0f;
 	}
 	//下
 	if (Input::KeyPush('S'))
 	{
-		m_vy += 3.0f;
+		m_vy += 2.0f;
 	}
 
 	//ベクトルの長さを求める(三平方の定理)
@@ -121,26 +123,8 @@ void CHero::Action()
 	else
 	{
 		//正規化を行う
-		m_vx = 3.0f / r * m_vx;
-		m_vy = 3.0f / r * m_vy;
-	}
-
-	//領域外に出ない処理
-	if (m_x < 0.0f)
-	{
-		m_x = 0.0f;
-	}
-	if (m_x > 800.0f - 120.0f)
-	{
-		m_x = 680.0f;
-	}
-	if (m_y < 0.0f)
-	{
-		m_y = 0.0f;
-	}
-	if (m_y > 600.0f - 80.0f)
-	{
-		m_y = 520.0f;
+		m_vx = 2.0f / r * m_vx;
+		m_vy = 2.0f / r * m_vy;
 	}
 
 	//他の物体と当たった時の処理
@@ -168,6 +152,11 @@ void CHero::Action()
 		if (m_p_hit_box->GetHitData()[i]->GetElement() == TIMEUP)
 		{
 			time_flag = true;
+		}
+		if (m_p_hit_box->GetHitData()[i]->GetElement() == SPEEDUP)
+		{
+			speed_flag = true;
+			s_time++;
 		}
 	  }
 
@@ -219,6 +208,32 @@ void CHero::Action()
 		time_flag = false;
 	}
 
+	//スピードアップアイテム効果
+	if (speed_flag == true)
+	{
+		m_x += m_vx * 2;
+		m_y += m_vy * 2;
+
+		speed_flag = true;
+
+		if (s_time == 180)
+		{
+			//移動方向に位置を加える
+			m_x += m_vx;
+			m_y += m_vy;
+
+			speed_flag = false;
+		}
+	}
+	else
+	{
+		//移動方向に位置を加える
+		m_x += m_vx;
+		m_y += m_vy;
+
+		speed_flag = false;
+	}
+
 	//移動方向に位置を加える
 	m_x += m_vx;
 	m_y += m_vy;
@@ -228,6 +243,24 @@ void CHero::Action()
 	{
 		is_delete = true;
 		m_p_hit_box->SetDelete(true);
+	}
+
+	//領域外に出ない処理
+	if (m_x < 0.0f)
+	{
+		m_x = 0.0f;
+	}
+	if (m_x > 800.0f - 120.0f)
+	{
+		m_x = 680.0f;
+	}
+	if (m_y < 0.0f)
+	{
+		m_y = 0.0f;
+	}
+	if (m_y > 600.0f - 80.0f)
+	{
+		m_y = 520.0f;
 	}
 
 	//当たり判定の位置更新

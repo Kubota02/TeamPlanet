@@ -43,9 +43,6 @@
     <Filter Include="ソース ファイル\GameOver">
       <UniqueIdentifier>{db2a107d-a9e3-44ac-b260-dbb2a698fb76}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\GameClear">
-      <UniqueIdentifier>{3ff10dce-0aa0-476b-b048-85aa22a965e4}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\Time">
       <UniqueIdentifier>{8da3bc27-af54-482f-a6a6-9415701dea2c}</UniqueIdentifier>
     </Filter>
@@ -66,6 +63,12 @@
     </Filter>
     <Filter Include="ソース ファイル\Back">
       <UniqueIdentifier>{3113f433-5e42-4134-a09d-da8b6e2e2279}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Speedup">
+      <UniqueIdentifier>{9645246a-6abb-4ff9-ba0a-82e77963dc68}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameClear">
+      <UniqueIdentifier>{fe8159e5-ac05-46a3-b811-6bec0c0d4087}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -126,9 +129,6 @@
     <ClCompile Include="GameOver.cpp">
       <Filter>ソース ファイル\GameOver</Filter>
     </ClCompile>
-    <ClCompile Include="GameClear.cpp">
-      <Filter>ソース ファイル\GameClear</Filter>
-    </ClCompile>
     <ClCompile Include="Time.cpp">
       <Filter>ソース ファイル\Time</Filter>
     </ClCompile>
@@ -149,6 +149,12 @@
     </ClCompile>
     <ClCompile Include="Back.cpp">
       <Filter>ソース ファイル\Back</Filter>
+    </ClCompile>
+    <ClCompile Include="Speedup.cpp">
+      <Filter>ソース ファイル\Speedup</Filter>
+    </ClCompile>
+    <ClCompile Include="GameClear.cpp">
+      <Filter>ソース ファイル\GameClear</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -206,9 +212,6 @@
     <ClInclude Include="GameOver.h">
       <Filter>ソース ファイル\GameOver</Filter>
     </ClInclude>
-    <ClInclude Include="GameClear.h">
-      <Filter>ソース ファイル\GameClear</Filter>
-    </ClInclude>
     <ClInclude Include="Time.h">
       <Filter>ソース ファイル\Time</Filter>
     </ClInclude>
@@ -229,6 +232,12 @@
     </ClInclude>
     <ClInclude Include="Back.h">
       <Filter>ソース ファイル\Back</Filter>
+    </ClInclude>
+    <ClInclude Include="Speedup.h">
+      <Filter>ソース ファイル\Speedup</Filter>
+    </ClInclude>
+    <ClInclude Include="GameClear.h">
+      <Filter>ソース ファイル\GameClear</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

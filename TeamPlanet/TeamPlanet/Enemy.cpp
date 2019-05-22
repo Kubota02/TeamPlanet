@@ -7,7 +7,8 @@
 
 extern int g_SceneChange;
 extern bool g_key_flag;
-extern int total;
+int total;
+extern int heart_num;
 
 CEnemy::CEnemy(int enemy_type, int in_time, int x, int y, int enemy_speed, int hp,
 	int w, int h, int stop_time, int out_time, int shot_pattern, int shot_time, int shot_speed, int item, int point)
@@ -126,16 +127,28 @@ void CEnemy::Action()
 			else if (item == 2 && m_p_hit_box->GetHitData()[i]->GetElement() == BULLET)
 			{
 				////ハートアイテムオブジェクト作成
-				//CHeartitem* h = new CHeartitem(x, y);
-				//h->m_priority = 90;
-				//TaskSystem::InsertObj(h);
+				/*CHeartitem* h = new CHeartitem(x, y);
+				h->m_priority = 90;
+				TaskSystem::InsertObj(h);*/
 
 				//タイムアイテムオブジェクト作成
-				CTimeitem* t = new CTimeitem(x, y);
+				/*CTimeitem* t = new CTimeitem(x, y);
 				t->m_priority = 90;
-				TaskSystem::InsertObj(t);
+				TaskSystem::InsertObj(t);*/
+
+				//スピードアップアイテムオブジェクト作成
+				CSpeedup* s = new CSpeedup(x, y);
+				s->m_priority = 90;
+				TaskSystem::InsertObj(s);
 			}
 		}
+	}
+
+	//主人公のHPがなくなったら破棄
+	if (heart_num == 0)
+	{
+		m_p_hit_box->SetDelete(true);
+		is_delete = true;
 	}
 
 	//得点が目標得点に到達したらゲームクリア

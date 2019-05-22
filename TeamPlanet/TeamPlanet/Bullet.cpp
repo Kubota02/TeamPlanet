@@ -7,6 +7,7 @@
 
 extern int g_SceneNumber;
 extern bool g_key_flag;
+extern int total;
 
 //コンストラクタ
 CBullet::CBullet(float x,float y)
@@ -82,6 +83,13 @@ void CBullet::Action()
 			is_delete = true;             //オブジェクトの削除
 			m_p_hit_box->SetDelete(true); //当たり判定の削除	
 		}
+	}
+
+	//得点が目標得点に到達したら自身を削除
+	if (total >= 50)
+	{
+		is_delete = true;
+		m_p_hit_box->SetDelete(true);
 	}
 
 	//当たり判定の位置更新

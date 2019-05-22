@@ -8,6 +8,7 @@
 #include "Defense.h"
 #include "Heartitem.h"
 #include "Timeitem.h"
+#include "Speedup.h"
 
 //oƒNƒ‰ƒX
 class CEnemy :public CObj

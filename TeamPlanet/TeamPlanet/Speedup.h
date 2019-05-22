@@ -6,12 +6,12 @@
 #include "TaskSystem.h"
 #include "Collision.h"
 
-//シールドアイテムクラス
-class CDefense : public CObj
+//スピードアップアイテムクラス
+class CSpeedup : public CObj
 {
 public:
-	CDefense(int x, int y);
-	~CDefense();
+	CSpeedup(int x, int y);
+	~CSpeedup();
 	void Action();
 	void Draw();
 private:

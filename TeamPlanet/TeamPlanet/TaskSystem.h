@@ -26,8 +26,8 @@ enum SceneChange
 	GAMECLEAR_MAIN		 = 15,
 	//RESULT			 = 12,
 	//RESULT_MAIN		 = 13,
-	//ALLCLEAR			 = 14,
-	//ALLCLEAR_MAIN		 = 15,
+	ALLCLEAR			 = 20,
+	ALLCLEAR_MAIN		 = 21,
 };
 
 enum 
@@ -53,6 +53,7 @@ enum
 	LIFEUP = 5,
 	TIMEUP = 6,
 	TIME = 7,
+	SPEEDUP = 8,
 };
 
 //オブジェクトクラス
