@@ -75,7 +75,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);	//
 unsigned __stdcall TextureLoadSled(void *p)
 {
 	//イメージ読み込み
-	//限界＜45/50＞
+	//限界＜45/60＞
 	//主人公
 	Draw::LoadImage(0, L"image\\Space ship.png");
 	Draw::LoadImage(1, L"image\\bullet1.png");
@@ -100,6 +100,11 @@ unsigned __stdcall TextureLoadSled(void *p)
 	Draw::LoadImage(18, L"image\\antenna.png");
 	Draw::LoadImage(19, L"image\\meteorite2.png");
 	Draw::LoadImage(20, L"image\\bulletE.png");
+
+	//ボーナスエネミー
+	Draw::LoadImage(5, L"image\\moon.png");
+	Draw::LoadImage(6, L"image\\saturn.png");
+	Draw::LoadImage(7, L"image\\Uranus.png");
 
 	//アイテム
 	Draw::LoadImage(29, L"image\\defense.png");
@@ -131,11 +136,11 @@ unsigned __stdcall TextureLoadSled(void *p)
 	Draw::LoadImage(28, L"image\\gameover.png");
 
 	//ゲームセレクト
-	Draw::LoadImage(5, L"image\\Select.png");
+	/*Draw::LoadImage(5, L"image\\Select.png");
 	Draw::LoadImage(6, L"image\\planet.png");
 	Draw::LoadImage(7, L"image\\moon.png");
 	Draw::LoadImage(8, L"image\\saturn.png");
-	Draw::LoadImage(9, L"image\\Uranus.png");
+	Draw::LoadImage(9, L"image\\Uranus.png");*/
 
 	//操作説明
 	Draw::LoadImage(41, L"image\\description.png");

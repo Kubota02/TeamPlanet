@@ -54,6 +54,9 @@ CEnemy::CEnemy(int enemy_type, int in_time, int x, int y, int enemy_speed, int h
 	//得点
 	this->point = point;
 
+	//出現カウント
+	m_count = 0;
+
 	//初期移動方向
 	m_vx = -1.0f;
 
@@ -74,6 +77,8 @@ CEnemy::~CEnemy()
 
 void CEnemy::Action()
 {
+	m_count++;
+
 	//領域外に出たらオブジェクト破棄
 	if (x < -100.0f)
 	{
@@ -81,8 +86,33 @@ void CEnemy::Action()
 		m_p_hit_box->SetDelete(true);	//当たり判定の削除
 	}
 
-	//移動方向に位置*速度を加える
-	x += m_vx*enemy_speed;
+	//enemy_typeが5,6,7以外ならそのまま
+	if (enemy_type != 5 && enemy_type != 6 && enemy_type != 7)
+	{
+		if (in_time < m_count)
+		{
+			//移動方向に位置*速度を加える
+			x += m_vx*enemy_speed;
+		}
+	}
+	else
+	{
+		if (in_time < m_count && m_count < stop_time)
+		{
+			//移動方向に位置*速度を加える
+			x += m_vx*enemy_speed;
+		}
+		else if (out_time < m_count)
+		{
+			x -= m_vx*enemy_speed;
+
+			if (x > 1000)
+			{
+				is_delete = true;				//オブジェクトの削除
+				m_p_hit_box->SetDelete(true);	//当たり判定の削除
+			}
+		}
+	}
 
 	//当たり判定の処理
 	for (int i = 0; i < 10; i++)
@@ -210,6 +240,21 @@ void CEnemy::Draw()
 	if (enemy_type == 19)
 	{
 		//隕石2
+		Draw::Draw2D(enemy_type, x, y);
+	}
+	if (enemy_type == 5)
+	{
+		//月
+		Draw::Draw2D(enemy_type, x, y);
+	}
+	if (enemy_type == 6)
+	{
+		//土星
+		Draw::Draw2D(enemy_type, x, y);
+	}
+	if (enemy_type == 7)
+	{
+		//天王星
 		Draw::Draw2D(enemy_type, x, y);
 	}
 }
