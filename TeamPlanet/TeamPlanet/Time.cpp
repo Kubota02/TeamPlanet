@@ -47,7 +47,7 @@ void CTime::Action()
 	if (m_time == 60)
 	{
 		time--;
-		w_time = 
+		w_time--;
 		m_time = 0;
 	}
 	
@@ -94,6 +94,4 @@ void CTime::Draw()
 	{
 		Font::StrDraw(str, m_x + 10, m_y + 10, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f);
 	}
-
-
 }
