@@ -73,6 +73,9 @@
     <Filter Include="ソース ファイル\Warning">
       <UniqueIdentifier>{9f60e2f1-8138-40b1-8f9f-3243a4ae2bb1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Speedup">
+      <UniqueIdentifier>{1e6f5d0c-0308-491b-bca9-aba3469a9cb4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Audio.cpp">
@@ -156,11 +159,11 @@
     <ClCompile Include="Back.cpp">
       <Filter>ソース ファイル\Back</Filter>
     </ClCompile>
-    <ClCompile Include="Speedup.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="RankM.cpp">
       <Filter>ソース ファイル\RankM</Filter>
+    </ClCompile>
+    <ClCompile Include="Speedup.cpp">
+      <Filter>ソース ファイル\Speedup</Filter>
     </ClCompile>
     <ClCompile Include="Warning.cpp">
       <Filter>ソース ファイル\Warning</Filter>
@@ -245,11 +248,11 @@
     <ClInclude Include="Back.h">
       <Filter>ソース ファイル\Back</Filter>
     </ClInclude>
-    <ClInclude Include="Speedup.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="RankM.h">
       <Filter>ソース ファイル\RankM</Filter>
+    </ClInclude>
+    <ClInclude Include="Speedup.h">
+      <Filter>ソース ファイル\Speedup</Filter>
     </ClInclude>
     <ClInclude Include="Warning.h">
       <Filter>ソース ファイル\Warning</Filter>

@@ -78,7 +78,7 @@ void CBullet::Action()
 	{
 		if (m_p_hit_box->GetHitData()[i] == nullptr)
 			continue;
-		if (m_p_hit_box->GetHitData()[i]->GetElement() != BULLET)
+		if (m_p_hit_box->GetHitData()[i]->GetElement() == ENEMY)
 		{
 			is_delete = true;             //オブジェクトの削除
 			m_p_hit_box->SetDelete(true); //当たり判定の削除	
