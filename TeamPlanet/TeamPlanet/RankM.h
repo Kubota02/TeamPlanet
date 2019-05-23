@@ -17,4 +17,6 @@ class CRankM : public CObj
 	private:
 		float m_x;
 		float m_y;
+
+		int m_ani_time;
 };

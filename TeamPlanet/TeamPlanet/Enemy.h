@@ -25,6 +25,8 @@ private:
 	float m_vx;	//移動ベクトル
 	float m_vy;
 
+	int m_count;//出現用カウント
+
 	int enemy_type; //敵の種類
 	int in_time;	//出現
 	int enemy_speed;//敵の速さ

@@ -37,6 +37,7 @@
 #include "Description.h"
 #include "Back.h"
 #include "RankM.h"
+#include "Warning.h"
 
 //削除されていないメモリを出力にダンプする---
 #include <crtdbg.h>
@@ -75,7 +76,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);	//
 unsigned __stdcall TextureLoadSled(void *p)
 {
 	//イメージ読み込み
-	//限界＜45/50＞
+	//限界＜45/60＞
 	//主人公
 	Draw::LoadImage(0, L"image\\Space ship.png");
 	Draw::LoadImage(1, L"image\\bullet1.png");
@@ -100,6 +101,11 @@ unsigned __stdcall TextureLoadSled(void *p)
 	Draw::LoadImage(18, L"image\\antenna.png");
 	Draw::LoadImage(19, L"image\\meteorite2.png");
 	Draw::LoadImage(20, L"image\\bulletE.png");
+
+	//ボーナスエネミー
+	Draw::LoadImage(5, L"image\\moon.png");
+	Draw::LoadImage(6, L"image\\saturn.png");
+	Draw::LoadImage(7, L"image\\Uranus.png");
 
 	//アイテム
 	Draw::LoadImage(29, L"image\\defense.png");
@@ -131,11 +137,11 @@ unsigned __stdcall TextureLoadSled(void *p)
 	Draw::LoadImage(28, L"image\\gameover.png");
 
 	//ゲームセレクト
-	Draw::LoadImage(5, L"image\\Select.png");
+	/*Draw::LoadImage(5, L"image\\Select.png");
 	Draw::LoadImage(6, L"image\\planet.png");
 	Draw::LoadImage(7, L"image\\moon.png");
 	Draw::LoadImage(8, L"image\\saturn.png");
-	Draw::LoadImage(9, L"image\\Uranus.png");
+	Draw::LoadImage(9, L"image\\Uranus.png");*/
 
 	//操作説明
 	Draw::LoadImage(41, L"image\\description.png");
@@ -146,6 +152,10 @@ unsigned __stdcall TextureLoadSled(void *p)
 	Draw::LoadImage(48, L"image\\Arank.png");
 	Draw::LoadImage(49, L"image\\Srank.png");
 	Draw::LoadImage(50, L"image\\Urank.png");
+
+	//warning
+	Draw::LoadImage(51, L"warning1.png");
+	Draw::LoadImage(52, L"warning2.png");
 	
 	_endthreadex(0);	//スレッド終了
 	return 0;
@@ -216,6 +226,7 @@ unsigned __stdcall GameMainSled(void *p)
 		CDescription* description;
 		CBack* back;
 		CRankM* rankm;
+		CWarning* warning;
 
 		switch (g_SceneChange)
 		{
@@ -295,7 +306,9 @@ unsigned __stdcall GameMainSled(void *p)
 			back->m_priority = 50;
 			TaskSystem::InsertObj(back);//背景の背景(ステージ1)
 
-			//
+			warning = new CWarning();
+			warning->m_priority = 80;
+			TaskSystem::InsertObj(warning);
 
 			g_SceneChange = GAME_MAIN;
 			break;

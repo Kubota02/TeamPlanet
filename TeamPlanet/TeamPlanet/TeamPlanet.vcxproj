@@ -148,6 +148,7 @@
     <ClCompile Include="Time.cpp" />
     <ClCompile Include="Timeitem.cpp" />
     <ClCompile Include="Title.cpp" />
+    <ClCompile Include="Warning.cpp" />
     <ClCompile Include="WindowCreate.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -178,6 +179,7 @@
     <ClInclude Include="Time.h" />
     <ClInclude Include="Timeitem.h" />
     <ClInclude Include="Title.h" />
+    <ClInclude Include="Warning.h" />
     <ClInclude Include="WindowCreate.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
