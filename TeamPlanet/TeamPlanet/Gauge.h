@@ -15,6 +15,7 @@ class CGauge : public CObj
 		void Draw();   //ドロー
 	private:
 		float m_x;		//ゲージの位置
+		float m_x3;
 		float m_y;
 		float m_x2;		//メーターの位置
 		float m_y2;
