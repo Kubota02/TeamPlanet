@@ -70,6 +70,9 @@
     <Filter Include="ソース ファイル\RankM">
       <UniqueIdentifier>{f27b9ae3-aff7-41f4-a53d-8fad1d953695}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Warning">
+      <UniqueIdentifier>{9f60e2f1-8138-40b1-8f9f-3243a4ae2bb1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Audio.cpp">
@@ -159,6 +162,9 @@
     <ClCompile Include="RankM.cpp">
       <Filter>ソース ファイル\RankM</Filter>
     </ClCompile>
+    <ClCompile Include="Warning.cpp">
+      <Filter>ソース ファイル\Warning</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Audio.h">
@@ -244,6 +250,9 @@
     </ClInclude>
     <ClInclude Include="RankM.h">
       <Filter>ソース ファイル\RankM</Filter>
+    </ClInclude>
+    <ClInclude Include="Warning.h">
+      <Filter>ソース ファイル\Warning</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

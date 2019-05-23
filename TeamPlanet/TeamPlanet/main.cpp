@@ -37,6 +37,7 @@
 #include "Description.h"
 #include "Back.h"
 #include "RankM.h"
+#include "Warning.h"
 
 //削除されていないメモリを出力にダンプする---
 #include <crtdbg.h>
@@ -146,6 +147,10 @@ unsigned __stdcall TextureLoadSled(void *p)
 	Draw::LoadImage(48, L"image\\Arank.png");
 	Draw::LoadImage(49, L"image\\Srank.png");
 	Draw::LoadImage(50, L"image\\Urank.png");
+
+	//warning
+	Draw::LoadImage(51, L"warning1.png");
+	Draw::LoadImage(52, L"warning2.png");
 	
 	_endthreadex(0);	//スレッド終了
 	return 0;
@@ -216,6 +221,7 @@ unsigned __stdcall GameMainSled(void *p)
 		CDescription* description;
 		CBack* back;
 		CRankM* rankm;
+		CWarning* warning;
 
 		switch (g_SceneChange)
 		{
@@ -295,7 +301,9 @@ unsigned __stdcall GameMainSled(void *p)
 			back->m_priority = 50;
 			TaskSystem::InsertObj(back);//背景の背景(ステージ1)
 
-			//
+			warning = new CWarning();
+			warning->m_priority = 80;
+			TaskSystem::InsertObj(warning);
 
 			g_SceneChange = GAME_MAIN;
 			break;
