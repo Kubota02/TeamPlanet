@@ -13,7 +13,7 @@ extern int total;
 CGauge::CGauge()
 {
 	//ゲージ
-	m_x = 480.0f;
+	m_x = 0.0f;
 	m_y = 20.0f;
 
 	//メーター
@@ -52,7 +52,7 @@ void CGauge::Action()
 void CGauge::Draw()
 {
 	//ゲージ
-	Draw::Draw2D(34, m_x - m_ani_time, m_y);
+	Draw::Draw2D(34, m_x + m_ani_time, m_y);
 
 	//メーター
 	Draw::Draw2D(31, m_x2, m_y2);
