@@ -86,7 +86,7 @@ void CBullet::Action()
 	}
 
 	//得点が目標得点に到達したら自身を削除
-	if (total >= 50)
+	if (total >= 1000)
 	{
 		is_delete = true;
 		m_p_hit_box->SetDelete(true);
