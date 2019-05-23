@@ -28,7 +28,7 @@ private:
 	static int   m_data_size;
 }Save;
 
-#define ENEMY_NUM 100
+#define ENEMY_NUM 200
 
 struct ENEMYDATA
 {

@@ -113,11 +113,13 @@ void CEnemy::Action()
 			is_delete = true;
 			m_p_hit_box->SetDelete(true);
 			Audio::StartMusic(3);
+			//爆発入れられるかなぁ？
 
 			for (int i = 0; i < 10; i++)
 			{
 				if (m_p_hit_box->GetHitData()[i] == nullptr)
 					continue;
+
 				if (item == 1 && m_p_hit_box->GetHitData()[i]->GetElement() == BULLET)
 				{
 					//シールドアイテムオブジェクト作成
@@ -125,22 +127,29 @@ void CEnemy::Action()
 					d->m_priority = 90;
 					TaskSystem::InsertObj(d);
 				}
+
 				else if (item == 2 && m_p_hit_box->GetHitData()[i]->GetElement() == BULLET)
 				{
-					////ハートアイテムオブジェクト作成
-					/*CHeartitem* h = new CHeartitem(x, y);
-					h->m_priority = 90;
-					TaskSystem::InsertObj(h);*/
-
-					//タイムアイテムオブジェクト作成
-					/*CTimeitem* t = new CTimeitem(x, y);
-					t->m_priority = 90;
-					TaskSystem::InsertObj(t);*/
-
 					//スピードアップアイテムオブジェクト作成
 					CSpeedup* s = new CSpeedup(x, y);
 					s->m_priority = 90;
 					TaskSystem::InsertObj(s);
+				}
+
+				else if (item == 3 && m_p_hit_box->GetHitData()[i]->GetElement() == BULLET)
+				{
+					//ハートアイテムオブジェクト作成
+					CHeartitem* h = new CHeartitem(x, y);
+					h->m_priority = 90;
+					TaskSystem::InsertObj(h);
+				}
+
+				else if (item == 4 && m_p_hit_box->GetHitData()[i]->GetElement() == BULLET)
+				{
+					//タイムアイテムオブジェクト作成
+					CTimeitem* t = new CTimeitem(x, y);
+					t->m_priority = 90;
+					TaskSystem::InsertObj(t);
 				}
 			}
 		}

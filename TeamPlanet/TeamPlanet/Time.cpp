@@ -81,7 +81,7 @@ void CTime::Draw()
 
 	Draw::Draw2D(39, m_x - 14, m_y - 20);
 
-	if (time == 100)
+	if (time >= 100)
 	{
 		Font::StrDraw(str, m_x, m_y+10, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f);
 	}
