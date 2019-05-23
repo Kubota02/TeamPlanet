@@ -306,9 +306,7 @@ unsigned __stdcall GameMainSled(void *p)
 			back->m_priority = 50;
 			TaskSystem::InsertObj(back);//”wŒi‚Ì”wŒi(ƒXƒe[ƒW1)
 
-			warning = new CWarning();
-			warning->m_priority = 80;
-			TaskSystem::InsertObj(warning);
+			
 
 			g_SceneChange = GAME_MAIN;
 			break;
