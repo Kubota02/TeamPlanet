@@ -63,7 +63,7 @@ bool g_key_flag = true;//キーフラグ
 extern ENEMYDATA e_data[ENEMY_NUM];
 
 int heart_num = 5; //ハートの数
-int total;
+extern int total;
 //int g_time = 60; //残り時間
 
 //プロトタイプ宣言
@@ -74,7 +74,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);	//
 unsigned __stdcall TextureLoadSled(void *p)
 {
 	//イメージ読み込み
-	//限界＜41/50＞
+	//限界＜45/50＞
 	//主人公
 	Draw::LoadImage(0, L"image\\Space ship.png");
 	Draw::LoadImage(1, L"image\\bullet1.png");
@@ -124,6 +124,7 @@ unsigned __stdcall TextureLoadSled(void *p)
 
 	//ゲームクリア
 	Draw::LoadImage(27, L"image\\gameclear.png");
+	Draw::LoadImage(45, L"image\\Moon Clear.png");
 
 	//ゲームオーバー
 	Draw::LoadImage(28, L"image\\gameover.png");
@@ -336,6 +337,13 @@ unsigned __stdcall GameMainSled(void *p)
 			break;
 
 		case GAMECLEAR_MAIN: //ゲームクリア
+			break;
+
+		case ALLCLEAR: //ゲームクリア初期化
+			g_SceneChange = ALLCLEAR_MAIN;
+			break;
+
+		case ALLCLEAR_MAIN: //ゲームクリア
 			break;
 		}
 

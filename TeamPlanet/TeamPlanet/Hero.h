@@ -6,6 +6,8 @@
 #include "TaskSystem.h"
 #include "Collision.h"
 #include "Heart.h"
+#include "Defense.h"
+#include "Speedup.h"
 
 //主人公クラス
 class CHero :public CObj
@@ -26,6 +28,10 @@ private:
 
 	int d_time;//時間管理用
 	bool defense_flag;//シールドアイテムの制御用
+
+	int s_time;//時間管理用
+	bool speed_flag;//スピードアップアイテムの制御用
+
 	bool time_flag;//タイムアイテムの制御用
 	bool heart_flag;//ハートアイテムの制御用
 
