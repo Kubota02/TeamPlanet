@@ -7,7 +7,8 @@
 
 extern int g_SceneChange;
 extern bool g_key_flag;
-extern int total;
+int total;
+extern int heart_num;
 
 CEnemy::CEnemy(int enemy_type, int in_time, int x, int y, int enemy_speed, int hp,
 	int w, int h, int stop_time, int out_time, int shot_pattern, int shot_time, int shot_speed, int item, int point)
@@ -81,7 +82,7 @@ void CEnemy::Action()
 	}
 
 	//移動方向に位置*速度を加える
-	x += m_vx*2.0f;
+	x += m_vx*enemy_speed;
 
 	//当たり判定の処理
 	for (int i = 0; i < 10; i++)
@@ -104,38 +105,56 @@ void CEnemy::Action()
  			total += point;
 		}
 	}
-
-	//HPが無くなった時の削除処理
-	if (hp <= 0)
+	if (enemy_type != 0)
 	{
-		is_delete = true;
-		m_p_hit_box->SetDelete(true);
-		Audio::StartMusic(3);
+		//HPが無くなった時の削除処理
+		if (hp <= 0)
+		{
+			is_delete = true;
+			m_p_hit_box->SetDelete(true);
+			Audio::StartMusic(3);
 
-		for (int i = 0; i < 10; i++)
-		{		
-			if (m_p_hit_box->GetHitData()[i] == nullptr)
-				continue;
-			if (item == 1 && m_p_hit_box->GetHitData()[i]->GetElement() == BULLET)
+			for (int i = 0; i < 10; i++)
 			{
-				//シールドアイテムオブジェクト作成
-				CDefense* d = new CDefense(x, y);
-				d->m_priority = 90;
-				TaskSystem::InsertObj(d);
-			}
-			else if (item == 2 && m_p_hit_box->GetHitData()[i]->GetElement() == BULLET)
-			{
-				////ハートアイテムオブジェクト作成
-				//CHeartitem* h = new CHeartitem(x, y);
-				//h->m_priority = 90;
-				//TaskSystem::InsertObj(h);
+				if (m_p_hit_box->GetHitData()[i] == nullptr)
+					continue;
+				if (item == 1 && m_p_hit_box->GetHitData()[i]->GetElement() == BULLET)
+				{
+					//シールドアイテムオブジェクト作成
+					CDefense* d = new CDefense(x, y);
+					d->m_priority = 90;
+					TaskSystem::InsertObj(d);
+				}
+				else if (item == 2 && m_p_hit_box->GetHitData()[i]->GetElement() == BULLET)
+				{
+					////ハートアイテムオブジェクト作成
+					/*CHeartitem* h = new CHeartitem(x, y);
+					h->m_priority = 90;
+					TaskSystem::InsertObj(h);*/
 
-				//タイムアイテムオブジェクト作成
-				CTimeitem* t = new CTimeitem(x, y);
-				t->m_priority = 90;
-				TaskSystem::InsertObj(t);
+					//タイムアイテムオブジェクト作成
+					/*CTimeitem* t = new CTimeitem(x, y);
+					t->m_priority = 90;
+					TaskSystem::InsertObj(t);*/
+
+					//スピードアップアイテムオブジェクト作成
+					CSpeedup* s = new CSpeedup(x, y);
+					s->m_priority = 90;
+					TaskSystem::InsertObj(s);
+				}
 			}
 		}
+	}
+	else
+	{
+		;
+	}
+
+	//主人公のHPがなくなったら破棄
+	if (heart_num == 0)
+	{
+		m_p_hit_box->SetDelete(true);
+		is_delete = true;
 	}
 
 	//得点が目標得点に到達したらゲームクリア

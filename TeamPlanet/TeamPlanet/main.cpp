@@ -36,6 +36,7 @@
 #include "Gauge.h"
 #include "Description.h"
 #include "Back.h"
+#include "Rank.h"
 
 //削除されていないメモリを出力にダンプする---
 #include <crtdbg.h>
@@ -62,7 +63,7 @@ bool g_key_flag = true;//キーフラグ
 extern ENEMYDATA e_data[ENEMY_NUM];
 
 int heart_num = 5; //ハートの数
-int total;
+extern int total;
 //int g_time = 60; //残り時間
 
 //プロトタイプ宣言
@@ -73,7 +74,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);	//
 unsigned __stdcall TextureLoadSled(void *p)
 {
 	//イメージ読み込み
-	//限界＜41/50＞
+	//限界＜45/50＞
 	//主人公
 	Draw::LoadImage(0, L"image\\Space ship.png");
 	Draw::LoadImage(1, L"image\\bullet1.png");
@@ -123,6 +124,7 @@ unsigned __stdcall TextureLoadSled(void *p)
 
 	//ゲームクリア
 	Draw::LoadImage(27, L"image\\gameclear.png");
+	Draw::LoadImage(45, L"image\\Moon Clear.png");
 
 	//ゲームオーバー
 	Draw::LoadImage(28, L"image\\gameover.png");
@@ -136,6 +138,9 @@ unsigned __stdcall TextureLoadSled(void *p)
 
 	//操作説明
 	Draw::LoadImage(41, L"image\\description.png");
+
+	//ランク
+	Draw::LoadImage(45, L"image\\Crank.png");
 	
 	_endthreadex(0);	//スレッド終了
 	return 0;
@@ -205,6 +210,7 @@ unsigned __stdcall GameMainSled(void *p)
 		CGauge* gauge;
 		CDescription* description;
 		CBack* back;
+		CRank* rank;
 
 		switch (g_SceneChange)
 		{
@@ -321,10 +327,23 @@ unsigned __stdcall GameMainSled(void *p)
 			gameclear = new CGameClear();
 			gameclear->m_priority = 70;
 			TaskSystem::InsertObj(gameclear);
+
+			rank = new CRank();
+			rank->m_priority = 70;
+			TaskSystem::InsertObj(rank);
+
 			g_SceneChange = GAMECLEAR_MAIN;
+
 			break;
 
 		case GAMECLEAR_MAIN: //ゲームクリア
+			break;
+
+		case ALLCLEAR: //ゲームクリア初期化
+			g_SceneChange = ALLCLEAR_MAIN;
+			break;
+
+		case ALLCLEAR_MAIN: //ゲームクリア
 			break;
 		}
 

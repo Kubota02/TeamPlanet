@@ -3,18 +3,16 @@
 #define _HAS_ITERATOR_DEBUGGING (0)
 
 //使用ヘッダー
-#include "Defense.h"
+#include "Speedup.h"
 
 extern int total;
 
 //コンストラクタ
-CDefense::CDefense(int x, int y)
+CSpeedup::CSpeedup(int x, int y)
 {
-	//位置の初期化
 	m_x = x;
 	m_y = y;
 
-	//移動ベクトルの初期化
 	m_vx = -3;
 
 	//ヒットボックス作成
@@ -23,20 +21,19 @@ CDefense::CDefense(int x, int y)
 	//作成したヒットボックスの値を設定
 	m_p_hit_box->SetPos(m_x, m_y);
 	m_p_hit_box->SetWH(70.0f, 70.0f);
-	m_p_hit_box->SetElement(DEFENSE);   //属性設定
-	m_p_hit_box->SetInvisible(false);  //無敵モード無効
+	m_p_hit_box->SetElement(SPEEDUP);		//属性設定
+	m_p_hit_box->SetInvisible(false);	//無敵モード無効
 }
 
 //デストラクタ
-CDefense::~CDefense()
+CSpeedup::~CSpeedup()
 {
 
 }
 
 //アクション
-void CDefense::Action()
+void CSpeedup::Action()
 {
-	//移動
 	m_x += m_vx;
 
 	//領域外に出たらオブジェクト破棄
@@ -60,7 +57,7 @@ void CDefense::Action()
 	}
 
 	//得点が目標得点に到達したら自身を削除
-	if (total >= 1000)
+	if (total >= 50)
 	{
 		is_delete = true;
 		m_p_hit_box->SetDelete(true);
@@ -71,7 +68,7 @@ void CDefense::Action()
 }
 
 //ドロー
-void CDefense::Draw()
+void CSpeedup::Draw()
 {
-	Draw::Draw2D(29, m_x, m_y);
+	Draw::Draw2D(30, m_x, m_y);
 }

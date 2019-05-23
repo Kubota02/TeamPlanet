@@ -138,7 +138,9 @@
     <ClCompile Include="Hero.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Rank.cpp" />
     <ClCompile Include="Select.cpp" />
+    <ClCompile Include="Speedup.cpp" />
     <ClCompile Include="TaskSystem.cpp" />
     <ClCompile Include="Time.cpp" />
     <ClCompile Include="Timeitem.cpp" />
@@ -166,7 +168,9 @@
     <ClInclude Include="Heartitem.h" />
     <ClInclude Include="Hero.h" />
     <ClInclude Include="Input.h" />
+    <ClInclude Include="Rank.h" />
     <ClInclude Include="Select.h" />
+    <ClInclude Include="Speedup.h" />
     <ClInclude Include="TaskSystem.h" />
     <ClInclude Include="Time.h" />
     <ClInclude Include="Timeitem.h" />
