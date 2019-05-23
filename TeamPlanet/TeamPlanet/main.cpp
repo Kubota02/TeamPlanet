@@ -36,7 +36,7 @@
 #include "Gauge.h"
 #include "Description.h"
 #include "Back.h"
-#include "Rank.h"
+#include "RankM.h"
 
 //削除されていないメモリを出力にダンプする---
 #include <crtdbg.h>
@@ -141,7 +141,7 @@ unsigned __stdcall TextureLoadSled(void *p)
 	Draw::LoadImage(41, L"image\\description.png");
 
 	//ランク
-	Draw::LoadImage(45, L"image\\Crank.png");
+	Draw::LoadImage(46, L"image\\Crank.png");
 	
 	_endthreadex(0);	//スレッド終了
 	return 0;
@@ -211,7 +211,7 @@ unsigned __stdcall GameMainSled(void *p)
 		CGauge* gauge;
 		CDescription* description;
 		CBack* back;
-		CRank* rank;
+		CRankM* rankm;
 
 		switch (g_SceneChange)
 		{
@@ -330,9 +330,9 @@ unsigned __stdcall GameMainSled(void *p)
 			gameclear->m_priority = 70;
 			TaskSystem::InsertObj(gameclear);
 
-			rank = new CRank();
-			rank->m_priority = 70;
-			TaskSystem::InsertObj(rank);
+			rankm = new CRankM();
+			rankm->m_priority = 70;
+			TaskSystem::InsertObj(rankm);
 
 			g_SceneChange = GAMECLEAR_MAIN;
 
