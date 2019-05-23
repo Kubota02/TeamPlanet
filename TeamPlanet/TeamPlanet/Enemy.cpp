@@ -82,7 +82,7 @@ void CEnemy::Action()
 	}
 
 	//ˆÚ“®•ûŒü‚ÉˆÊ’u*‘¬“x‚ğ‰Á‚¦‚é
-	x += m_vx*2.0f;
+	x += m_vx*enemy_speed;
 
 	//“–‚½‚è”»’è‚Ìˆ—
 	for (int i = 0; i < 10; i++)
