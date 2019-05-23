@@ -22,7 +22,7 @@ CTime::CTime()
 	m_time = 0;
 
 	//残り時間
-	time = 60;
+	time = 100;
 
 	//フォント作成用
 	Font::CreateStrTex(L"0123456789");
@@ -81,5 +81,12 @@ void CTime::Draw()
 
 	Draw::Draw2D(39, m_x - 14, m_y - 20);
 
-	Font::StrDraw(str, m_x, m_y + 13, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f);
+	if (time == 100)
+	{
+		Font::StrDraw(str, m_x, m_y+10, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f);
+	}
+	else
+	{
+		Font::StrDraw(str, m_x + 10, m_y + 10, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f);
+	}
 }
