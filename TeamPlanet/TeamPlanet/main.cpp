@@ -142,6 +142,10 @@ unsigned __stdcall TextureLoadSled(void *p)
 
 	//ランク
 	Draw::LoadImage(46, L"image\\Crank.png");
+	Draw::LoadImage(47, L"image\\Brank.png");
+	Draw::LoadImage(48, L"image\\Arank.png");
+	Draw::LoadImage(49, L"image\\Srank.png");
+	Draw::LoadImage(50, L"image\\Urank.png");
 	
 	_endthreadex(0);	//スレッド終了
 	return 0;
@@ -235,15 +239,15 @@ unsigned __stdcall GameMainSled(void *p)
 		case DESCRIPTION_MAIN: //操作説明
 			break;
 
-		case STAGESELECT: //ステージセレクト初期化
-			select = new CSelect();
-			select->m_priority = 90;
-			TaskSystem::InsertObj(select);
-			g_SceneChange = STAGESELECT_MAIN;
-			break;
+		//case STAGESELECT: //ステージセレクト初期化
+		//	select = new CSelect();
+		//	select->m_priority = 90;
+		//	TaskSystem::InsertObj(select);
+		//	g_SceneChange = STAGESELECT_MAIN;
+		//	break;
 
-		case STAGESELECT_MAIN: //ステージセレクト
-			break;
+		//case STAGESELECT_MAIN: //ステージセレクト
+		//	break;
 
 		case GAME: //ステージ1初期化
 			heart_num = 5;
@@ -291,6 +295,8 @@ unsigned __stdcall GameMainSled(void *p)
 			back->m_priority = 50;
 			TaskSystem::InsertObj(back);//背景の背景(ステージ1)
 
+			//
+
 			g_SceneChange = GAME_MAIN;
 			break;
 
@@ -330,9 +336,9 @@ unsigned __stdcall GameMainSled(void *p)
 			gameclear->m_priority = 70;
 			TaskSystem::InsertObj(gameclear);
 
-			rankm = new CRankM();
+			/*rankm = new CRankM();
 			rankm->m_priority = 70;
-			TaskSystem::InsertObj(rankm);
+			TaskSystem::InsertObj(rankm);*/
 
 			g_SceneChange = GAMECLEAR_MAIN;
 

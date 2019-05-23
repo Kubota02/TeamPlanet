@@ -40,7 +40,7 @@ Audio::StartLoopMusic(12);//バックミュージックスタート
 		{
 			Audio::StartMusic(6);
 			Audio::StopLoopMusic(12);
-			g_SceneChange = STAGESELECT;
+			g_SceneChange = GAME;
 			is_delete = true;
 
 			if (g_key_flag)

@@ -13,7 +13,7 @@ ID3D11Buffer*		Draw::m_pIndexBuffer;		//インデックスバッファ
 
 //テクスチャに必要なモノ
 ID3D11SamplerState*		  Draw::m_pSampleLinear;//テクスチャ―サンプラー
-ID3D11ShaderResourceView* Draw::m_pTexture[50]; //テクスチャリソース
+ID3D11ShaderResourceView* Draw::m_pTexture[60]; //テクスチャリソース
 float Draw::m_width[100];	//テクスチャの横幅
 float Draw::m_height[100];	//テクスチャの縦幅
 

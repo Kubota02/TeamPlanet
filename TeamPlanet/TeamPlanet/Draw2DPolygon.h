@@ -62,7 +62,7 @@ private:
 
 	//テクスチャに必要なモノ
 	static ID3D11SamplerState*			m_pSampleLinear;	//テクスチャ―サンプラー
-	static ID3D11ShaderResourceView*	m_pTexture[50];			//テクスチャリソース
+	static ID3D11ShaderResourceView*	m_pTexture[60];			//テクスチャリソース
 	static float						m_width[100];		//テクスチャの横幅
 	static float						m_height[100];		//テクスチャの縦幅
 
