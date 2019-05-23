@@ -63,6 +63,7 @@ bool g_key_flag = true;//キーフラグ
 extern ENEMYDATA e_data[ENEMY_NUM];
 
 int heart_num = 5; //ハートの数
+//int clearpoint;
 extern int total;
 //int g_time = 60; //残り時間
 
@@ -247,6 +248,7 @@ unsigned __stdcall GameMainSled(void *p)
 		case GAME: //ステージ1初期化
 			heart_num = 5;
 			total = 0;
+			//clearpoint = 1000;
 
 			//オーディオ、、、だってわからんと思ったんやもん
 			Audio::StartLoopMusic(7);
