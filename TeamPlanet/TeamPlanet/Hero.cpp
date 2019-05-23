@@ -139,6 +139,11 @@ void CHero::Action()
 			//ƒn[ƒgŒ¸‚ç‚·
 			if (heart_num > 0)
 				heart_num += -1;
+
+			if (h_hp <= 0)
+			{
+				h_hp = 0;
+			}
 		}
 		if (m_p_hit_box->GetHitData()[i]->GetElement() == DEFENSE)
 		{
@@ -161,7 +166,7 @@ void CHero::Action()
 	  }
 
 	//‘Ì—Í‚ª–³‚­‚È‚Á‚½‚Ìíœˆ—
-	if (h_hp <= 0)
+	if (h_hp == 0)
 	{
 		is_delete = true;
 		m_p_hit_box->SetDelete(true);
