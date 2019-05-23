@@ -67,6 +67,9 @@
     <Filter Include="ソース ファイル\Back">
       <UniqueIdentifier>{3113f433-5e42-4134-a09d-da8b6e2e2279}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Rank">
+      <UniqueIdentifier>{f27b9ae3-aff7-41f4-a53d-8fad1d953695}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Audio.cpp">
@@ -150,6 +153,9 @@
     <ClCompile Include="Back.cpp">
       <Filter>ソース ファイル\Back</Filter>
     </ClCompile>
+    <ClCompile Include="Rank.cpp">
+      <Filter>ソース ファイル\Rank</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Audio.h">
@@ -229,6 +235,9 @@
     </ClInclude>
     <ClInclude Include="Back.h">
       <Filter>ソース ファイル\Back</Filter>
+    </ClInclude>
+    <ClInclude Include="Rank.h">
+      <Filter>ソース ファイル\Rank</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
