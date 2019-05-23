@@ -26,4 +26,5 @@ class CTime : public CObj
 
 		int m_time;
 		int time;   //c‚èŠÔ
+		int w_time; //warning—p
 };

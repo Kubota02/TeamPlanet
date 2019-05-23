@@ -24,6 +24,8 @@ CTime::CTime()
 	//残り時間
 	time = 100;
 
+	w_time = 100;
+
 	//フォント作成用
 	Font::CreateStrTex(L"0123456789");
 }
@@ -45,8 +47,11 @@ void CTime::Action()
 	if (m_time == 60)
 	{
 		time--;
+		w_time = 
 		m_time = 0;
 	}
+	
+	
 
 	//ハートが無くなった時に自身を削除
 	if (heart_num == 0)
@@ -89,4 +94,6 @@ void CTime::Draw()
 	{
 		Font::StrDraw(str, m_x + 10, m_y + 10, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f);
 	}
+
+
 }
