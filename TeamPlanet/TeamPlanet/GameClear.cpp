@@ -38,7 +38,7 @@ void CGameClear::Action()
 		m_ani_time++;
 	}
 
-	if (total >= 50)
+	if (total >= 1000)
 	{
 		if (g_key_flag)
 		{
