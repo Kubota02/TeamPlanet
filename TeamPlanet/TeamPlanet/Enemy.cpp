@@ -63,11 +63,20 @@ CEnemy::CEnemy(int enemy_type, int in_time, int x, int y, int enemy_speed, int h
 	//ヒットボックス作成()
 	m_p_hit_box = Collision::HitBoxInsert(this);
 
-	//作成したヒットボックスの値を設定
-	m_p_hit_box->SetPos(x, y);
-	m_p_hit_box->SetWH(w, h);
-	m_p_hit_box->SetElement(ENEMY);	//属性設定
-	m_p_hit_box->SetInvisible(false);	//無敵モード無効
+	if (enemy_type == 6)
+	{
+		m_p_hit_box->SetPos(x + 100, y - 10);
+		m_p_hit_box->SetWH(w - 200, h - 10);
+		m_p_hit_box->SetElement(ENEMY);	//属性設定
+		m_p_hit_box->SetInvisible(false);	//無敵モード無効
+	}
+	else
+	{
+		m_p_hit_box->SetPos(x, y);
+		m_p_hit_box->SetWH(w, h);
+		m_p_hit_box->SetElement(ENEMY);	//属性設定
+		m_p_hit_box->SetInvisible(false);	//無敵モード無効
+	}
 }
 
 CEnemy::~CEnemy()
@@ -204,66 +213,81 @@ void CEnemy::Action()
 		is_delete = true;
 	}
 
-	//当たり判定の位置更新
-	m_p_hit_box->SetPos(x, y);
+	if (enemy_type == 6)
+	{
+		//当たり判定の位置更新
+		m_p_hit_box->SetPos(x + 100, y + 10);
+	}
+	else
+	{
+		//当たり判定の位置更新
+		m_p_hit_box->SetPos(x, y);
+	}
 }
 
 void CEnemy::Draw()
 {
-	//描画
-	if (enemy_type == 2)
+	if (x >= 800)
 	{
-		//塵
-		Draw::Draw2D(enemy_type, x, y);
+		;
 	}
-	if (enemy_type == 3)
+	else
 	{
-		//隕石1
-		Draw::Draw2D(enemy_type, x, y);
-	}
-	if (enemy_type == 10)
-	{
-		//敵1
-		Draw::Draw2D(enemy_type, x, y);
-	}
-	if (enemy_type == 11)
-	{
-		//敵2
-		Draw::Draw2D(enemy_type, x, y);
-	}
-	if (enemy_type == 16)
-	{
-		//衛星
-		Draw::Draw2D(enemy_type, x, y);
-	}
-	if (enemy_type == 17)
-	{
-		//ソーラー
-		Draw::Draw2D(enemy_type, x, y);
-	}
-	if (enemy_type == 18)
-	{
-		//アンテナ
-		Draw::Draw2D(enemy_type, x, y);
-	}
-	if (enemy_type == 19)
-	{
-		//隕石2
-		Draw::Draw2D(enemy_type, x, y);
-	}
-	if (enemy_type == 5)
-	{
-		//月
-		Draw::Draw2D(enemy_type, x, y);
-	}
-	if (enemy_type == 6)
-	{
-		//土星
-		Draw::Draw2D(enemy_type, x, y);
-	}
-	if (enemy_type == 7)
-	{
-		//天王星
-		Draw::Draw2D(enemy_type, x, y);
+		//描画
+		if (enemy_type == 2)
+		{
+			//塵
+			Draw::Draw2D(enemy_type, x, y);
+		}
+		if (enemy_type == 3)
+		{
+			//隕石1
+			Draw::Draw2D(enemy_type, x, y);
+		}
+		if (enemy_type == 10)
+		{
+			//敵1
+			Draw::Draw2D(enemy_type, x, y);
+		}
+		if (enemy_type == 11)
+		{
+			//敵2
+			Draw::Draw2D(enemy_type, x, y);
+		}
+		if (enemy_type == 16)
+		{
+			//衛星
+			Draw::Draw2D(enemy_type, x, y);
+		}
+		if (enemy_type == 17)
+		{
+			//ソーラー
+			Draw::Draw2D(enemy_type, x, y);
+		}
+		if (enemy_type == 18)
+		{
+			//アンテナ
+			Draw::Draw2D(enemy_type, x, y);
+		}
+		if (enemy_type == 19)
+		{
+			//隕石2
+			Draw::Draw2D(enemy_type, x, y);
+		}
+		if (enemy_type == 5)
+		{
+			//月
+			Draw::Draw2D(enemy_type, x, y);
+		}
+		if (enemy_type == 6)
+		{
+			//土星
+			Draw::Draw2D(enemy_type, x, y);
+		}
+		if (enemy_type == 7)
+		{
+			//天王星
+			Draw::Draw2D(enemy_type, x, y);
+		}
 	}
 }
