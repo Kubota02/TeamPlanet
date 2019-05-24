@@ -6,13 +6,20 @@
 
 CWarning::CWarning()
 {
-	//
-	m_x1 = 100.0f;
-	m_y1 = 100.0f;
+	//warning1の位置
+	m_x1 = 0.0f;
+	m_y1 = 0.0f;
 
-	//
-	m_x2 = 100.0f;
-	m_y2 = 100.0f;
+	//warning2の位置
+	m_x2 = 0.0f;
+	m_y2 = 0.0f;
+
+	//出現時間管理用
+	m_ani_time = 0;
+
+	m_time = 3;
+
+	m_name = WARNING;
 }
 
 CWarning::~CWarning()
@@ -22,7 +29,19 @@ CWarning::~CWarning()
 
 void CWarning::Action()
 {
+	m_ani_time++;
 
+	if (m_ani_time == 60)
+	{
+		m_time--;
+		m_ani_time = 0;
+	}
+
+	if (m_time == 0)
+	{
+		is_delete = true;
+		m_time = 3;
+	}
 }
 
 void CWarning::Draw()
