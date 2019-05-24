@@ -19,4 +19,7 @@ class CWarning : public CObj
 		float m_y1;    //warning1‚Â–Ú
 		float m_x2;    //warning2‚Â–Ú
 		float m_y2;    //warning2‚Â–Ú
+
+		int m_ani_time;
+		int m_time;
 };

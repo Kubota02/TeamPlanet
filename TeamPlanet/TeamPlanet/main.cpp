@@ -76,7 +76,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);	//
 unsigned __stdcall TextureLoadSled(void *p)
 {
 	//イメージ読み込み
-	//限界＜45/60＞
+	//限界＜45/60＞     8,9ダメ
 	//主人公
 	Draw::LoadImage(0, L"image\\Space ship.png");
 	Draw::LoadImage(1, L"image\\bullet1.png");
@@ -144,7 +144,8 @@ unsigned __stdcall TextureLoadSled(void *p)
 	Draw::LoadImage(9, L"image\\Uranus.png");*/
 
 	//操作説明
-	Draw::LoadImage(41, L"image\\description.png");
+	//Draw::LoadImage(41, L"image\\description.png");
+	Draw::LoadImage(41, L"image\\warning1.png");
 
 	//ランク
 	Draw::LoadImage(46, L"image\\Crank.png");
@@ -154,8 +155,8 @@ unsigned __stdcall TextureLoadSled(void *p)
 	Draw::LoadImage(50, L"image\\Urank.png");
 
 	//warning
-	Draw::LoadImage(51, L"warning1.png");
-	Draw::LoadImage(52, L"warning2.png");
+	Draw::LoadImage(51, L"image\\warning1.png");//8,9
+	Draw::LoadImage(52, L"image\\warning2.png");
 	
 	_endthreadex(0);	//スレッド終了
 	return 0;
