@@ -4,6 +4,7 @@
 
 //使用ヘッダー
 #include "Time.h"
+#include "Warning.h"
 
 extern int g_SceneChange;
 extern int heart_num;
@@ -24,7 +25,9 @@ CTime::CTime()
 	//残り時間
 	time = 100;
 
-	w_time = 100;
+	w_time = 20;
+
+	count = 3;
 
 	//フォント作成用
 	Font::CreateStrTex(L"0123456789");
@@ -49,6 +52,17 @@ void CTime::Action()
 		time--;
 		w_time--;
 		m_time = 0;
+	}
+
+	if (w_time == 0 && count > 0)
+	{
+		//warningオブジェクト作成
+		CWarning* warning = new CWarning();
+		warning->m_priority = 100;
+		TaskSystem::InsertObj(warning);
+
+		w_time = 20;
+		count--;
 	}
 	
 	
