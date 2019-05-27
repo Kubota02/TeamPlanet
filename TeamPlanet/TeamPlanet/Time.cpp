@@ -25,7 +25,7 @@ CTime::CTime()
 	//残り時間
 	time = 180;
 
-	w_time = 40;
+	w_time = 57;
 
 	count = 3;
 
@@ -61,12 +61,10 @@ void CTime::Action()
 		warning->m_priority = 90;
 		TaskSystem::InsertObj(warning);
 
-		w_time = 40;
+		w_time = 57;
 		count--;
 	}
 	
-	
-
 	//ハートが無くなった時に自身を削除
 	if (heart_num == 0)
 	{

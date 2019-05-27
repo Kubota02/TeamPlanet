@@ -306,9 +306,9 @@ unsigned __stdcall GameMainSled(void *p)
 			back->m_priority = 50;
 			TaskSystem::InsertObj(back);//”wŒi‚Ì”wŒi(ƒXƒe[ƒW1)
 
-			rankm = new CRankM();
+			/*rankm = new CRankM();
 			rankm->m_priority = 60;
-			TaskSystem::InsertObj(rankm);
+			TaskSystem::InsertObj(rankm);*/
 
 			
 
