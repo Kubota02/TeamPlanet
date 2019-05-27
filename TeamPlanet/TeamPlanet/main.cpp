@@ -144,8 +144,7 @@ unsigned __stdcall TextureLoadSled(void *p)
 	Draw::LoadImage(9, L"image\\Uranus.png");*/
 
 	//操作説明
-	//Draw::LoadImage(41, L"image\\description.png");
-	Draw::LoadImage(41, L"image\\warning1.png");
+	Draw::LoadImage(41, L"image\\description.png");
 
 	//ランク
 	Draw::LoadImage(46, L"image\\Crank.png");
@@ -274,7 +273,7 @@ unsigned __stdcall GameMainSled(void *p)
 			hero->m_priority = 80;
 			TaskSystem::InsertObj(hero);//宇宙船
 
-			p = Save::ExternalDataOpen(L"Enemy.csv", &size);//外部データ読み込み
+			p = Save::ExternalDataOpen(L"Enemy moon.csv", &size);//外部データ読み込み
 
 			for (int i = 0; i < ENEMY_NUM; ++i)
 			{
@@ -306,6 +305,10 @@ unsigned __stdcall GameMainSled(void *p)
 			back = new CBack();
 			back->m_priority = 50;
 			TaskSystem::InsertObj(back);//背景の背景(ステージ1)
+
+			rankm = new CRankM();
+			rankm->m_priority = 60;
+			TaskSystem::InsertObj(rankm);
 
 			
 

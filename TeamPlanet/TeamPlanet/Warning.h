@@ -21,5 +21,6 @@ class CWarning : public CObj
 		float m_y2;    //warning2‚Â–Ú
 
 		int m_ani_time;
+		int m_warning_time;
 		int m_time;
 };

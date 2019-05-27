@@ -17,6 +17,7 @@ CWarning::CWarning()
 	//èoåªéûä‘ä«óùóp
 	m_ani_time = 0;
 
+	//èoåªéûä‘
 	m_time = 3;
 
 	m_name = WARNING;
@@ -46,6 +47,6 @@ void CWarning::Action()
 
 void CWarning::Draw()
 {
-	Draw::Draw2D(51, m_x1, m_y1);
 	Draw::Draw2D(52, m_x2, m_y2);
+	Draw::Draw2D(51, m_x1, m_y1);
 }
