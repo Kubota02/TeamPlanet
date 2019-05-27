@@ -70,7 +70,7 @@ void CGameClear::Action()
 			{
 				total = 0;
 				Audio::StopLoopMusic(11);
-				g_SceneChange = STAGESELECT;
+				g_SceneChange = TITLE;
 				g_key_flag = false;
 				is_delete = true;
 			}

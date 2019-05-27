@@ -53,7 +53,7 @@ void CGameOver::Action()
 		if (Input::KeyPush(VK_RETURN))
 		{
 			Audio::StopLoopMusic(10);
-			g_SceneChange = STAGESELECT;
+			g_SceneChange = TITLE;
 			is_delete = true;
 		}
 	}
