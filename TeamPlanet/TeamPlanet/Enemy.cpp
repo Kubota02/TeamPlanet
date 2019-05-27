@@ -62,21 +62,6 @@ CEnemy::CEnemy(int enemy_type, int in_time, int x, int y, int enemy_speed, int h
 
 	//ヒットボックス作成()
 	m_p_hit_box = Collision::HitBoxInsert(this);
-
-	if (enemy_type == 6)
-	{
-		m_p_hit_box->SetPos(x + 100, y - 10);
-		m_p_hit_box->SetWH(w - 200, h - 10);
-		m_p_hit_box->SetElement(ENEMY);	//属性設定
-		m_p_hit_box->SetInvisible(false);	//無敵モード無効
-	}
-	else
-	{
-		m_p_hit_box->SetPos(x, y);
-		m_p_hit_box->SetWH(w, h);
-		m_p_hit_box->SetElement(ENEMY);	//属性設定
-		m_p_hit_box->SetInvisible(false);	//無敵モード無効
-	}
 }
 
 CEnemy::~CEnemy()
@@ -87,6 +72,28 @@ CEnemy::~CEnemy()
 void CEnemy::Action()
 {
 	m_count++;
+
+	if (x >= 800)
+	{
+		m_p_hit_box->SetInvisible(true);	//無敵モード
+	}
+	else
+	{
+		if (enemy_type == 6)
+		{
+			m_p_hit_box->SetPos(x + 100, y - 10);
+			m_p_hit_box->SetWH(w - 200, h - 10);
+			m_p_hit_box->SetElement(ENEMY);	//属性設定
+			m_p_hit_box->SetInvisible(false);	//無敵モード無効
+		}
+		else
+		{
+			m_p_hit_box->SetPos(x, y);
+			m_p_hit_box->SetWH(w, h);
+			m_p_hit_box->SetElement(ENEMY);	//属性設定
+			m_p_hit_box->SetInvisible(false);	//無敵モード無効
+		}
+	}
 
 	//領域外に出たらオブジェクト破棄
 	if (x < -100.0f)
@@ -216,7 +223,7 @@ void CEnemy::Action()
 	if (enemy_type == 6)
 	{
 		//当たり判定の位置更新
-		m_p_hit_box->SetPos(x + 100, y + 10);
+		m_p_hit_box->SetPos(x + 100, y - 10);
 	}
 	else
 	{
@@ -229,7 +236,7 @@ void CEnemy::Draw()
 {
 	if (x >= 800)
 	{
-		;
+		return;
 	}
 	else
 	{
