@@ -23,9 +23,9 @@ CTime::CTime()
 	m_time = 0;
 
 	//残り時間
-	time = 100;
+	time = 180;
 
-	w_time = 20;
+	w_time = 40;
 
 	count = 3;
 
@@ -58,10 +58,10 @@ void CTime::Action()
 	{
 		//warningオブジェクト作成
 		CWarning* warning = new CWarning();
-		warning->m_priority = 100;
+		warning->m_priority = 90;
 		TaskSystem::InsertObj(warning);
 
-		w_time = 20;
+		w_time = 40;
 		count--;
 	}
 	

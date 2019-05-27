@@ -144,8 +144,7 @@ unsigned __stdcall TextureLoadSled(void *p)
 	Draw::LoadImage(9, L"image\\Uranus.png");*/
 
 	//‘€ìà–¾
-	//Draw::LoadImage(41, L"image\\description.png");
-	Draw::LoadImage(41, L"image\\warning1.png");
+	Draw::LoadImage(41, L"image\\description.png");
 
 	//ƒ‰ƒ“ƒN
 	Draw::LoadImage(46, L"image\\Crank.png");
@@ -306,6 +305,10 @@ unsigned __stdcall GameMainSled(void *p)
 			back = new CBack();
 			back->m_priority = 50;
 			TaskSystem::InsertObj(back);//”wŒi‚Ì”wŒi(ƒXƒe[ƒW1)
+
+			rankm = new CRankM();
+			rankm->m_priority = 60;
+			TaskSystem::InsertObj(rankm);
 
 			
 
