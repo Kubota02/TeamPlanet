@@ -274,7 +274,7 @@ unsigned __stdcall GameMainSled(void *p)
 			hero->m_priority = 80;
 			TaskSystem::InsertObj(hero);//宇宙船
 
-			p = Save::ExternalDataOpen(L"Enemy.csv", &size);//外部データ読み込み
+			p = Save::ExternalDataOpen(L"Enemy moon.csv", &size);//外部データ読み込み
 
 			for (int i = 0; i < ENEMY_NUM; ++i)
 			{
