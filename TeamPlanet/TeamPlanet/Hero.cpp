@@ -180,9 +180,11 @@ void CHero::Action()
 	{
 		m_p_hit_box->SetInvisible(true);
 		defense_flag = true;
+
 		if (d_time == 180)
 		{
 			m_p_hit_box->SetInvisible(false);
+			d_time = 0;
 			defense_flag = false;
 		}
 	}
@@ -226,6 +228,7 @@ void CHero::Action()
 			//ˆÚ“®•ûŒü‚ÉˆÊ’u‚ð‰Á‚¦‚é
 			m_x += m_vx;
 			m_y += m_vy;
+			s_time = 0;
 
 			speed_flag = false;
 		}
