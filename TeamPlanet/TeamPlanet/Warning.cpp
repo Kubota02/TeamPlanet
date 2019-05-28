@@ -31,6 +31,7 @@ CWarning::~CWarning()
 void CWarning::Action()
 {
 	m_ani_time++;
+	//‰¹Šy“±“ü
 
 	if (m_ani_time == 60)
 	{
@@ -41,6 +42,7 @@ void CWarning::Action()
 	if (m_time == 0)
 	{
 		is_delete = true;
+		//‰¹ŠyŽ~‚ß‚é
 		m_time = 3;
 	}
 }
