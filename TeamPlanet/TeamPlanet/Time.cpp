@@ -23,7 +23,7 @@ CTime::CTime()
 	m_time = 0;
 
 	//Žc‚èŽžŠÔ
-	time = 180;
+	time = 200;
 
 	w_time = 57;
 
