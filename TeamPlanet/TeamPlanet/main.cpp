@@ -167,8 +167,11 @@ unsigned __stdcall MusicLoadSled(void *p)
 	Audio::LoadBackMusic(10, "gameover.ogg");
 	Audio::LoadBackMusic(11, "gameclear.ogg");
 	Audio::LoadBackMusic(12, "Sethumei.ogg");
+	Audio::LoadSEMusic(13, "speed.ogg");
+	Audio::LoadSEMusic(14, "defense.ogg");
+	Audio::LoadSEMusic(15, "heart.ogg");
+	Audio::LoadBackMusic(16, "warning.ogg");
 	
-
 	//Audio::StartLoopMusic();//バックミュージックスタート
 	_endthreadex(0);	//スレッド終了
 	return 0;
@@ -312,9 +315,9 @@ unsigned __stdcall GameMainSled(void *p)
 			gameclear->m_priority = 70;
 			TaskSystem::InsertObj(gameclear);
 
-			/*rankm = new CRankM();
+			rankm = new CRankM();
 			rankm->m_priority = 70;
-			TaskSystem::InsertObj(rankm);*/
+			TaskSystem::InsertObj(rankm);
 
 			g_SceneChange = GAMECLEAR_MAIN;
 

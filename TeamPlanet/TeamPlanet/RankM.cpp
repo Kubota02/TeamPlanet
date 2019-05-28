@@ -22,7 +22,7 @@ CRankM::~CRankM()
 
 void CRankM::Action()
 {
-	if (m_ani_time != 0)
+	/*if (m_ani_time != 0)
 	{
 
 		m_ani_time++;
@@ -41,7 +41,7 @@ void CRankM::Action()
 		g_key_flag = true;
 	}
 
-	g_key_flag = true;
+	g_key_flag = true;*/
 }
 
 void CRankM::Draw()
