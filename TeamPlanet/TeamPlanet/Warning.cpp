@@ -33,6 +33,8 @@ void CWarning::Action()
 	m_ani_time++;
 	//‰¹Šy“±“ü
 
+	Audio::StartMusic(16);
+	
 	if (m_ani_time == 60)
 	{
 		m_time--;
@@ -43,6 +45,7 @@ void CWarning::Action()
 	{
 		is_delete = true;
 		//‰¹ŠyŽ~‚ß‚é
+		//Audio::StopLoopMusic(16);
 		m_time = 3;
 	}
 }
