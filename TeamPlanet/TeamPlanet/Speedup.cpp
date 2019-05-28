@@ -51,6 +51,7 @@ void CSpeedup::Action()
 		//主人公に当たった時
 		if (m_p_hit_box->GetHitData()[i]->GetElement() == HERO)
 		{
+			Audio::StartMusic(13);
 			is_delete = true;				//オブジェクトの削除
 			m_p_hit_box->SetDelete(true);	//当たり判定の削除
 		}

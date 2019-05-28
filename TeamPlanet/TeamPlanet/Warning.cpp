@@ -31,7 +31,8 @@ CWarning::~CWarning()
 void CWarning::Action()
 {
 	m_ani_time++;
-
+	Audio::StartMusic(16);
+	
 	if (m_ani_time == 60)
 	{
 		m_time--;
@@ -41,6 +42,7 @@ void CWarning::Action()
 	if (m_time == 0)
 	{
 		is_delete = true;
+		//Audio::StopLoopMusic(16);
 		m_time = 3;
 	}
 }

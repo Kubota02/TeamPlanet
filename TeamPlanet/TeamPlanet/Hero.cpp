@@ -199,6 +199,7 @@ void CHero::Action()
 			;
 		else
 		{
+			Audio::StartMusic(15);
 			heart_num += 1;
 			heart_flag = false;
 		}
