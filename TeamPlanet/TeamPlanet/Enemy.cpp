@@ -6,7 +6,6 @@
 #include "Audio.h"
 
 extern int g_SceneChange;
-extern bool g_key_flag;
 int total;
 extern int heart_num;
 
@@ -217,6 +216,7 @@ void CEnemy::Action()
 	{
 		Audio::StopLoopMusic(7);
 		g_SceneChange = GAMECLEAR;
+		m_p_hit_box->SetDelete(true);
 		is_delete = true;
 	}
 

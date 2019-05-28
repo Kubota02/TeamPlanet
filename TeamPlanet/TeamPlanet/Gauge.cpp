@@ -34,7 +34,7 @@ CGauge::~CGauge()
 //アクション
 void CGauge::Action()
 {
-	m_ani_time = total / 10;
+	m_ani_time = total / 2;
 
 	//ハートが無くなった時に自身を削除
 	if (heart_num <= 0)

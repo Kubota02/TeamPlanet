@@ -87,8 +87,6 @@ unsigned __stdcall TextureLoadSled(void *p)
 	Draw::LoadImage(15, L"image\\life.png");
 	Draw::LoadImage(31, L"image\\meter.png");
 	Draw::LoadImage(34, L"image\\meter1.png");
-	//Draw::LoadImage(35, L"image\\saturn meter.png");
-	//Draw::LoadImage(36, L"image\\Uranus meter.png");
 	Draw::LoadImage(39, L"image\\stopwatch.png");
 
 	//敵
@@ -131,17 +129,9 @@ unsigned __stdcall TextureLoadSled(void *p)
 
 	//ゲームクリア
 	Draw::LoadImage(27, L"image\\gameclear.png");
-	Draw::LoadImage(45, L"image\\Moon Clear.png");
 
 	//ゲームオーバー
 	Draw::LoadImage(28, L"image\\gameover.png");
-
-	//ゲームセレクト
-	/*Draw::LoadImage(5, L"image\\Select.png");
-	Draw::LoadImage(6, L"image\\planet.png");
-	Draw::LoadImage(7, L"image\\moon.png");
-	Draw::LoadImage(8, L"image\\saturn.png");
-	Draw::LoadImage(9, L"image\\Uranus.png");*/
 
 	//操作説明
 	Draw::LoadImage(41, L"image\\description.png");
@@ -165,7 +155,6 @@ unsigned __stdcall TextureLoadSled(void *p)
 unsigned __stdcall MusicLoadSled(void *p)
 {
 	//ミュージック情報取得
-	Audio::LoadBackMusic(4,"Select.ogg");
 	Audio::LoadSEMusic(0, "Bullet1.ogg");
 	Audio::LoadSEMusic(1, "Bullet2.ogg");
 	Audio::LoadSEMusic(2, "boom1.ogg");
@@ -214,7 +203,6 @@ unsigned __stdcall GameMainSled(void *p)
 		int size;				//敵情報の大きさ
 
 		CTitle* title;
-		CSelect* select;
 		CHero* hero;
 		CEnemy* enemy;
 		CBackground* background;
@@ -249,16 +237,6 @@ unsigned __stdcall GameMainSled(void *p)
 
 		case DESCRIPTION_MAIN: //操作説明
 			break;
-
-		//case STAGESELECT: //ステージセレクト初期化
-		//	select = new CSelect();
-		//	select->m_priority = 90;
-		//	TaskSystem::InsertObj(select);
-		//	g_SceneChange = STAGESELECT_MAIN;
-		//	break;
-
-		//case STAGESELECT_MAIN: //ステージセレクト
-		//	break;
 
 		case GAME: //ステージ1初期化
 			heart_num = 5;
@@ -316,23 +294,6 @@ unsigned __stdcall GameMainSled(void *p)
 			break;
 
 		case GAME_MAIN: //ステージ1
-			
-			break;
-
-		case GAME2: //ステージ2初期化
-
-			g_SceneChange = GAME_MAIN2;
-			break;
-
-		case GAME_MAIN2: //ステージ2
-			break;
-
-		case GAME3: //ステージ3初期化
-
-			g_SceneChange = GAME_MAIN3;
-			break;
-
-		case GAME_MAIN3: //ステージ3
 			break;
 
 		case GAMEOVER: //ゲームオーバー初期化

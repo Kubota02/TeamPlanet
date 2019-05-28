@@ -33,7 +33,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v100</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -142,7 +142,6 @@
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="RankM.cpp" />
-    <ClCompile Include="Select.cpp" />
     <ClCompile Include="Speedup.cpp" />
     <ClCompile Include="TaskSystem.cpp" />
     <ClCompile Include="Time.cpp" />
@@ -173,7 +172,6 @@
     <ClInclude Include="Hero.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="RankM.h" />
-    <ClInclude Include="Select.h" />
     <ClInclude Include="Speedup.h" />
     <ClInclude Include="TaskSystem.h" />
     <ClInclude Include="Time.h" />

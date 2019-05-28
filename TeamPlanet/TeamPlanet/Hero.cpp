@@ -8,7 +8,6 @@
 #include "Time.h"
 
 extern int g_SceneChange;
-extern bool g_key_flag;
 extern int heart_num;
 extern int total;
 extern CTime* g_time;
