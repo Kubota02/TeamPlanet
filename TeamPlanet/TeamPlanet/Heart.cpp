@@ -7,6 +7,7 @@
 
 extern int heart_num;
 extern int total;
+extern int g_time;
 
 //コンストラクタ
 CHeart::CHeart()
@@ -25,6 +26,12 @@ void CHeart::Action()
 {
 	//得点が目標得点に到達したら自身を削除
 	if (total >= 1000)
+	{
+		is_delete = true;
+	}
+
+	//制限時間が無くなった時の削除処理
+	if (g_time == 0)
 	{
 		is_delete = true;
 	}

@@ -10,7 +10,7 @@
 extern int g_SceneChange;
 extern int heart_num;
 extern int total;
-extern CTime* g_time;
+extern int g_time;
 int h_hp = 100;	//体力
 
 CHero::CHero()
@@ -174,6 +174,14 @@ void CHero::Action()
 		g_SceneChange = GAMEOVER;
 	}
 
+	//制限時間が無くなった時の削除処理
+	if (g_time == 0)
+	{
+		is_delete = true;
+		m_p_hit_box->SetDelete(true);
+		//g_SceneChange = GAMECLEAR;
+	}
+
 	//シールド
 	if (defense_flag)
 	{
@@ -204,15 +212,6 @@ void CHero::Action()
 			heart_num += 1;
 			heart_flag = false;
 		}
-	}
-
-	//タイムアイテム効果
-	if (time_flag == true)
-	{
-		CTime* time = (CTime*)TaskSystem::GetObj(TIME);
-		time->SetTime();
-		time->AddTime(5);
-		time_flag = false;
 	}
 
 	//スピードアップアイテム効果
