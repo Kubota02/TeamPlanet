@@ -20,4 +20,6 @@ private:
 
 	bool key_flag;  //キーが押されているかチェック用
 	int m_ani_time;//アニメーション
+
+	bool rank_flag; //ランク管理用
 };

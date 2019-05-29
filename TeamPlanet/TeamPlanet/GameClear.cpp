@@ -3,6 +3,7 @@
 #define _HAS_ITERATOR_DEBUGGING (0)
 
 #include "GameClear.h"
+#include "RankM.h"
 
 extern int g_SceneChange;
 extern bool g_key_flag;
@@ -16,6 +17,8 @@ CGameClear::CGameClear()
 
 	m_ani_time = 0;
 	key_flag = true;
+	
+	rank_flag = true;
 }
 
 CGameClear::~CGameClear()
@@ -47,6 +50,18 @@ void CGameClear::Action()
 	{
 		Audio::StartLoopMusic(11);//バックミュージックスタート
 		Audio::LoopMusicVolume(11, 0.03f);
+
+		//ランク管理
+		if (rank_flag == true)
+		{
+			//ランク生成
+			CRankM* rankm = new CRankM();
+			rankm->m_priority = 70;
+			TaskSystem::InsertObj(rankm);
+
+			//ランク一回だけ生成用
+			rank_flag = false;
+		}
 	}
 
 	if (m_ani_time >= 240)

@@ -87,6 +87,6 @@ void CRankM::Draw()
 	}
 	else if (total >= 1000)
 	{
-		Draw::Draw2D(49, m_x, m_y);
+		Draw::Draw2D(46, m_x, m_y);
 	}
 }

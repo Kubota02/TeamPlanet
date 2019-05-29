@@ -315,9 +315,9 @@ unsigned __stdcall GameMainSled(void *p)
 			gameclear->m_priority = 70;
 			TaskSystem::InsertObj(gameclear);
 
-			rankm = new CRankM();
+			/*rankm = new CRankM();
 			rankm->m_priority = 70;
-			TaskSystem::InsertObj(rankm);
+			TaskSystem::InsertObj(rankm);*/
 
 			g_SceneChange = GAMECLEAR_MAIN;
 
