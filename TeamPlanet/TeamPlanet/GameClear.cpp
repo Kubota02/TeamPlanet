@@ -18,7 +18,7 @@ CGameClear::CGameClear()
 
 	m_ani_time = 0;
 	key_flag = true;
-	
+	time_flag = true;
 	rank_flag = true;
 }
 
@@ -49,15 +49,15 @@ void CGameClear::Action()
 
 	if (g_time == 0)
 	{
-		if (key_flag)
+		if (time_flag)
 		{
 			m_ani_time++;
-			key_flag = false;
+			time_flag = false;
 		}
 	}
 	else
 	{
-		key_flag = true;
+		time_flag = true;
 	}
 
 	if (m_ani_time >= 100)

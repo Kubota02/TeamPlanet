@@ -22,4 +22,5 @@ private:
 	int m_ani_time;//アニメーション
 
 	bool rank_flag; //ランク管理用
+	bool time_flag; //タイム管理用
 };
