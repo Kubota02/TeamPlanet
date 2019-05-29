@@ -75,6 +75,9 @@ void CGameClear::Action()
 				g_SceneChange = TITLE;
 				g_key_flag = false;
 				is_delete = true;
+				//
+				CRankM* rankm = (CRankM*)TaskSystem::GetObj(RANK);
+				rankm->is_delete = true;
 			}
 		}
 		else

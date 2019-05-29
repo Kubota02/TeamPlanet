@@ -286,13 +286,7 @@ unsigned __stdcall GameMainSled(void *p)
 			back = new CBack();
 			back->m_priority = 50;
 			TaskSystem::InsertObj(back);//”wŒi‚Ì”wŒi(ƒXƒe[ƒW1)
-
-			/*rankm = new CRankM();
-			rankm->m_priority = 60;
-			TaskSystem::InsertObj(rankm);*/
-
 			
-
 			g_SceneChange = GAME_MAIN;
 			break;
 
@@ -314,10 +308,6 @@ unsigned __stdcall GameMainSled(void *p)
 			gameclear = new CGameClear();
 			gameclear->m_priority = 70;
 			TaskSystem::InsertObj(gameclear);
-
-			/*rankm = new CRankM();
-			rankm->m_priority = 70;
-			TaskSystem::InsertObj(rankm);*/
 
 			g_SceneChange = GAMECLEAR_MAIN;
 
