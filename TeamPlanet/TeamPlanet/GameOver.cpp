@@ -14,6 +14,7 @@ CGameOver::CGameOver()
 	m_x = 0.0f;
 	m_y = 0.0f;
 
+	key_flag = true;
 	m_ani_time = 0;
 }
 
@@ -31,15 +32,15 @@ void CGameOver::Action()
 
 	if (h_hp == 0)
 	{
-		if (g_key_flag)
+		if (key_flag)
 		{
 			m_ani_time++;
-			g_key_flag = false;
+			key_flag = false;
 		}
 	}
 	else
 	{
-		g_key_flag = true;
+		key_flag = true;
 	}
 
 	if (m_ani_time >= 100)
@@ -48,13 +49,21 @@ void CGameOver::Action()
 		Audio::LoopMusicVolume(10, 0.03f);
 	}
 
-	if (m_ani_time >= 200)
+	if (m_ani_time >= 240)
 	{
 		if (Input::KeyPush(VK_RETURN))
 		{
-			Audio::StopLoopMusic(10);
-			g_SceneChange = TITLE;
-			is_delete = true;
+			if (g_key_flag)
+			{
+				Audio::StopLoopMusic(10);
+				g_SceneChange = TITLE;
+				is_delete = true;
+				g_key_flag = false;
+			}
+		}
+		else
+		{
+			g_key_flag = true;
 		}
 	}
 }
