@@ -46,7 +46,7 @@ void CTitle::Action()
 		if (g_key_flag)
 		{
 			Audio::StartMusic(9);
-			Audio::SEMusicVolume(9, 0.4f);
+			Audio::SEMusicVolume(9, 0.6f);
 			m_ani_time++;
 			g_key_flag = false;
 		}
