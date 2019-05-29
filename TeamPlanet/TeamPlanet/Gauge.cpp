@@ -8,6 +8,7 @@
 extern int g_SceneChange;
 extern int heart_num;
 extern int total;
+extern int g_time;
 
 //コンストラクタ
 CGauge::CGauge()
@@ -38,6 +39,12 @@ void CGauge::Action()
 
 	//ハートが無くなった時に自身を削除
 	if (heart_num <= 0)
+	{
+		is_delete = true;
+	}
+
+	//制限時間が無くなった時の削除処理
+	if (g_time == 0)
 	{
 		is_delete = true;
 	}

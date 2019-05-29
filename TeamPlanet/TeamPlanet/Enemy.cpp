@@ -8,6 +8,7 @@
 extern int g_SceneChange;
 int total;
 extern int heart_num;
+extern int g_time;
 
 CEnemy::CEnemy(int enemy_type, int in_time, int x, int y, int enemy_speed, int hp,
 	int w, int h, int stop_time, int out_time, int shot_pattern, int shot_time, int shot_speed, int item, int point)
@@ -78,18 +79,84 @@ void CEnemy::Action()
 	}
 	else
 	{
-		if (enemy_type == 6)
+		//月の当たり判定
+		if (enemy_type == 5)
 		{
+			m_p_hit_box->SetPos(x + 92, y + 35);
+			m_p_hit_box->SetWH(w - 360, h - 90);
+			m_p_hit_box->SetElement(ENEMY);	//属性設定
+			m_p_hit_box->SetInvisible(false);	//無敵モード無効
+		}
+		//土星の当たり判定
+		else if (enemy_type == 6)
+		{
+			m_p_hit_box->SetPos(x + 185, y + 50);
+			m_p_hit_box->SetWH(w - 360, h - 95);
+			m_p_hit_box->SetElement(ENEMY);	//属性設定
+			m_p_hit_box->SetInvisible(false);	//無敵モード無効
+		}
+		//天王星の当たり判定
+		else if (enemy_type == 7)
+		{
+			m_p_hit_box->SetPos(x + 100, y + 120);
+			m_p_hit_box->SetWH(w - 380, h - 80);
+			m_p_hit_box->SetElement(ENEMY);	//属性設定
+			m_p_hit_box->SetInvisible(false);	//無敵モード無効
+		}
+		//塵の当たり判定
+		else if (enemy_type == 2)
+		{
+			m_p_hit_box->SetPos(x + 10, y + 10);
+			m_p_hit_box->SetWH(w -15, h - 15);
+			m_p_hit_box->SetElement(ENEMY);	//属性設定
+			m_p_hit_box->SetInvisible(false);	//無敵モード無効
+		}
+		//隕石1の当たり判定
+		else if (enemy_type == 3)
+		{
+			m_p_hit_box->SetPos(x + 17, y + 23);
+			m_p_hit_box->SetWH(w - 25, h - 36);
+			m_p_hit_box->SetElement(ENEMY);	//属性設定
+			m_p_hit_box->SetInvisible(false);	//無敵モード無効
+		}
+		//衛星の当たり判定
+		else if (enemy_type == 16)
+		{
+			m_p_hit_box->SetPos(x + 17, y + 30);
+			m_p_hit_box->SetWH(w - 45, h - 70);
+			m_p_hit_box->SetElement(ENEMY);	//属性設定
+			m_p_hit_box->SetInvisible(false);	//無敵モード無効
+		}
 
-			m_p_hit_box->SetPos(x + 100, y - 10);
-			m_p_hit_box->SetWH(w - 200, h - 10);
+		//ソーラーの当たり判定
+		else if (enemy_type == 17)
+		{
+			m_p_hit_box->SetPos(x + 8, y + 10);
+			m_p_hit_box->SetWH(w - 30, h - 30);
+			m_p_hit_box->SetElement(ENEMY);	//属性設定
+			m_p_hit_box->SetInvisible(false);	//無敵モード無効
+		}
+		//アンテナの当たり判定
+		else if (enemy_type == 18)
+		{
+			m_p_hit_box->SetPos(x + 9, y + 7);
+			m_p_hit_box->SetWH(w - 12, h - 8);
+			m_p_hit_box->SetElement(ENEMY);	//属性設定
+			m_p_hit_box->SetInvisible(false);	//無敵モード無効
+		}
+		//隕石2の当たり判定
+		else if (enemy_type == 19)
+		{
+			m_p_hit_box->SetPos(x + 25, y + 27);
+			m_p_hit_box->SetWH(w - 45, h - 40);
 			m_p_hit_box->SetElement(ENEMY);	//属性設定
 			m_p_hit_box->SetInvisible(false);	//無敵モード無効
 		}
 		else
 		{
-			m_p_hit_box->SetPos(x, y);
-			m_p_hit_box->SetWH(w, h);
+			//敵1,2の当たり判定
+			m_p_hit_box->SetPos(x + 33, y + 34);
+			m_p_hit_box->SetWH(w - 62, h - 48);
 			m_p_hit_box->SetElement(ENEMY);	//属性設定
 			m_p_hit_box->SetInvisible(false);	//無敵モード無効
 		}
@@ -215,6 +282,13 @@ void CEnemy::Action()
 		is_delete = true;
 	}
 
+	//制限時間が無くなった時の削除処理
+	if (g_time == 0)
+	{
+		m_p_hit_box->SetDelete(true);
+		is_delete = true;
+	}
+
 	//得点が目標得点に到達したらゲームクリア
 	if (total >= 1000)
 	{
@@ -224,15 +298,55 @@ void CEnemy::Action()
 		is_delete = true;
 	}
 
-	if (enemy_type == 6)
+	if (enemy_type == 5)
 	{
-		//当たり判定の位置更新
-		m_p_hit_box->SetPos(x + 100, y - 10);
+		//月の当たり判定の位置更新
+		m_p_hit_box->SetPos(x + 92, y + 35);
+	}
+	else if (enemy_type == 6)
+	{
+		//土星の当たり判定の位置更新
+		m_p_hit_box->SetPos(x + 185, y + 50);
+	}
+	else if (enemy_type == 7)
+	{
+		//天王星の当たり判定の位置更新
+		m_p_hit_box->SetPos(x + 100, y + 120);
+	}
+	else if (enemy_type == 2)
+	{
+		//塵の当たり判定の位置更新
+		m_p_hit_box->SetPos(x + 10, y + 10);
+	}
+	else if (enemy_type == 3)
+	{
+		//隕石1の当たり判定の位置更新
+		m_p_hit_box->SetPos(x + 17, y + 23);
+	}
+	else if (enemy_type == 16)
+	{
+		//衛星の当たり判定の位置更新
+		m_p_hit_box->SetPos(x + 17, y + 30);
+	}
+	else if (enemy_type == 17)
+	{
+		//ソーラーの当たり判定の位置更新
+		m_p_hit_box->SetPos(x + 8, y + 10);
+	}
+	else if (enemy_type == 18)
+	{
+		//アンテナの当たり判定の位置更新
+		m_p_hit_box->SetPos(x + 9, y + 7);
+	}
+	else if (enemy_type == 19)
+	{
+		//隕石2の当たり判定の位置更新
+		m_p_hit_box->SetPos(x + 25, y + 27);
 	}
 	else
 	{
-		//当たり判定の位置更新
-		m_p_hit_box->SetPos(x, y);
+		//敵1,2当たり判定の位置更新
+		m_p_hit_box->SetPos(x + 33, y + 34);
 	}
 }
 

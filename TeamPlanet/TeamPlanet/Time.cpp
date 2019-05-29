@@ -9,7 +9,7 @@
 extern int g_SceneChange;
 extern int heart_num;
 extern int total;
-//extern int g_time;
+extern int g_time;
 
 //コンストラクタ
 CTime::CTime()
@@ -42,14 +42,13 @@ CTime::~CTime()
 //アクション
 void CTime::Action()
 {
-	//m_time--;
-
 	m_time++;
 
 	//1秒ごとに1減らす
 	if (m_time == 60)
 	{
-		time--;
+		//time--;
+		g_time--;
 		w_time--;
 		m_time = 0;
 	}
@@ -71,8 +70,15 @@ void CTime::Action()
 		is_delete = true;
 	}
 
+	////時間が無くなったら自身を削除
+	//if (time == 0)
+	//{
+	//	is_delete = true;
+	//	g_SceneChange = GAMECLEAR;
+	//}
+
 	//時間が無くなったら自身を削除
-	if (time == 0)
+	if (g_time == 0)
 	{
 		is_delete = true;
 	}
@@ -87,18 +93,27 @@ void CTime::Action()
 //ドロー
 void CTime::Draw()
 {
-	if (time < 10)
+	/*if (time < 10)
 	{
 		swprintf_s(str, L"0%d", time);
 	}
 	else
 	{
 		swprintf_s(str, L"%d", time);
+	}*/
+
+	if (g_time < 10)
+	{
+		swprintf_s(str, L"0%d", g_time);
+	}
+	else
+	{
+		swprintf_s(str, L"%d", g_time);
 	}
 
 	Draw::Draw2D(39, m_x - 14, m_y - 20);
 
-	if (time >= 100)
+	if (g_time >= 100)
 	{
 		Font::StrDraw(str, m_x, m_y+10, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f);
 	}

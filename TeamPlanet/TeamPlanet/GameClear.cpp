@@ -8,6 +8,7 @@
 extern int g_SceneChange;
 extern bool g_key_flag;
 extern int total;
+extern int g_time;
 
 CGameClear::CGameClear()
 {
@@ -17,7 +18,7 @@ CGameClear::CGameClear()
 
 	m_ani_time = 0;
 	key_flag = true;
-	
+	time_flag = true;
 	rank_flag = true;
 }
 
@@ -44,6 +45,19 @@ void CGameClear::Action()
 	else
 	{
 		key_flag = true;
+	}
+
+	if (g_time == 0)
+	{
+		if (time_flag)
+		{
+			m_ani_time++;
+			time_flag = false;
+		}
+	}
+	else
+	{
+		time_flag = true;
 	}
 
 	if (m_ani_time >= 100)

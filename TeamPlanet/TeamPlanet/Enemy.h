@@ -9,6 +9,7 @@
 #include "Heartitem.h"
 #include "Timeitem.h"
 #include "Speedup.h"
+#include "Time.h"
 
 //oƒNƒ‰ƒX
 class CEnemy :public CObj
