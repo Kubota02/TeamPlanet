@@ -10,7 +10,7 @@ extern bool g_key_flag;
 CRankM::CRankM()
 {
 	m_x = 265.0f;
-	m_y = 275.0f;
+	m_y = 355.0f;
 
 	m_ani_time = 0;
 }
@@ -46,7 +46,7 @@ void CRankM::Action()
 
 void CRankM::Draw()
 {
-	if (m_ani_time >= 100)
+	/*if (m_ani_time >= 100)
 	{
 		if (total >= 200 && total < 400)
 		{
@@ -68,8 +68,8 @@ void CRankM::Draw()
 		{
 			Draw::Draw2D(50, m_x, m_y);
 		}
-	}
-	/*if (total >= 200 && total < 400)
+	}*/
+	if (total >= 200 && total < 400)
 	{
 		Draw::Draw2D(46, m_x, m_y);
 	}
@@ -87,8 +87,6 @@ void CRankM::Draw()
 	}
 	else if (total >= 1000)
 	{
-		Draw::Draw2D(50, m_x, m_y);
-	}*/
-
-	/*Draw::Draw2D(46, m_x, m_y);*/
+		Draw::Draw2D(49, m_x, m_y);
+	}
 }
