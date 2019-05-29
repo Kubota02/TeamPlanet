@@ -66,7 +66,7 @@ extern ENEMYDATA e_data[ENEMY_NUM];
 int heart_num = 5; //ハートの数
 //int clearpoint;
 extern int total;
-//int g_time = 60; //残り時間
+int g_time = 200; //残り時間
 
 //プロトタイプ宣言
 LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);	//ウィンドウプロジーシャー
@@ -286,13 +286,7 @@ unsigned __stdcall GameMainSled(void *p)
 			back = new CBack();
 			back->m_priority = 50;
 			TaskSystem::InsertObj(back);//背景の背景(ステージ1)
-
-			/*rankm = new CRankM();
-			rankm->m_priority = 60;
-			TaskSystem::InsertObj(rankm);*/
-
 			
-
 			g_SceneChange = GAME_MAIN;
 			break;
 
@@ -314,10 +308,6 @@ unsigned __stdcall GameMainSled(void *p)
 			gameclear = new CGameClear();
 			gameclear->m_priority = 70;
 			TaskSystem::InsertObj(gameclear);
-
-			/*rankm = new CRankM();
-			rankm->m_priority = 70;
-			TaskSystem::InsertObj(rankm);*/
 
 			g_SceneChange = GAMECLEAR_MAIN;
 

@@ -51,6 +51,7 @@ enum
 	TIME = 7,
 	SPEEDUP = 8,
 	WARNING = 9,
+	RANK = 10,
 };
 
 //オブジェクトクラス

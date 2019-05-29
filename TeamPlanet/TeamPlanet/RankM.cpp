@@ -13,6 +13,8 @@ CRankM::CRankM()
 	m_y = 355.0f;
 
 	m_ani_time = 0;
+
+	m_name = RANK;
 }
 
 CRankM::~CRankM()

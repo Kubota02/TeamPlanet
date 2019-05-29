@@ -15,10 +15,6 @@ class CTime : public CObj
 		void Action();  //アクション
 		void Draw();    //ドロー
 
-		int GetTime() { return m_time; }    
-		void AddTime(int t) { time += t; }  //残り時間取得
-		void SetTime() { m_time = 0; }      //m_timeリセット
-
 	private:
 		float m_x;      //位置X
 		float m_y;      //位置Y

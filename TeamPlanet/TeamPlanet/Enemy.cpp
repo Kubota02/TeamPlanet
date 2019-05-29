@@ -8,6 +8,7 @@
 extern int g_SceneChange;
 int total;
 extern int heart_num;
+extern int g_time;
 
 CEnemy::CEnemy(int enemy_type, int in_time, int x, int y, int enemy_speed, int hp,
 	int w, int h, int stop_time, int out_time, int shot_pattern, int shot_time, int shot_speed, int item, int point)
@@ -276,6 +277,13 @@ void CEnemy::Action()
 
 	//ŽålŒö‚ÌHP‚ª‚È‚­‚È‚Á‚½‚ç”jŠü
 	if (heart_num == 0)
+	{
+		m_p_hit_box->SetDelete(true);
+		is_delete = true;
+	}
+
+	//§ŒÀŽžŠÔ‚ª–³‚­‚È‚Á‚½Žž‚Ìíœˆ—
+	if (g_time == 0)
 	{
 		m_p_hit_box->SetDelete(true);
 		is_delete = true;
