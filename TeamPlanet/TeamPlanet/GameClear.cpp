@@ -15,6 +15,7 @@ CGameClear::CGameClear()
 	m_y = 0.0f;
 
 	m_ani_time = 0;
+	key_flag = true;
 }
 
 CGameClear::~CGameClear()
@@ -31,15 +32,15 @@ void CGameClear::Action()
 
 	if (total >= 1000)
 	{
-		if (g_key_flag)
+		if (key_flag)
 		{
 			m_ani_time++;
-			g_key_flag = false;
+			key_flag = false;
 		}
 	}
 	else
 	{
-		g_key_flag = true;
+		key_flag = true;
 	}
 
 	if (m_ani_time >= 100)

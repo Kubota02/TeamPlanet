@@ -69,6 +69,20 @@ void CHero::Action()
 		s_time++;
 	}
 
+	//クリア確認用
+	if (Input::KeyPush('T'))
+	{
+		if (m_f)
+		{
+			total = 1000;
+			m_f = false;
+		}
+	}
+	else
+	{
+		m_f = true;
+	}
+
 	//弾丸発射
 	if (Input::KeyPush('L'))
 	{

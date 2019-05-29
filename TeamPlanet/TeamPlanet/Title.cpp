@@ -40,12 +40,13 @@ void CTitle::Action()
 
 	if (Input::KeyPush(VK_RETURN))
 	{
-		Audio::StartMusic(9);
-		Audio::SEMusicVolume(9, 0.2f);
+		/*Audio::StartMusic(9);
+		Audio::SEMusicVolume(9, 0.2f);*/
 
 		if (g_key_flag)
 		{
-			
+			Audio::StartMusic(9);
+			Audio::SEMusicVolume(9, 0.4f);
 			m_ani_time++;
 			g_key_flag = false;
 		}
