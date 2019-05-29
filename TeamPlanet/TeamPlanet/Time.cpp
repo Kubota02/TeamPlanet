@@ -61,7 +61,7 @@ void CTime::Action()
 		warning->m_priority = 90;
 		TaskSystem::InsertObj(warning);
 
-		w_time = 57;
+		w_time = 60;
 		count--;
 	}
 	

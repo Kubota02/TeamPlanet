@@ -34,6 +34,7 @@ void CWarning::Action()
 	//‰¹Šy“±“ü
 
 	Audio::StartLoopMusic(16);
+	Audio::LoopMusicVolume(16, 0.07f);
 	
 	if (m_ani_time == 60)
 	{
