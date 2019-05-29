@@ -115,6 +115,8 @@ void CEnemy::Action()
 	{
 		if (in_time < m_count && m_count < stop_time)
 		{
+			//バックミュージック止める
+			//ボスミュージック始まり
 			//移動方向に位置*速度を加える
 			x += m_vx*enemy_speed;
 		}
@@ -124,6 +126,7 @@ void CEnemy::Action()
 
 			if (x > 1000)
 			{
+				//ボスミュージック止める
 				is_delete = true;				//オブジェクトの削除
 				m_p_hit_box->SetDelete(true);	//当たり判定の削除
 			}
