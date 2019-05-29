@@ -80,6 +80,7 @@ void CEnemy::Action()
 	{
 		if (enemy_type == 6)
 		{
+
 			m_p_hit_box->SetPos(x + 100, y - 10);
 			m_p_hit_box->SetWH(w - 200, h - 10);
 			m_p_hit_box->SetElement(ENEMY);	//‘®«İ’è
