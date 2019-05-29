@@ -179,7 +179,7 @@ void CHero::Action()
 	{
 		is_delete = true;
 		m_p_hit_box->SetDelete(true);
-		//g_SceneChange = GAMECLEAR;
+		g_SceneChange = GAMECLEAR;
 	}
 
 	//ÉVÅ[ÉãÉh
