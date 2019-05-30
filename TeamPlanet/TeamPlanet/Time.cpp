@@ -25,8 +25,6 @@ CTime::CTime()
 	//残り時間
 	time = 200;
 
-	g_time = 200;
-
 	w_time = 57;
 
 	count = 3;
@@ -49,7 +47,6 @@ void CTime::Action()
 	//1秒ごとに1減らす
 	if (m_time == 60)
 	{
-		//time--;
 		g_time--;
 		w_time--;
 		m_time = 0;
@@ -72,13 +69,6 @@ void CTime::Action()
 		is_delete = true;
 	}
 
-	////時間が無くなったら自身を削除
-	//if (time == 0)
-	//{
-	//	is_delete = true;
-	//	g_SceneChange = GAMECLEAR;
-	//}
-
 	//時間が無くなったら自身を削除
 	if (g_time == 0)
 	{
@@ -95,14 +85,6 @@ void CTime::Action()
 //ドロー
 void CTime::Draw()
 {
-	/*if (time < 10)
-	{
-		swprintf_s(str, L"0%d", time);
-	}
-	else
-	{
-		swprintf_s(str, L"%d", time);
-	}*/
 
 	if (g_time < 10)
 	{
