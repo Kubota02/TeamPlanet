@@ -38,6 +38,7 @@
 #include "Back.h"
 #include "RankM.h"
 #include "Warning.h"
+#include "Score.h"
 
 //削除されていないメモリを出力にダンプする---
 #include <crtdbg.h>
@@ -219,6 +220,7 @@ unsigned __stdcall GameMainSled(void *p)
 		CBack* back;
 		CRankM* rankm;
 		CWarning* warning;
+		CScore* score;
 
 		switch (g_SceneChange)
 		{
@@ -276,9 +278,13 @@ unsigned __stdcall GameMainSled(void *p)
 			time->m_priority = 80;
 			TaskSystem::InsertObj(time);//タイム
 
-			gauge = new CGauge();
-			gauge->m_priority = 60;
-			TaskSystem::InsertObj(gauge);//ゲージ
+			//gauge = new CGauge();
+			//gauge->m_priority = 60;
+			//TaskSystem::InsertObj(gauge);//ゲージ
+
+			score = new CScore();
+			score->m_priority = 60;
+			TaskSystem::InsertObj(score);
 			
 			background = new CBackground();
 			background->m_priority = 60;

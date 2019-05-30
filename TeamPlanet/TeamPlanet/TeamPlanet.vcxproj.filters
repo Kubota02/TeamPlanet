@@ -67,6 +67,9 @@
     <Filter Include="ソース ファイル\Speedup">
       <UniqueIdentifier>{1e6f5d0c-0308-491b-bca9-aba3469a9cb4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Score">
+      <UniqueIdentifier>{2c14ae4a-2938-4a18-a299-f0bd47f632a5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Audio.cpp">
@@ -150,6 +153,9 @@
     <ClCompile Include="Warning.cpp">
       <Filter>ソース ファイル\Warning</Filter>
     </ClCompile>
+    <ClCompile Include="Score.cpp">
+      <Filter>ソース ファイル\Score</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Audio.h">
@@ -229,6 +235,9 @@
     </ClInclude>
     <ClInclude Include="Warning.h">
       <Filter>ソース ファイル\Warning</Filter>
+    </ClInclude>
+    <ClInclude Include="Score.h">
+      <Filter>ソース ファイル\Score</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
