@@ -18,7 +18,7 @@ CWarning::CWarning()
 	m_ani_time = 0;
 
 	//èoåªéûä‘
-	m_time = 3;
+	m_time = 4;
 
 	m_name = WARNING;
 }
@@ -47,7 +47,7 @@ void CWarning::Action()
 		is_delete = true;
 		//âπäyé~ÇﬂÇÈ
 		Audio::StopLoopMusic(16);
-		m_time = 3;
+		m_time = 4;
 	}
 }
 
