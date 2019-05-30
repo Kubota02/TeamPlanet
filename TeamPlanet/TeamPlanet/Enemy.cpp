@@ -9,12 +9,14 @@ extern int g_SceneChange;
 int total;
 extern int heart_num;
 extern int g_time;
+int boss;
 
 CEnemy::CEnemy(int enemy_type, int in_time, int x, int y, int enemy_speed, int hp,
 	int w, int h, int stop_time, int out_time, int shot_pattern, int shot_time, int shot_speed, int item, int point)
 {
 	//敵の種類
 	this->enemy_type = enemy_type;
+	boss = enemy_type;
 
 	//出現
 	this->in_time = in_time;
@@ -219,7 +221,14 @@ void CEnemy::Action()
 		//主人公に当たった時
 		if (m_p_hit_box->GetHitData()[i]->GetElement() == HERO)
 		{
-			hp = 0;
+			if (enemy_type != 5 && enemy_type != 6 && enemy_type != 7)
+			{
+				hp = 0;
+			}
+			else
+			{
+				;
+			}
 		}
 		//自分のHPが0かつ弾丸に当たった時
 		if (hp <= 0 && m_p_hit_box->GetHitData()[i]->GetElement() == BULLET)
@@ -278,13 +287,13 @@ void CEnemy::Action()
 					TaskSystem::InsertObj(h);
 				}
 
-				else if (item == 4 && m_p_hit_box->GetHitData()[i]->GetElement() == BULLET)
-				{
-					//タイムアイテムオブジェクト作成
-					CTimeitem* t = new CTimeitem(x, y);
-					t->m_priority = 90;
-					TaskSystem::InsertObj(t);
-				}
+				//else if (item == 4 && m_p_hit_box->GetHitData()[i]->GetElement() == BULLET)
+				//{
+				//	//タイムアイテムオブジェクト作成
+				//	CTimeitem* t = new CTimeitem(x, y);
+				//	t->m_priority = 90;
+				//	TaskSystem::InsertObj(t);
+				//}
 			}
 		}
 	}
