@@ -145,11 +145,11 @@ void CHero::Action()
 			else
 			{
 				Audio::StartMusic(2);
-				h_hp += -40;
+				h_hp = 0;
 
 				//ƒn[ƒgŒ¸‚ç‚·
 				if (heart_num > 0)
-					heart_num += -2;
+					heart_num += -5;
 			}
 
 			if (h_hp <= 0)
