@@ -263,7 +263,7 @@ void CHero::Action()
 	m_y += m_vy;
 
 	//得点が目標得点に到達したら自身を削除
-	if (total >= 6670)
+	if (total >= 7300)
 	{
 		is_delete = true;
 		m_p_hit_box->SetDelete(true);
