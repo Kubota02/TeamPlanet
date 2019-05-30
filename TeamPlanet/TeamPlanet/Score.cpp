@@ -12,8 +12,8 @@ extern int g_time;
 //コンストラクタ
 CScore::CScore()
 {
-	m_x1 = 650.0f;
-	m_y1 = 20.0f;
+	m_x1 = 0.0f;
+	m_y1 = 0.0f;
 
 	m_x2 = 670.0f;
 	m_y2 = 20.0f;
@@ -44,7 +44,7 @@ void CScore::Action()
 	}
 
 	//得点が目標得点に到達したら自身を削除
-	if (total >= 6670)
+	if (total >= 7300)
 	{
 		is_delete = true;
 	}
@@ -53,6 +53,8 @@ void CScore::Action()
 //ドロー
 void CScore::Draw()
 {
+	Draw::Draw2D(53, m_x1, m_y1);
+
 	swprintf_s(str, L"%d", total);
 
 	if (total >= 0 && total < 1000)
@@ -63,6 +65,4 @@ void CScore::Draw()
 	{
 		Font::StrDraw(str, m_x2, m_y2, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f);
 	}
-
-	Draw::Draw2D(53, m_x1, m_y1);
 }

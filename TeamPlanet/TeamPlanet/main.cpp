@@ -148,7 +148,7 @@ unsigned __stdcall TextureLoadSled(void *p)
 	Draw::LoadImage(51, L"image\\warning1.png");//8,9
 	Draw::LoadImage(52, L"image\\warning2.png");
 
-	Draw::LoadImage(53, L"image\\Space01.png");
+	Draw::LoadImage(53, L"image\\Space101.png");
 	
 	_endthreadex(0);	//スレッド終了
 	return 0;
@@ -284,9 +284,9 @@ unsigned __stdcall GameMainSled(void *p)
 			//gauge->m_priority = 60;
 			//TaskSystem::InsertObj(gauge);//ゲージ
 
-			/*score = new CScore();
-			score->m_priority = 60;
-			TaskSystem::InsertObj(score);*/
+			score = new CScore();
+			score->m_priority = 80;
+			TaskSystem::InsertObj(score);
 			
 			background = new CBackground();
 			background->m_priority = 60;
