@@ -317,7 +317,7 @@ void CEnemy::Action()
 	}
 
 	//得点が目標得点に到達したらゲームクリア
-	if (total >= 1000)
+	if (total >= 6670)
 	{
 		Audio::StopLoopMusic(7);
 		g_SceneChange = GAMECLEAR;
