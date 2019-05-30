@@ -25,6 +25,8 @@ CTime::CTime()
 	//Žc‚èŽžŠÔ
 	time = 200;
 
+	g_time = 200;
+
 	w_time = 57;
 
 	count = 3;
