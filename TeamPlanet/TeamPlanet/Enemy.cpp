@@ -154,11 +154,27 @@ void CEnemy::Action()
 			m_p_hit_box->SetElement(ENEMY);	//属性設定
 			m_p_hit_box->SetInvisible(false);	//無敵モード無効
 		}
+		//敵1の当たり判定
+		else if (enemy_type == 10)
+		{
+			m_p_hit_box->SetPos(x + 15, y + 30);
+			m_p_hit_box->SetWH(w - 25, h - 50);
+			m_p_hit_box->SetElement(ENEMY);	//属性設定
+			m_p_hit_box->SetInvisible(false);	//無敵モード無効
+		}
+		//敵2の当たり判定
+		else if (enemy_type == 11)
+		{
+			m_p_hit_box->SetPos(x + 10, y + 30);
+			m_p_hit_box->SetWH(w - 15, h - 45);
+			m_p_hit_box->SetElement(ENEMY);	//属性設定
+			m_p_hit_box->SetInvisible(false);	//無敵モード無効
+		}
 		else
 		{
-			//敵1,2の当たり判定
-			m_p_hit_box->SetPos(x + 33, y + 34);
-			m_p_hit_box->SetWH(w - 62, h - 48);
+			//当たり判定
+			m_p_hit_box->SetPos(x, y);
+			m_p_hit_box->SetWH(w, h);
 			m_p_hit_box->SetElement(ENEMY);	//属性設定
 			m_p_hit_box->SetInvisible(false);	//無敵モード無効
 		}
@@ -370,10 +386,20 @@ void CEnemy::Action()
 		//隕石2の当たり判定の位置更新
 		m_p_hit_box->SetPos(x + 25, y + 27);
 	}
+	else if (enemy_type == 10)
+	{
+		//敵1の当たり判定の位置更新
+		m_p_hit_box->SetPos(x + 15, y + 30);
+	}
+	else if (enemy_type == 11)
+	{
+		//敵2の当たり判定の位置更新
+		m_p_hit_box->SetPos(x + 10, y + 30);
+	}
 	else
 	{
-		//敵1,2当たり判定の位置更新
-		m_p_hit_box->SetPos(x + 33, y + 34);
+		//当たり判定の位置更新
+		m_p_hit_box->SetPos(x, y);
 	}
 }
 
