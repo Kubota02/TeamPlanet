@@ -84,24 +84,24 @@ void CEnemy::Action()
 		//月の当たり判定
 		if (enemy_type == 5)
 		{
-			m_p_hit_box->SetPos(x + 92, y + 35);
-			m_p_hit_box->SetWH(w - 360, h - 90);
+			m_p_hit_box->SetPos(x + 20, y + 25);
+			m_p_hit_box->SetWH(w - 260, h - 75);
 			m_p_hit_box->SetElement(ENEMY);	//属性設定
 			m_p_hit_box->SetInvisible(false);	//無敵モード無効
 		}
 		//土星の当たり判定
 		else if (enemy_type == 6)
 		{
-			m_p_hit_box->SetPos(x + 185, y + 50);
-			m_p_hit_box->SetWH(w - 360, h - 95);
+			m_p_hit_box->SetPos(x + 120, y + 40);
+			m_p_hit_box->SetWH(w - 270, h - 75);
 			m_p_hit_box->SetElement(ENEMY);	//属性設定
 			m_p_hit_box->SetInvisible(false);	//無敵モード無効
 		}
 		//天王星の当たり判定
 		else if (enemy_type == 7)
 		{
-			m_p_hit_box->SetPos(x + 100, y + 120);
-			m_p_hit_box->SetWH(w - 380, h - 80);
+			m_p_hit_box->SetPos(x + 30, y + 110);
+			m_p_hit_box->SetWH(w - 240, h - 65);
 			m_p_hit_box->SetElement(ENEMY);	//属性設定
 			m_p_hit_box->SetInvisible(false);	//無敵モード無効
 		}
@@ -328,17 +328,17 @@ void CEnemy::Action()
 	if (enemy_type == 5)
 	{
 		//月の当たり判定の位置更新
-		m_p_hit_box->SetPos(x + 92, y + 35);
+		m_p_hit_box->SetPos(x + 20, y + 25);
 	}
 	else if (enemy_type == 6)
 	{
 		//土星の当たり判定の位置更新
-		m_p_hit_box->SetPos(x + 185, y + 50);
+		m_p_hit_box->SetPos(x + 120, y + 40);
 	}
 	else if (enemy_type == 7)
 	{
 		//天王星の当たり判定の位置更新
-		m_p_hit_box->SetPos(x + 100, y + 120);
+		m_p_hit_box->SetPos(x + 30, y + 110);
 	}
 	else if (enemy_type == 2)
 	{
