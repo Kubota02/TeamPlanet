@@ -38,6 +38,7 @@
 #include "Back.h"
 #include "RankM.h"
 #include "Warning.h"
+#include "Score.h"
 
 //削除されていないメモリを出力にダンプする---
 #include <crtdbg.h>
@@ -112,9 +113,9 @@ unsigned __stdcall TextureLoadSled(void *p)
 	Draw::LoadImage(40, L"image\\time.png");
 
 	//爆発エフェクト
-	Draw::LoadImage(21, L"image\\boom1.png");
-	Draw::LoadImage(22, L"image\\boom2.png");
-	Draw::LoadImage(23, L"image\\boom3.png");
+	Draw::LoadImage(21, L"image\\boom1.png"); //主人公
+	Draw::LoadImage(22, L"image\\boom2.png"); //Boss
+	Draw::LoadImage(23, L"image\\boom3.png"); //敵
 
 	//ゲーム画面背景
 	Draw::LoadImage(4, L"image\\Space10.png");
@@ -219,6 +220,7 @@ unsigned __stdcall GameMainSled(void *p)
 		CBack* back;
 		CRankM* rankm;
 		CWarning* warning;
+		CScore* score;
 
 		switch (g_SceneChange)
 		{
@@ -276,9 +278,13 @@ unsigned __stdcall GameMainSled(void *p)
 			time->m_priority = 80;
 			TaskSystem::InsertObj(time);//タイム
 
-			gauge = new CGauge();
-			gauge->m_priority = 60;
-			TaskSystem::InsertObj(gauge);//ゲージ
+			//gauge = new CGauge();
+			//gauge->m_priority = 60;
+			//TaskSystem::InsertObj(gauge);//ゲージ
+
+			score = new CScore();
+			score->m_priority = 60;
+			TaskSystem::InsertObj(score);
 			
 			background = new CBackground();
 			background->m_priority = 60;
