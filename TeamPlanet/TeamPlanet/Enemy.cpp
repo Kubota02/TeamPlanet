@@ -184,6 +184,8 @@ void CEnemy::Action()
 		{
 			//バックミュージック止める
 			//ボスミュージック始まり
+		/*	Audio::StopLoopMusic(7);
+			Audio::StartMusic(17);*/
 			//移動方向に位置*速度を加える
 			x += m_vx*enemy_speed;
 		}
