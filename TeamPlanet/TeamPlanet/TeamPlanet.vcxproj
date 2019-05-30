@@ -130,7 +130,6 @@
     <ClCompile Include="DeviceCreate.cpp" />
     <ClCompile Include="Draw2DPolygon.cpp" />
     <ClCompile Include="Enemy.cpp" />
-    <ClCompile Include="Enemybullet.cpp" />
     <ClCompile Include="EnemyData.cpp" />
     <ClCompile Include="FontTex.cpp" />
     <ClCompile Include="GameClear.cpp" />
@@ -145,7 +144,6 @@
     <ClCompile Include="Speedup.cpp" />
     <ClCompile Include="TaskSystem.cpp" />
     <ClCompile Include="Time.cpp" />
-    <ClCompile Include="Timeitem.cpp" />
     <ClCompile Include="Title.cpp" />
     <ClCompile Include="Warning.cpp" />
     <ClCompile Include="WindowCreate.cpp" />
@@ -161,7 +159,6 @@
     <ClInclude Include="DeviceCreate.h" />
     <ClInclude Include="Draw2DPolygon.h" />
     <ClInclude Include="Enemy.h" />
-    <ClInclude Include="Enemybullet.h" />
     <ClInclude Include="EnemyData.h" />
     <ClInclude Include="FontTex.h" />
     <ClInclude Include="GameClear.h" />
@@ -175,7 +172,6 @@
     <ClInclude Include="Speedup.h" />
     <ClInclude Include="TaskSystem.h" />
     <ClInclude Include="Time.h" />
-    <ClInclude Include="Timeitem.h" />
     <ClInclude Include="Title.h" />
     <ClInclude Include="Warning.h" />
     <ClInclude Include="WindowCreate.h" />
