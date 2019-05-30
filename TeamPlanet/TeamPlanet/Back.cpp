@@ -7,7 +7,8 @@
 CBack::CBack()
 {
 	//îwåiÇÃèâä˙à íu
-	m_x = 0.0f;
+	m_x1 = 0.0f;
+	m_x2 = 1000.0f;
 	m_y = 0.0f;
 }
 
@@ -18,11 +19,24 @@ CBack::~CBack()
 
 void CBack::Action()
 {
+	//îwåi1
+	m_x1 -= 0.6f;
+	if (m_x1 < -990.0f)
+	{
+		m_x1 = 980.0f;
+	}
 
+	//îwåi2
+	m_x2 -= 0.6f;
+	if (m_x2 < -990.0f)
+	{
+		m_x2 = 980.0f;
+	}
 }
 
 void CBack::Draw()
 {
 	//ï`âÊ
-	Draw::Draw2D(42, m_x, m_y);
+	Draw::Draw2D(42, m_x1, m_y);
+	Draw::Draw2D(42, m_x2, m_y);
 }

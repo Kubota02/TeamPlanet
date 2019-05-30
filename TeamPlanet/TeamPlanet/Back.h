@@ -14,6 +14,7 @@ public:
 	void Action();
 	void Draw();
 private:
-	float m_x;	//ˆÊ’u
+	float m_x1;	//ˆÊ’u
+	float m_x2;
 	float m_y;
 };
