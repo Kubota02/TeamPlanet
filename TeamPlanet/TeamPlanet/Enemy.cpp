@@ -182,10 +182,11 @@ void CEnemy::Action()
 	{
 		if (in_time < m_count && m_count < stop_time)
 		{
-			//バックミュージック止める
-			//ボスミュージック始まり
-		/*	Audio::StopLoopMusic(7);
-			Audio::StartMusic(17);*/
+			//BossBGMスタート
+			Audio::StopLoopMusic(7);
+			Audio::StartLoopMusic(4);
+			Audio::LoopMusicVolume(4, 0.03f);
+
 			//移動方向に位置*速度を加える
 			x += m_vx*enemy_speed;
 		}
@@ -193,9 +194,12 @@ void CEnemy::Action()
 		{
 			x -= m_vx*enemy_speed;
 
-			if (x > 1000)
+			if (x > 800)
 			{
 				//ボスミュージック止める
+				Audio::StopLoopMusic(4);
+				Audio::StartLoopMusic(7);
+				Audio::LoopMusicVolume(7, 0.03f);
 				is_delete = true;				//オブジェクトの削除
 				m_p_hit_box->SetDelete(true);	//当たり判定の削除
 			}
@@ -231,6 +235,18 @@ void CEnemy::Action()
 			is_delete = true;
 			m_p_hit_box->SetDelete(true);
 			Audio::StartMusic(3);
+
+			if (enemy_type != 5 && enemy_type != 6 && enemy_type != 7)
+			{
+				;
+			}
+			else
+			{
+				Audio::StopLoopMusic(4);
+				Audio::StartLoopMusic(7);
+				Audio::LoopMusicVolume(7, 0.03f);
+			}
+			
 			//爆発入れられるかなぁ？
 
 			for (int i = 0; i < 10; i++)
