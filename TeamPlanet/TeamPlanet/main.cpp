@@ -67,7 +67,7 @@ extern ENEMYDATA e_data[ENEMY_NUM];
 int heart_num = 5; //ハートの数
 //int clearpoint;
 extern int total;
-int g_time; //残り時間
+int g_time = 200; //残り時間
 
 //プロトタイプ宣言
 LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);	//ウィンドウプロジーシャー
