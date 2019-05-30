@@ -44,8 +44,8 @@ CHero::CHero()
 	m_p_hit_box = Collision::HitBoxInsert(this);
 
 	//作成したヒットボックスの値を設定
-	m_p_hit_box->SetPos(m_x, m_y);
-	m_p_hit_box->SetWH(120.0f, 80.0f);
+	m_p_hit_box->SetPos(m_x + 20, m_y + 20);
+	m_p_hit_box->SetWH(80.0f, 56.0f);
 	m_p_hit_box->SetElement(HERO);		//属性設定
 	m_p_hit_box->SetInvisible(false);	//無敵モード無効
 }
@@ -278,9 +278,9 @@ void CHero::Action()
 	{
 		m_x = 680.0f;
 	}
-	if (m_y < 0.0f)
+	if (m_y < 80.0f)
 	{
-		m_y = 0.0f;
+		m_y = 80.0f;
 	}
 	if (m_y > 600.0f - 80.0f)
 	{
@@ -288,7 +288,7 @@ void CHero::Action()
 	}
 
 	//当たり判定の位置更新
-	m_p_hit_box->SetPos(m_x, m_y);
+	m_p_hit_box->SetPos(m_x + 20, m_y + 20);
 }
 
 void CHero::Draw()
