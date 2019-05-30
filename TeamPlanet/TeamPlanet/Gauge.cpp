@@ -50,7 +50,7 @@ void CGauge::Action()
 	}
 
 	//得点が目標得点に到達したら自身を削除
-	if (total >= 1000)
+	if (total >= 6670)
 	{
 		is_delete = true;
 	}

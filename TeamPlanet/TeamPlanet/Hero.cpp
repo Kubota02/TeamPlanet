@@ -193,6 +193,7 @@ void CHero::Action()
 	{
 		is_delete = true;
 		m_p_hit_box->SetDelete(true);
+		//Audio::StopLoopMusic(7);
 		Audio::StopLoopMusic(4);
 		g_SceneChange = GAMECLEAR;
 	}
@@ -225,6 +226,7 @@ void CHero::Action()
 		{
 			Audio::StartMusic(15);
 			heart_num += 1;
+			h_hp += 20;
 			heart_flag = false;
 		}
 	}
@@ -261,7 +263,7 @@ void CHero::Action()
 	m_y += m_vy;
 
 	//得点が目標得点に到達したら自身を削除
-	if (total >= 1000)
+	if (total >= 6670)
 	{
 		is_delete = true;
 		m_p_hit_box->SetDelete(true);

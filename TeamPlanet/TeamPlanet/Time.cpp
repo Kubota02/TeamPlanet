@@ -25,6 +25,8 @@ CTime::CTime()
 	//残り時間
 	time = 200;
 
+	g_time = 200;
+
 	w_time = 57;
 
 	count = 3;
@@ -84,7 +86,7 @@ void CTime::Action()
 	}
 
 	//得点が目標得点に到達したら自身を削除
-	if (total >= 1000)
+	if (total >= 6670)
 	{
 		is_delete = true;
 	}
