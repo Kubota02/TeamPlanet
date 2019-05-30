@@ -193,7 +193,7 @@ void CHero::Action()
 	{
 		is_delete = true;
 		m_p_hit_box->SetDelete(true);
-		//Audio::StopLoopMusic(7);
+		Audio::StopLoopMusic(7);
 		Audio::StopLoopMusic(4);
 		g_SceneChange = GAMECLEAR;
 	}

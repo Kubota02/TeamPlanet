@@ -282,9 +282,9 @@ unsigned __stdcall GameMainSled(void *p)
 			//gauge->m_priority = 60;
 			//TaskSystem::InsertObj(gauge);//ƒQ[ƒW
 
-			score = new CScore();
+			/*score = new CScore();
 			score->m_priority = 60;
-			TaskSystem::InsertObj(score);
+			TaskSystem::InsertObj(score);*/
 			
 			background = new CBackground();
 			background->m_priority = 60;
