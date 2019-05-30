@@ -16,6 +16,10 @@ CGameClear::CGameClear()
 	m_x = 0.0f;
 	m_y = 0.0f;
 
+	//‰F’ˆ‘D‚Ì‰ŠúˆÊ’u
+	//m_x2 = -120.0f;
+	//m_y2 = 430.0f;
+
 	m_ani_time = 0;
 	key_flag = true;
 	time_flag = true;
