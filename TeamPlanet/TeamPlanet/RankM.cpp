@@ -29,23 +29,23 @@ void CRankM::Action()
 
 void CRankM::Draw()
 {
-	if (total >= 1000 && total < 2000)//C
+	if (total >= 1500 && total < 2300)//C
 	{
 		Draw::Draw2D(46, m_x, m_y);
 	}
-	else if (total >= 2000 && total < 3500)//B
+	else if (total >= 2300 && total < 3300)//B
 	{
 		Draw::Draw2D(47, m_x, m_y);
 	}
-	else if (total >= 3500 && total < 5000)//A
+	else if (total >= 3300 && total < 4600)//A
 	{
 		Draw::Draw2D(48, m_x, m_y);
 	}
-	else if (total >= 5000 && total < 6000)//S
+	else if (total >= 4600 && total < 6400)//S
 	{
 		Draw::Draw2D(49, m_x, m_y);
 	}
-	else if (total >= 6000)//U
+	else if (total >= 6400)//U
 	{
 		Draw::Draw2D(50, m_x, m_y);
 	}
