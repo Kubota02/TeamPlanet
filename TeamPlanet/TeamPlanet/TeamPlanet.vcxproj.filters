@@ -22,9 +22,6 @@
     <Filter Include="ソース ファイル\Hero">
       <UniqueIdentifier>{4047160e-27dd-4f41-b724-a04fbe9d5cf9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\敵の弾丸">
-      <UniqueIdentifier>{f7fb6748-9024-4c42-9594-38bb896854a4}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\Heart">
       <UniqueIdentifier>{27692cd5-6cfc-42b8-83ef-33010d7d2d10}</UniqueIdentifier>
     </Filter>
@@ -54,9 +51,6 @@
     </Filter>
     <Filter Include="ソース ファイル\Heartitem">
       <UniqueIdentifier>{26ab9d28-f9c5-4459-81dc-ab20317f9593}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\Timeitem">
-      <UniqueIdentifier>{ea1c11b2-ec2b-4a06-b4bc-86d06fb2a862}</UniqueIdentifier>
     </Filter>
     <Filter Include="ソース ファイル\Description">
       <UniqueIdentifier>{83fa5004-05f3-4233-9be5-e5bbcda951d1}</UniqueIdentifier>
@@ -111,9 +105,6 @@
     <ClCompile Include="Background.cpp">
       <Filter>ソース ファイル\Background</Filter>
     </ClCompile>
-    <ClCompile Include="Enemybullet.cpp">
-      <Filter>ソース ファイル\敵の弾丸</Filter>
-    </ClCompile>
     <ClCompile Include="Heart.cpp">
       <Filter>ソース ファイル\Heart</Filter>
     </ClCompile>
@@ -143,9 +134,6 @@
     </ClCompile>
     <ClCompile Include="Heartitem.cpp">
       <Filter>ソース ファイル\Heartitem</Filter>
-    </ClCompile>
-    <ClCompile Include="Timeitem.cpp">
-      <Filter>ソース ファイル\Timeitem</Filter>
     </ClCompile>
     <ClCompile Include="Description.cpp">
       <Filter>ソース ファイル\Description</Filter>
@@ -197,9 +185,6 @@
     <ClInclude Include="Background.h">
       <Filter>ソース ファイル\Background</Filter>
     </ClInclude>
-    <ClInclude Include="Enemybullet.h">
-      <Filter>ソース ファイル\敵の弾丸</Filter>
-    </ClInclude>
     <ClInclude Include="Heart.h">
       <Filter>ソース ファイル\Heart</Filter>
     </ClInclude>
@@ -229,9 +214,6 @@
     </ClInclude>
     <ClInclude Include="Heartitem.h">
       <Filter>ソース ファイル\Heartitem</Filter>
-    </ClInclude>
-    <ClInclude Include="Timeitem.h">
-      <Filter>ソース ファイル\Timeitem</Filter>
     </ClInclude>
     <ClInclude Include="Description.h">
       <Filter>ソース ファイル\Description</Filter>

@@ -12,6 +12,7 @@ extern int heart_num;
 extern int total;
 extern int g_time;
 int h_hp = 100;	//体力
+extern int boss;
 
 CHero::CHero()
 {
@@ -133,11 +134,23 @@ void CHero::Action()
 			continue;
 		if (m_p_hit_box->GetHitData()[i]->GetElement() == ENEMY)
 		{
-			h_hp += -20;
+			if (boss != 5, boss != 6, boss != 7)
+			{
+				h_hp += -20;
 
-			//ハート減らす
-			if (heart_num > 0)
-				heart_num += -1;
+				//ハート減らす
+				if (heart_num > 0)
+					heart_num += -1;
+			}
+			else
+			{
+				Audio::StartMusic(2);
+				h_hp += -40;
+
+				//ハート減らす
+				if (heart_num > 0)
+					heart_num += -2;
+			}
 
 			if (h_hp <= 0)
 			{
@@ -170,6 +183,7 @@ void CHero::Action()
 		is_delete = true;
 		m_p_hit_box->SetDelete(true);
 		Audio::StopLoopMusic(7);
+		Audio::StopLoopMusic(4);
 		Audio::StartMusic(2);
 		g_SceneChange = GAMEOVER;
 	}
