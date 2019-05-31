@@ -19,5 +19,7 @@ private:
 	float m_y;
 
 	bool key_flag;  //キーが押されているかチェック用
+	bool rank_key_flag; //ランク制御用
+
 	int m_ani_time;//アニメーション
 };

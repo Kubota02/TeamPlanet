@@ -3,17 +3,16 @@
 #define _HAS_ITERATOR_DEBUGGING (0)
 
 #include "Enemy.h"
-#include "Audio.h"
 
 extern int g_SceneChange;
-int total;
 extern int heart_num;
 extern int g_time;
+int total;
 int e_hp;
 int enemy;
 
-CEnemy::CEnemy(int enemy_type, int in_time, int x, int y, int enemy_speed, int hp,
-	int w, int h, int stop_time, int out_time, int shot_pattern, int shot_time, int shot_speed, int item, int point)
+CEnemy::CEnemy(int enemy_type, int in_time, int x, int y, int enemy_speed,
+	int hp, int w, int h, int stop_time, int out_time, int item, int point)
 {
 	//敵の種類
 	this->enemy_type = enemy_type;
@@ -43,15 +42,6 @@ CEnemy::CEnemy(int enemy_type, int in_time, int x, int y, int enemy_speed, int h
 	//帰還
 	this->out_time = out_time;
 
-	//発射パターン
-	this->shot_pattern = shot_pattern;
-
-	//発射
-	this->shot_time = shot_time;
-
-	//弾のスピード
-	this->shot_speed = shot_speed;
-
 	//アイテム
 	this->item = item;
 
@@ -77,6 +67,7 @@ void CEnemy::Action()
 {
 	m_count++;
 
+	//領域外にいるとき
 	if (x >= 800)
 	{
 		m_p_hit_box->SetInvisible(true);	//無敵モード
@@ -189,7 +180,7 @@ void CEnemy::Action()
 		m_p_hit_box->SetDelete(true);	//当たり判定の削除
 	}
 
-	//enemy_typeが5,6,7以外ならそのまま
+	//enemy_typeが5,6,7以外なら移動し続ける
 	if (enemy_type != 5 && enemy_type != 6 && enemy_type != 7)
 	{
 		if (in_time < m_count)
@@ -200,6 +191,7 @@ void CEnemy::Action()
 	}
 	else
 	{
+		//出現してから停止するまで
 		if (in_time < m_count && m_count < stop_time)
 		{
 			//BossBGMスタート
@@ -210,10 +202,13 @@ void CEnemy::Action()
 			//移動方向に位置*速度を加える
 			x += m_vx*enemy_speed;
 		}
+		//帰還時間になったとき
 		else if (out_time < m_count)
 		{
+			//移動方向に位置*速度を加える
 			x -= m_vx*enemy_speed;
 
+			//領域外に出たとき
 			if (x > 800)
 			{
 				//ボスミュージック止める
@@ -239,6 +234,7 @@ void CEnemy::Action()
 		//主人公に当たった時
 		if (m_p_hit_box->GetHitData()[i]->GetElement() == HERO)
 		{
+			//Bossでない場合、体力を0にする
 			if (enemy_type != 5 && enemy_type != 6 && enemy_type != 7)
 			{
 				hp = 0;
@@ -251,9 +247,12 @@ void CEnemy::Action()
 		//自分のHPが0かつ弾丸に当たった時
 		if (hp <= 0 && m_p_hit_box->GetHitData()[i]->GetElement() == BULLET)
 		{
+			//合計に得点を加算
  			total += point;
 		}
 	}
+
+	//空の情報でない場合
 	if (enemy_type != 0)
 	{
 		//HPが無くなった時の削除処理
@@ -262,10 +261,13 @@ void CEnemy::Action()
 			is_delete = true;
 			m_p_hit_box->SetDelete(true);
 
+			//敵爆発音
 			Audio::StartMusic(3);
 
+			//Bossでない場合
 			if (enemy_type != 5 && enemy_type != 6 && enemy_type != 7)
 			{
+				//爆発エフェクト生成
 				if (enemy_type == 2)
 				{
 					CEnemyBoom* e_boom = new CEnemyBoom(x - 30, y - 30);
@@ -295,9 +297,11 @@ void CEnemy::Action()
 			{
 				Audio::StopLoopMusic(4);
 
+				//BossBGMスタート
 				Audio::StartMusic(17);
 				Audio::SEMusicVolume(17, 1.8f);
 
+				//爆発エフェクト生成
 				if (enemy_type == 5)
 				{
 					CBossBoom* b_boom = new CBossBoom(x, y);
@@ -317,15 +321,18 @@ void CEnemy::Action()
 					TaskSystem::InsertObj(b_boom);
 				}
 
+				//BGMスタート
 				Audio::StartLoopMusic(7);
 				Audio::LoopMusicVolume(7, 0.03f);
 			}
 
+			//主人公の弾丸に当たった時
 			for (int i = 0; i < 10; i++)
 			{
 				if (m_p_hit_box->GetHitData()[i] == nullptr)
 					continue;
 
+				//アイテムが1かつ弾丸に当たったとき
 				if (item == 1 && m_p_hit_box->GetHitData()[i]->GetElement() == BULLET)
 				{
 					//シールドアイテムオブジェクト作成
@@ -333,7 +340,7 @@ void CEnemy::Action()
 					d->m_priority = 90;
 					TaskSystem::InsertObj(d);
 				}
-
+				//アイテムが2かつ弾丸に当たったとき
 				else if (item == 2 && m_p_hit_box->GetHitData()[i]->GetElement() == BULLET)
 				{
 					//スピードアップアイテムオブジェクト作成
@@ -341,7 +348,7 @@ void CEnemy::Action()
 					s->m_priority = 90;
 					TaskSystem::InsertObj(s);
 				}
-
+				//アイテムが3かつ弾丸に当たったとき
 				else if (item == 3 && m_p_hit_box->GetHitData()[i]->GetElement() == BULLET)
 				{
 					//ハートアイテムオブジェクト作成
@@ -349,19 +356,12 @@ void CEnemy::Action()
 					h->m_priority = 90;
 					TaskSystem::InsertObj(h);
 				}
-
-				//else if (item == 4 && m_p_hit_box->GetHitData()[i]->GetElement() == BULLET)
-				//{
-				//	//タイムアイテムオブジェクト作成
-				//	CTimeitem* t = new CTimeitem(x, y);
-				//	t->m_priority = 90;
-				//	TaskSystem::InsertObj(t);
-				//}
 			}
 		}
 	}
 	else
 	{
+		//何もしない
 		;
 	}
 
@@ -452,6 +452,7 @@ void CEnemy::Action()
 
 void CEnemy::Draw()
 {
+	//領域外なら表示しない
 	if (x >= 800)
 	{
 		return;

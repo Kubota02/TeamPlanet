@@ -21,7 +21,6 @@ class CTime : public CObj
 		wchar_t str[128];//文字列化用
 
 		int m_time;
-		int time;   //残り時間
-		int w_time; //warning用
+		int w_time; //警告用
 		int count;
 };

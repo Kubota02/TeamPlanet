@@ -20,5 +20,5 @@ class CScore : public CObj
 		float m_x2;     //点数位置X
 		float m_y2;     //点数位置Y
 
-		wchar_t str[128];
+		wchar_t str[128]; //文字列用
 };

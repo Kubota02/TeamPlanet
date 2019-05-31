@@ -33,6 +33,7 @@ void CEnemyBoom::Action()
 		m_ani_time++;
 	}
 
+	//“G‚ÌHP‚ª0‚É‚È‚Á‚½‚Æ‚«
 	if (e_hp == 0)
 	{
 		if (boom_flag)

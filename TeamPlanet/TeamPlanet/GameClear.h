@@ -15,8 +15,12 @@ public:
 	void Action();
 	void Draw();
 private:
-	float m_x;	//背景位置
+	float m_x;	//背景の位置
 	float m_y;
+
+	float m_x2; //宇宙船の位置
+	float m_y2;
+	float m_vx; //宇宙船の移動ベクトル
 
 	bool key_flag;  //キーが押されているかチェック用
 	int m_ani_time;//アニメーション

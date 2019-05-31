@@ -25,7 +25,9 @@ CDescription::~CDescription()
 void CDescription::Action()
 {
 	m_time++;
-	Audio::StartLoopMusic(12);//バックミュージックスタート
+
+	//バックミュージックスタート
+	Audio::StartLoopMusic(12);
 	Audio::LoopMusicVolume(12, 0.03f);
 
 	if (m_time >= 180)

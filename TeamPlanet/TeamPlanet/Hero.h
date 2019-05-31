@@ -33,12 +33,9 @@ private:
 	int s_time;//時間管理用
 	bool speed_flag;//スピードアップアイテムの制御用
 
-	bool time_flag;//タイムアイテムの制御用
 	bool heart_flag;//ハートアイテムの制御用
 
 	bool boom_flag; //エフェクト用
-
-	int m_boom_ani; //爆発用
 
 	HitBox* m_p_hit_box;//当たり判定
 };

@@ -3,7 +3,7 @@
 #include "Draw2DPolygon.h"
 #include "TaskSystem.h"
 #include "Collision.h"
-
+#include "Audio.h"
 #include "EnemyData.h"
 #include "Defense.h"
 #include "Heartitem.h"
@@ -13,12 +13,12 @@
 #include "EnemyBoom.h"
 #include "BossBoom.h"
 
-//塵クラス
+//敵クラス
 class CEnemy :public CObj
 {
 public:
 	CEnemy(int enemy_type, int in_time, int x, int y, int enemy_speed, int hp, int w, int h,
-		int stop_time, int out_time, int shot_pattern, int shot_time, int shot_speed, int item, int point);
+		int stop_time, int out_time, int item, int point);
 	~CEnemy();
 	void Action();
 	void Draw();
@@ -38,9 +38,6 @@ private:
 	int h;
 	int stop_time;	//停止
 	int out_time;	//帰還
-	int shot_pattern;//発射パターン
-	int shot_time;	//発射
-	int shot_speed;//弾のスピード
 	int item;		//アイテム
 	int point;		//得点
 

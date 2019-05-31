@@ -17,8 +17,11 @@ CGameClear::CGameClear()
 	m_y = 0.0f;
 
 	//宇宙船の初期位置
-	//m_x2 = -120.0f;
-	//m_y2 = 430.0f;
+	m_x2 = -120.0f;
+	m_y2 = 250.0f;
+
+	//移動ベクトルの初期化
+	m_vx = 7.0f;
 
 	m_ani_time = 0;
 	key_flag = true;
@@ -64,7 +67,12 @@ void CGameClear::Action()
 		time_flag = true;
 	}
 
-	if (m_ani_time >= 100)
+	if (m_ani_time <= 130)
+	{
+		m_x2 += m_vx;
+	}
+
+	if (m_ani_time >= 130)
 	{
 		Audio::StartLoopMusic(11);//バックミュージックスタート
 		Audio::LoopMusicVolume(11, 0.03f);
@@ -82,7 +90,7 @@ void CGameClear::Action()
 		}
 	}
 
-	if (m_ani_time >= 240)
+	if (m_ani_time >= 270)
 	{
 		if (Input::KeyPush(VK_RETURN))
 		{
@@ -107,8 +115,10 @@ void CGameClear::Action()
 
 void CGameClear::Draw()
 {
+	Draw::Draw2D(14, m_x2, m_y2);
+
 	//描画
-	if (m_ani_time >= 100)
+	if (m_ani_time >= 130)
 	{
 		Draw::Draw2D(27, m_x, m_y);
 	}

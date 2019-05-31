@@ -6,7 +6,7 @@
 #include "Audio.h"
 #include "TaskSystem.h"
 
-//RankMoonクラス
+//Rankクラス
 class CRankM : public CObj
 {
 	public:

@@ -53,10 +53,13 @@ void CScore::Action()
 //ドロー
 void CScore::Draw()
 {
+	//描画
 	Draw::Draw2D(53, m_x1, m_y1);
 
+	//得点を文字列に変換
 	swprintf_s(str, L"%d", total);
 
+	//表示
 	if (total >= 0 && total < 1000)
 	{
 		Font::StrDraw(str, m_x2, m_y2, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f);

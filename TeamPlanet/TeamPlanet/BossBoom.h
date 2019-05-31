@@ -5,6 +5,7 @@
 #include "Audio.h"
 #include "TaskSystem.h"
 
+//Boss爆発エフェクトクラス
 class CBossBoom : public CObj
 {
 public:

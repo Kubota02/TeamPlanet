@@ -17,9 +17,9 @@ CTitle::CTitle()
 	m_x2 = 90.0f;
 	m_y2 = 430.0f;
 
-	m_ani_time = 0;
-
 	m_vx = 7.0f;
+
+	m_ani_time = 0;	
 }
 
 CTitle::~CTitle()
@@ -29,7 +29,8 @@ CTitle::~CTitle()
 
 void CTitle::Action()
 {
-	Audio::StartLoopMusic(8);//バックミュージックスタート
+	//バックミュージックスタート
+	Audio::StartLoopMusic(8);
 	Audio::LoopMusicVolume(8, 0.03f);
 
 	if (m_ani_time != 0)
@@ -40,9 +41,6 @@ void CTitle::Action()
 
 	if (Input::KeyPush(VK_RETURN))
 	{
-		/*Audio::StartMusic(9);
-		Audio::SEMusicVolume(9, 0.2f);*/
-
 		if (g_key_flag)
 		{
 			Audio::StartMusic(9);

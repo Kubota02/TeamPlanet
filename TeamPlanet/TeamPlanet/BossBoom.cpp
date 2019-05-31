@@ -33,6 +33,7 @@ void CBossBoom::Action()
 		m_ani_time++;
 	}
 
+	//“G(Boss)‚ÌHP‚ª0‚É‚È‚Á‚½‚Æ‚«
 	if (e_hp == 0)
 	{
 		if (boom_flag)
@@ -56,5 +57,6 @@ void CBossBoom::Action()
 //ƒhƒ[
 void CBossBoom::Draw()
 {
+	//•`‰æ
 	Draw::Draw2D(22, m_x, m_y);
 }

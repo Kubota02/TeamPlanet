@@ -37,6 +37,6 @@ void CBack::Action()
 void CBack::Draw()
 {
 	//ï`âÊ
-	Draw::Draw2D(42, m_x1, m_y);
-	Draw::Draw2D(42, m_x2, m_y);
+	Draw::Draw2D(42, m_x1, m_y);//îwåi1
+	Draw::Draw2D(42, m_x2, m_y);//îwåi2
 }

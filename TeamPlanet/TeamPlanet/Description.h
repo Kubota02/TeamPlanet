@@ -18,6 +18,6 @@ private:
 	float m_x;	//背景位置
 	float m_y;
 
-	int m_ani_time;//アニメーション
+	int m_ani_time;//アニメーション制御用
 	int m_time; //猶予時間
 };

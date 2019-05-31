@@ -22,11 +22,10 @@ CTime::CTime()
 	//時間管理用
 	m_time = 0;
 
-	//残り時間
-	time = 200;
-
+	//制限時間
 	g_time = 200;
 
+	//警告用
 	w_time = 57;
 
 	count = 3;
@@ -87,7 +86,7 @@ void CTime::Action()
 //ドロー
 void CTime::Draw()
 {
-
+	//時間を文字列に変換
 	if (g_time < 10)
 	{
 		swprintf_s(str, L"0%d", g_time);
@@ -97,8 +96,10 @@ void CTime::Draw()
 		swprintf_s(str, L"%d", g_time);
 	}
 
+	//時計の枠組みを描画
 	Draw::Draw2D(39, m_x - 14, m_y - 20);
 
+	//表示
 	if (g_time >= 100)
 	{
 		Font::StrDraw(str, m_x, m_y+10, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f);

@@ -14,7 +14,7 @@ public:
 	void Action();
 	void Draw();
 private:
-	float m_x1;	//à íu
-	float m_x2;
-	float m_y;
+	float m_x1;	//îwåi1ÇÃXà íu
+	float m_x2;	//îwåi2ÇÃXà íu
+	float m_y;	//Yà íu
 };

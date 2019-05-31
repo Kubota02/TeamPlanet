@@ -36,7 +36,6 @@ CHero::CHero()
 
 	//アイテム効果の制御用
 	defense_flag = false;
-	time_flag = false;
 	heart_flag = false;
 	speed_flag = false;
 
@@ -169,10 +168,6 @@ void CHero::Action()
 		{
 			heart_flag = true;
 		}
-		if (m_p_hit_box->GetHitData()[i]->GetElement() == TIMEUP)
-		{
-			time_flag = true;
-		}
 		if (m_p_hit_box->GetHitData()[i]->GetElement() == SPEEDUP)
 		{
 			speed_flag = true;
@@ -192,8 +187,6 @@ void CHero::Action()
 		CHeroBoom* h_boom = new CHeroBoom(m_x, m_y);
 		h_boom->m_priority = 90;
 		TaskSystem::InsertObj(h_boom);
-
-		
 	}
 
 	//制限時間が無くなった時の削除処理
@@ -203,16 +196,17 @@ void CHero::Action()
 		m_p_hit_box->SetDelete(true);
 		Audio::StopLoopMusic(7);
 		Audio::StopLoopMusic(4);
+
 		if (0 <= total && total < 1000)
 		{
 			g_SceneChange = GAMEOVER;
 		}
 		else
 		{
+			Audio::StartMusic(9);
+			Audio::SEMusicVolume(9, 0.6f);
 			g_SceneChange = GAMECLEAR;
 		}
-
-		//g_SceneChange = GAMECLEAR;
 	}
 
 	//シールド

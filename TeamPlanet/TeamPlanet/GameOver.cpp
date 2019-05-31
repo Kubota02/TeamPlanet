@@ -16,6 +16,8 @@ CGameOver::CGameOver()
 	m_y = 0.0f;
 
 	key_flag = true;
+	rank_key_flag = true;
+
 	m_ani_time = 0;
 }
 
@@ -46,15 +48,15 @@ void CGameOver::Action()
 
 	if (0 <= total && total < 1000)
 	{
-		if (key_flag)
+		if (rank_key_flag)
 		{
 			m_ani_time++;
-			key_flag = false;
+			rank_key_flag = false;
 		}
 	}
 	else
 	{
-		key_flag = true;
+		rank_key_flag = true;
 	}
 
 	if (m_ani_time >= 100)

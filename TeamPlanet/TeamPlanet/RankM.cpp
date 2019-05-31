@@ -29,23 +29,28 @@ void CRankM::Action()
 
 void CRankM::Draw()
 {
-	if (total >= 1500 && total < 2300)//C
+	//Cランク
+	if (total >= 1500 && total < 2300)
 	{
 		Draw::Draw2D(46, m_x, m_y);
 	}
-	else if (total >= 2300 && total < 3300)//B
+	//Bランク
+	else if (total >= 2300 && total < 3300)
 	{
 		Draw::Draw2D(47, m_x, m_y);
 	}
-	else if (total >= 3300 && total < 4600)//A
+	//Aランク
+	else if (total >= 3300 && total < 4600)
 	{
 		Draw::Draw2D(48, m_x, m_y);
 	}
-	else if (total >= 4600 && total < 6400)//S
+	//Sランク
+	else if (total >= 4600 && total < 6400)
 	{
 		Draw::Draw2D(49, m_x, m_y);
 	}
-	else if (total >= 6400)//U
+	//Uランク
+	else if (total >= 6400)
 	{
 		Draw::Draw2D(50, m_x, m_y);
 	}

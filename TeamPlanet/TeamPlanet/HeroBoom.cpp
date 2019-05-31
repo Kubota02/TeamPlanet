@@ -31,6 +31,7 @@ void CHeroBoom::Action()
 		m_ani_time++;
 	}
 
+	//ålŒö‚ÌHP‚ª0‚É‚È‚Á‚½‚Æ‚«
 	if (h_hp == 0)
 	{
 		if (g_key_flag)
@@ -54,5 +55,6 @@ void CHeroBoom::Action()
 //ƒhƒ[
 void CHeroBoom::Draw()
 {
+	//•`‰æ
 	Draw::Draw2D(21, m_x, m_y);
 }

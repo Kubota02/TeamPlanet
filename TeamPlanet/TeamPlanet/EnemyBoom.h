@@ -5,6 +5,7 @@
 #include "Audio.h"
 #include "TaskSystem.h"
 
+//敵爆発エフェクトクラス
 class CEnemyBoom : public CObj
 {
 public:

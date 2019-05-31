@@ -77,7 +77,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);	//
 unsigned __stdcall TextureLoadSled(void *p)
 {
 	//イメージ読み込み
-	//限界＜45/60＞     8,9ダメ
 	//主人公
 	Draw::LoadImage(0, L"image\\Space ship.png");
 	Draw::LoadImage(1, L"image\\bullet1.png");
@@ -86,9 +85,6 @@ unsigned __stdcall TextureLoadSled(void *p)
 	Draw::LoadImage(13, L"image\\Space ship 2.png");
 	Draw::LoadImage(14, L"image\\Space ship fire.png");
 	Draw::LoadImage(15, L"image\\life.png");
-	Draw::LoadImage(31, L"image\\meter.png");
-	Draw::LoadImage(34, L"image\\meter1.png");
-	Draw::LoadImage(39, L"image\\stopwatch.png");
 
 	//敵
 	Draw::LoadImage(2, L"image\\dust.png");
@@ -99,9 +95,8 @@ unsigned __stdcall TextureLoadSled(void *p)
 	Draw::LoadImage(17, L"image\\solar.png");
 	Draw::LoadImage(18, L"image\\antenna.png");
 	Draw::LoadImage(19, L"image\\meteorite2.png");
-	Draw::LoadImage(20, L"image\\bulletE.png");
 
-	//ボーナスエネミー
+	//Boss
 	Draw::LoadImage(5, L"image\\moon.png");
 	Draw::LoadImage(6, L"image\\saturn.png");
 	Draw::LoadImage(7, L"image\\Uranus.png");
@@ -110,7 +105,6 @@ unsigned __stdcall TextureLoadSled(void *p)
 	Draw::LoadImage(29, L"image\\defense.png");
 	Draw::LoadImage(30, L"image\\speed.png");
 	Draw::LoadImage(38, L"image\\lifeup.png");
-	Draw::LoadImage(40, L"image\\time.png");
 
 	//爆発エフェクト
 	Draw::LoadImage(21, L"image\\boom1.png"); //主人公
@@ -119,11 +113,9 @@ unsigned __stdcall TextureLoadSled(void *p)
 
 	//ゲーム画面背景
 	Draw::LoadImage(4, L"image\\Space10.png");
-	Draw::LoadImage(24, L"image\\Space20.png");
-	Draw::LoadImage(25, L"image\\Space30.png");
 	Draw::LoadImage(42, L"image\\Space1.png");
-	Draw::LoadImage(43, L"image\\Space2.png");
-	Draw::LoadImage(44, L"image\\Space3.png");
+	Draw::LoadImage(53, L"image\\Space101.png");
+	Draw::LoadImage(39, L"image\\stopwatch.png");
 
 	//タイトル
 	Draw::LoadImage(26, L"image\\title.png");
@@ -145,10 +137,8 @@ unsigned __stdcall TextureLoadSled(void *p)
 	Draw::LoadImage(50, L"image\\Urank.png");
 
 	//warning
-	Draw::LoadImage(51, L"image\\warning1.png");//8,9
+	Draw::LoadImage(51, L"image\\warning1.png");
 	Draw::LoadImage(52, L"image\\warning2.png");
-
-	Draw::LoadImage(53, L"image\\Space101.png");
 	
 	_endthreadex(0);	//スレッド終了
 	return 0;
@@ -158,26 +148,28 @@ unsigned __stdcall TextureLoadSled(void *p)
 unsigned __stdcall MusicLoadSled(void *p)
 {
 	//ミュージック情報取得
-	Audio::LoadSEMusic(0, "Bullet1.ogg");
-	Audio::LoadSEMusic(1, "Bullet2.ogg");
-	Audio::LoadSEMusic(2, "boom1.ogg");
-	Audio::LoadSEMusic(3, "boom3.ogg");
-	Audio::LoadSEMusic(5, "selectButton.ogg");
-	Audio::LoadSEMusic(6, "selectE.ogg");
-	Audio::LoadBackMusic(7, "moon.ogg");
-	Audio::LoadBackMusic(8, "Title.ogg");
-	Audio::LoadSEMusic(9, "Fire.ogg");
-	Audio::LoadBackMusic(10, "gameover.ogg");
-	Audio::LoadBackMusic(11, "gameclear.ogg");
-	Audio::LoadBackMusic(12, "Sethumei.ogg");
-	Audio::LoadSEMusic(13, "speed.ogg");
-	Audio::LoadSEMusic(14, "defense.ogg");
-	Audio::LoadSEMusic(15, "heart.ogg");
-	Audio::LoadBackMusic(16, "warning.ogg");
-	Audio::LoadBackMusic(4, "Boss.ogg");
-	Audio::LoadSEMusic(17, "boom2.ogg");
+	//SEmusic
+	Audio::LoadSEMusic(0, "Audio\\Bullet1.ogg");
+	Audio::LoadSEMusic(1, "Audio\\Bullet2.ogg");
+	Audio::LoadSEMusic(2, "Audio\\boom1.ogg");
+	Audio::LoadSEMusic(3, "Audio\\boom3.ogg");
+	Audio::LoadSEMusic(5, "Audio\\selectButton.ogg");
+	Audio::LoadSEMusic(6, "Audio\\selectE.ogg");
+	Audio::LoadSEMusic(9, "Audio\\Fire.ogg");
+	Audio::LoadSEMusic(13, "Audio\\speed.ogg");
+	Audio::LoadSEMusic(14, "Audio\\defense.ogg");
+	Audio::LoadSEMusic(15, "Audio\\heart.ogg");
+	Audio::LoadSEMusic(17, "Audio\\boom2.ogg");
+
+	//Backmusic
+	Audio::LoadBackMusic(7, "Audio\\moon.ogg");
+	Audio::LoadBackMusic(8, "Audio\\Title.ogg");
+	Audio::LoadBackMusic(10, "Audio\\gameover.ogg");
+	Audio::LoadBackMusic(11, "Audio\\gameclear.ogg");
+	Audio::LoadBackMusic(12, "Audio\\Sethumei.ogg");
+	Audio::LoadBackMusic(16, "Audio\\warning.ogg");
+	Audio::LoadBackMusic(4, "Audio\\Boss.ogg");
 	
-	//Audio::StartLoopMusic();//バックミュージックスタート
 	_endthreadex(0);	//スレッド終了
 	return 0;
 }
@@ -204,15 +196,11 @@ unsigned __stdcall GameMainSled(void *p)
 		
 		TaskSystem::SortPriority();//描画順位変更
 		TaskSystem::ListDraw();//リスト内のドロー実行
-		
-
 
 		//----------------------------------------------------------------------------------
 		//プロパティと画面上のDebugをReleaseにした後、DrawDebugをコメントアウトすると消える
 		//Collision::DrawDebug();
 		//----------------------------------------------------------------------------------
-
-
 
 		//外部データの読み込み(敵情報)
 		unique_ptr<wchar_t> p;	//敵情報ポインター
@@ -258,57 +246,58 @@ unsigned __stdcall GameMainSled(void *p)
 		case GAME: //ステージ1初期化
 			heart_num = 5;
 			total = 0;
-			//clearpoint = 1000;
 
-			//オーディオ、、、だってわからんと思ったんやもん
+			//ゲームBGM
 			Audio::StartLoopMusic(7);
 			Audio::LoopMusicVolume(7, 0.03f);
 
+			//宇宙船
 			hero = new CHero();
 			hero->m_priority = 80;
-			TaskSystem::InsertObj(hero);//宇宙船
+			TaskSystem::InsertObj(hero);
 
-			p = Save::ExternalDataOpen(L"Enemy.csv", &size);//外部データ読み込み
+			//外部データ読み込み
+			p = Save::ExternalDataOpen(L"Enemy.csv", &size);
 
+			//敵
 			for (int i = 0; i < ENEMY_NUM; ++i)
 			{
 				enemy = new CEnemy(e_data[i].enemy_type, e_data[i].in_time, e_data[i].x, e_data[i].y,
 					e_data[i].enemy_speed, e_data[i].hp, e_data[i].w, e_data[i].h, e_data[i].stop_time,
-					e_data[i].out_time, e_data[i].shot_pattern, e_data[i].shot_time, e_data[i].shot_speed,
-					e_data[i].item, e_data[i].point);
+					e_data[i].out_time, e_data[i].item, e_data[i].point);
 				enemy->m_priority = 80;
-				TaskSystem::InsertObj(enemy);//塵
-
+				TaskSystem::InsertObj(enemy);
 			}
 
+			//体力
 			heart = new CHeart();
 			heart->m_priority = 80;
-			TaskSystem::InsertObj(heart);//ハート
+			TaskSystem::InsertObj(heart);
 
+			//時間
 			time = new CTime();
 			time->m_priority = 80;
-			TaskSystem::InsertObj(time);//タイム
+			TaskSystem::InsertObj(time);
 
-			//gauge = new CGauge();
-			//gauge->m_priority = 60;
-			//TaskSystem::InsertObj(gauge);//ゲージ
-
+			//得点
 			score = new CScore();
 			score->m_priority = 80;
 			TaskSystem::InsertObj(score);
 			
+			//アイコンの背景
 			background = new CBackground();
 			background->m_priority = 60;
-			TaskSystem::InsertObj(background);//背景(ステージ1)
+			TaskSystem::InsertObj(background);
 
+			//背景
 			back = new CBack();
 			back->m_priority = 50;
-			TaskSystem::InsertObj(back);//背景の背景(ステージ1)
+			TaskSystem::InsertObj(back);
 			
 			g_SceneChange = GAME_MAIN;
 			break;
 
-		case GAME_MAIN: //ステージ1
+		case GAME_MAIN: //ステージ
 			break;
 
 		case GAMEOVER: //ゲームオーバー初期化
@@ -326,20 +315,12 @@ unsigned __stdcall GameMainSled(void *p)
 			gameclear = new CGameClear();
 			gameclear->m_priority = 70;
 			TaskSystem::InsertObj(gameclear);
-
 			g_SceneChange = GAMECLEAR_MAIN;
-
 			break;
 
 		case GAMECLEAR_MAIN: //ゲームクリア
 			break;
 
-		case ALLCLEAR: //ゲームクリア初期化
-			g_SceneChange = ALLCLEAR_MAIN;
-			break;
-
-		case ALLCLEAR_MAIN: //ゲームクリア
-			break;
 		}
 
 		//レンダリング終了

@@ -12,31 +12,12 @@ enum SceneChange
 	TITLE_MAIN			 = 1,
 	DESCRIPTION			 = 2,
 	DESCRIPTION_MAIN	 = 3,
-	/*STAGESELECT			 = 4,
-	STAGESELECT_MAIN	 = 5,*/
 	GAME				 = 4,
 	GAME_MAIN			 = 5,
 	GAMEOVER			 = 6,
 	GAMEOVER_MAIN		 = 7,
 	GAMECLEAR			 = 8,
 	GAMECLEAR_MAIN		 = 9,
-	//RESULT			 = 12,
-	//RESULT_MAIN		 = 13,
-	ALLCLEAR			 = 10,
-	ALLCLEAR_MAIN		 = 11,
-};
-
-enum 
-{
-	LEFT,
-	RIGHT,
-	UNDER,
-};
-
-enum {
-	STAGE1,
-	STAGE2,
-	STAGE3,
 };
 
 enum
@@ -44,14 +25,12 @@ enum
 	HERO = 0,
 	BULLET = 1,
 	ENEMY = 2,
-	ENEMYBULLET = 3,
-	DEFENSE = 4,
-	LIFEUP = 5,
-	TIMEUP = 6,
-	TIME = 7,
-	SPEEDUP = 8,
-	WARNING = 9,
-	RANK = 10,
+	DEFENSE = 3,
+	LIFEUP = 4,
+	TIME = 5,
+	SPEEDUP = 6,
+	WARNING = 7,
+	RANK = 8,
 };
 
 //オブジェクトクラス

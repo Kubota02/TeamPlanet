@@ -40,7 +40,6 @@ void CHeart::Action()
 //ƒhƒ[
 void CHeart::Draw()
 {
-	//Draw::Draw2D(15, m_x, m_y);
 	for (int i = 0; i < heart_num; i++)
 	{
 		Draw::Draw2D(15, i*60.0f, 5.0f);

@@ -31,8 +31,8 @@ CWarning::~CWarning()
 void CWarning::Action()
 {
 	m_ani_time++;
-	//音楽導入
 
+	//バックミュージックスタート
 	Audio::StartLoopMusic(16);
 	Audio::LoopMusicVolume(16, 0.07f);
 	
@@ -45,7 +45,6 @@ void CWarning::Action()
 	if (m_time == 0)
 	{
 		is_delete = true;
-		//音楽止める
 		Audio::StopLoopMusic(16);
 		m_time = 4;
 	}

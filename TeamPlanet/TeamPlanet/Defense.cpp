@@ -74,5 +74,6 @@ void CDefense::Action()
 //ƒhƒ[
 void CDefense::Draw()
 {
+	//•`‰æ
 	Draw::Draw2D(29, m_x, m_y);
 }

@@ -111,11 +111,8 @@ unique_ptr<wchar_t> EnemyData::ExternalDataOpen(wchar_t* file_name, int* size)
 		case 8:e_data[row].h = atoi(buf); break;
 		case 9:e_data[row].stop_time = atoi(buf); break;
 		case 10:e_data[row].out_time = atoi(buf); break;
-		case 11:e_data[row].shot_pattern = atoi(buf); break;
-		case 12:e_data[row].shot_time = atoi(buf); break;
-		case 13:e_data[row].shot_speed = atoi(buf); break;
-		case 14:e_data[row].item = atoi(buf); break;
-		case 15:e_data[row].point = atoi(buf); break;
+		case 11:e_data[row].item = atoi(buf); break;
+		case 12:e_data[row].point = atoi(buf); break;
 		}
 		//バッファを初期化
 		memset(buf, 0, sizeof(buf));

@@ -42,9 +42,6 @@ struct ENEMYDATA
 	int h;			//H座標
 	int stop_time;	//停止時間
 	int out_time;	//帰還時間
-	int shot_pattern;//発射パターン
-	int shot_time;	//発射時間
-	int shot_speed;	//弾のスピード
 	int item;		//アイテム
 	int point;		//得点
 };

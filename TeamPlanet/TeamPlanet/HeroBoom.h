@@ -5,6 +5,7 @@
 #include "Audio.h"
 #include "TaskSystem.h"
 
+//主人公爆発エフェクトクラス
 class CHeroBoom : public CObj
 {
 	public:
@@ -13,8 +14,8 @@ class CHeroBoom : public CObj
 		void Action();
 		void Draw();
 	private:
-		float m_x;
-		float m_y;
+		float m_x; //X位置
+		float m_y; //Y位置
 
-		int m_ani_time;
+		int m_ani_time; //アニメーション制御用
 };
