@@ -7,6 +7,7 @@
 extern int g_SceneChange;
 extern bool g_key_flag;
 extern int h_hp;
+extern int total;
 
 CGameOver::CGameOver()
 {
@@ -31,6 +32,19 @@ void CGameOver::Action()
 	}
 
 	if (h_hp == 0)
+	{
+		if (key_flag)
+		{
+			m_ani_time++;
+			key_flag = false;
+		}
+	}
+	else
+	{
+		key_flag = true;
+	}
+
+	if (0 <= total && total < 1000)
 	{
 		if (key_flag)
 		{
