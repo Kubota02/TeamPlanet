@@ -70,6 +70,9 @@
     <Filter Include="ソース ファイル\Score">
       <UniqueIdentifier>{2c14ae4a-2938-4a18-a299-f0bd47f632a5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Boom">
+      <UniqueIdentifier>{cf212e7e-7a2f-4d1c-ac09-ce49d9db3907}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Audio.cpp">
@@ -156,6 +159,9 @@
     <ClCompile Include="Score.cpp">
       <Filter>ソース ファイル\Score</Filter>
     </ClCompile>
+    <ClCompile Include="Boom.cpp">
+      <Filter>ソース ファイル\Boom</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Audio.h">
@@ -238,6 +244,9 @@
     </ClInclude>
     <ClInclude Include="Score.h">
       <Filter>ソース ファイル\Score</Filter>
+    </ClInclude>
+    <ClInclude Include="Boom.h">
+      <Filter>ソース ファイル\Boom</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -40,6 +40,9 @@ CHero::CHero()
 	heart_flag = false;
 	speed_flag = false;
 
+	//エフェクト用
+	boom_flag = false;
+
 	//ヒットボックス作成()
 	m_p_hit_box = Collision::HitBoxInsert(this);
 
