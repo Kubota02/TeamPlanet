@@ -206,7 +206,6 @@ unsigned __stdcall GameMainSled(void *p)
 		TaskSystem::ListDraw();//リスト内のドロー実行
 		
 
-
 		//----------------------------------------------------------------------------------
 		//プロパティと画面上のDebugをReleaseにした後、DrawDebugをコメントアウトすると消える
 		//Collision::DrawDebug();
