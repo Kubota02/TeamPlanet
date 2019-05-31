@@ -10,6 +10,8 @@
 #include "Timeitem.h"
 #include "Speedup.h"
 #include "Time.h"
+#include "EnemyBoom.h"
+#include "BossBoom.h"
 
 //oƒNƒ‰ƒX
 class CEnemy :public CObj

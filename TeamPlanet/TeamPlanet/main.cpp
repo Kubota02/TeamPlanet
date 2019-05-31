@@ -175,6 +175,7 @@ unsigned __stdcall MusicLoadSled(void *p)
 	Audio::LoadSEMusic(15, "heart.ogg");
 	Audio::LoadBackMusic(16, "warning.ogg");
 	Audio::LoadBackMusic(4, "Boss.ogg");
+	Audio::LoadSEMusic(17, "boom2.ogg");
 	
 	//Audio::StartLoopMusic();//バックミュージックスタート
 	_endthreadex(0);	//スレッド終了

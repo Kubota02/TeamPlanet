@@ -5,11 +5,11 @@
 #include "Audio.h"
 #include "TaskSystem.h"
 
-class CBoom : public CObj
+class CHeroBoom : public CObj
 {
 	public:
-		CBoom(float x, float y);
-		~CBoom();
+		CHeroBoom(float x, float y);
+		~CHeroBoom();
 		void Action();
 		void Draw();
 	private:
