@@ -238,7 +238,7 @@ void CHero::Action()
 	if (heart_flag == true)
 	{
 		if (heart_num == 5)
-			;
+			heart_num == 5;
 		else
 		{
 			Audio::StartMusic(15);
