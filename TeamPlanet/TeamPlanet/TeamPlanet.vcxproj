@@ -123,7 +123,9 @@
     <ClCompile Include="Audio.cpp" />
     <ClCompile Include="Back.cpp" />
     <ClCompile Include="Background.cpp" />
-    <ClCompile Include="Boom.cpp" />
+    <ClCompile Include="BossBoom.cpp" />
+    <ClCompile Include="EnemyBoom.cpp" />
+    <ClCompile Include="HeroBoom.cpp" />
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Collision.cpp" />
     <ClCompile Include="Defense.cpp" />
@@ -154,7 +156,9 @@
     <ClInclude Include="Audio.h" />
     <ClInclude Include="Back.h" />
     <ClInclude Include="Background.h" />
-    <ClInclude Include="Boom.h" />
+    <ClInclude Include="BossBoom.h" />
+    <ClInclude Include="EnemyBoom.h" />
+    <ClInclude Include="HeroBoom.h" />
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="Collision.h" />
     <ClInclude Include="Defense.h" />

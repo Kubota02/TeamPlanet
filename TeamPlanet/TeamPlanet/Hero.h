@@ -8,6 +8,7 @@
 #include "Heart.h"
 #include "Defense.h"
 #include "Speedup.h"
+#include "HeroBoom.h"
 
 //ålŒöƒNƒ‰ƒX
 class CHero :public CObj

@@ -12,7 +12,7 @@ extern int heart_num;
 extern int total;
 extern int g_time;
 int h_hp = 100;	//‘Ì—Í
-extern int boss;
+extern int enemy;
 
 CHero::CHero()
 {
@@ -137,7 +137,7 @@ void CHero::Action()
 			continue;
 		if (m_p_hit_box->GetHitData()[i]->GetElement() == ENEMY)
 		{
-			if (boss != 5, boss != 6, boss != 7)
+			if (enemy != 5, enemy != 6, enemy != 7)
 			{
 				h_hp += -20;
 
@@ -188,7 +188,12 @@ void CHero::Action()
 		Audio::StopLoopMusic(7);
 		Audio::StopLoopMusic(4);
 		Audio::StartMusic(2);
-		g_SceneChange = GAMEOVER;
+
+		CHeroBoom* h_boom = new CHeroBoom(m_x, m_y);
+		h_boom->m_priority = 90;
+		TaskSystem::InsertObj(h_boom);
+
+		
 	}
 
 	//§ŒÀŠÔ‚ª–³‚­‚È‚Á‚½‚Ìíœˆ—

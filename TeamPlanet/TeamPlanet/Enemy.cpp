@@ -9,14 +9,15 @@ extern int g_SceneChange;
 int total;
 extern int heart_num;
 extern int g_time;
-int boss;
+int e_hp;
+int enemy;
 
 CEnemy::CEnemy(int enemy_type, int in_time, int x, int y, int enemy_speed, int hp,
 	int w, int h, int stop_time, int out_time, int shot_pattern, int shot_time, int shot_speed, int item, int point)
 {
 	//“G‚Ìí—Ş
 	this->enemy_type = enemy_type;
-	boss = enemy_type;
+	enemy = enemy_type;
 
 	//oŒ»
 	this->in_time = in_time;
@@ -30,6 +31,7 @@ CEnemy::CEnemy(int enemy_type, int in_time, int x, int y, int enemy_speed, int h
 
 	//“G‚ÌHP
 	this->hp = hp;
+	e_hp = hp;
 
 	//“–‚½‚è”»’è‚ÌÀ•W
 	this->w = w;
@@ -259,20 +261,65 @@ void CEnemy::Action()
 		{
 			is_delete = true;
 			m_p_hit_box->SetDelete(true);
+
 			Audio::StartMusic(3);
 
 			if (enemy_type != 5 && enemy_type != 6 && enemy_type != 7)
 			{
-				;
+				if (enemy_type == 2)
+				{
+					CEnemyBoom* e_boom = new CEnemyBoom(x - 30, y - 30);
+					e_boom->m_priority = 90;
+					TaskSystem::InsertObj(e_boom);
+				}
+				else if (enemy_type == 17)
+				{
+					CEnemyBoom* e_boom = new CEnemyBoom(x - 30, y - 30);
+					e_boom->m_priority = 90;
+					TaskSystem::InsertObj(e_boom);
+				}
+				else if (enemy_type == 18)
+				{
+					CEnemyBoom* e_boom = new CEnemyBoom(x - 30, y - 30);
+					e_boom->m_priority = 90;
+					TaskSystem::InsertObj(e_boom);
+				}
+				else
+				{
+					CEnemyBoom* e_boom = new CEnemyBoom(x, y);
+					e_boom->m_priority = 90;
+					TaskSystem::InsertObj(e_boom);
+				}
 			}
 			else
 			{
 				Audio::StopLoopMusic(4);
+
+				Audio::StartMusic(17);
+				Audio::SEMusicVolume(17, 1.8f);
+
+				if (enemy_type == 5)
+				{
+					CBossBoom* b_boom = new CBossBoom(x, y);
+					b_boom->m_priority = 90;
+					TaskSystem::InsertObj(b_boom);
+				}
+				if (enemy_type == 6)
+				{
+					CBossBoom* b_boom = new CBossBoom(x + 85, y + 15);
+					b_boom->m_priority = 90;
+					TaskSystem::InsertObj(b_boom);
+				}
+				if (enemy_type == 7)
+				{
+					CBossBoom* b_boom = new CBossBoom(x - 20, y + 80);
+					b_boom->m_priority = 90;
+					TaskSystem::InsertObj(b_boom);
+				}
+
 				Audio::StartLoopMusic(7);
 				Audio::LoopMusicVolume(7, 0.03f);
 			}
-			
-			//”š”­“ü‚ê‚ç‚ê‚é‚©‚È‚ŸH
 
 			for (int i = 0; i < 10; i++)
 			{

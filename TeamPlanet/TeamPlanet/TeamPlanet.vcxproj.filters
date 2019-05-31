@@ -70,8 +70,14 @@
     <Filter Include="ソース ファイル\Score">
       <UniqueIdentifier>{2c14ae4a-2938-4a18-a299-f0bd47f632a5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\Boom">
+    <Filter Include="ソース ファイル\HeroBoom">
       <UniqueIdentifier>{cf212e7e-7a2f-4d1c-ac09-ce49d9db3907}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\EnemyBoom">
+      <UniqueIdentifier>{369cbc47-f0eb-45c4-a726-98d29290240a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\BossBoom">
+      <UniqueIdentifier>{837e090e-a8d2-4bbc-85ef-475445d2f6e7}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -159,8 +165,14 @@
     <ClCompile Include="Score.cpp">
       <Filter>ソース ファイル\Score</Filter>
     </ClCompile>
-    <ClCompile Include="Boom.cpp">
-      <Filter>ソース ファイル\Boom</Filter>
+    <ClCompile Include="HeroBoom.cpp">
+      <Filter>ソース ファイル\HeroBoom</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyBoom.cpp">
+      <Filter>ソース ファイル\EnemyBoom</Filter>
+    </ClCompile>
+    <ClCompile Include="BossBoom.cpp">
+      <Filter>ソース ファイル\BossBoom</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -245,8 +257,14 @@
     <ClInclude Include="Score.h">
       <Filter>ソース ファイル\Score</Filter>
     </ClInclude>
-    <ClInclude Include="Boom.h">
-      <Filter>ソース ファイル\Boom</Filter>
+    <ClInclude Include="HeroBoom.h">
+      <Filter>ソース ファイル\HeroBoom</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyBoom.h">
+      <Filter>ソース ファイル\EnemyBoom</Filter>
+    </ClInclude>
+    <ClInclude Include="BossBoom.h">
+      <Filter>ソース ファイル\BossBoom</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
