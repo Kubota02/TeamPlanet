@@ -16,7 +16,7 @@ CEnemyBoom::CEnemyBoom(float x, float y)
 
 	m_ani_time = 0;
 
-	boom_flag == true;
+	boom_flag = true;
 }
 
 //デストラクタ
