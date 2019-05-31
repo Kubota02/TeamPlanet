@@ -203,7 +203,16 @@ void CHero::Action()
 		m_p_hit_box->SetDelete(true);
 		Audio::StopLoopMusic(7);
 		Audio::StopLoopMusic(4);
-		g_SceneChange = GAMECLEAR;
+		if (0 <= total && total < 1000)
+		{
+			g_SceneChange = GAMEOVER;
+		}
+		else
+		{
+			g_SceneChange = GAMECLEAR;
+		}
+
+		//g_SceneChange = GAMECLEAR;
 	}
 
 	//ƒV[ƒ‹ƒh
